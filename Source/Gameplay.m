@@ -14,6 +14,8 @@ CGFloat gravitystrength = 5000;
 @implementation Gameplay
 {
     CCNode *_levelNode;
+    CCSprite *_cat;
+    CCSprite *_nekochan;
     CCPhysicsNode *_physNode;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
 
@@ -47,6 +49,10 @@ CGFloat gravitystrength = 5000;
 //-0.5 < accel.y <0.5
 - (void)update:(CCTime)delta
 {
+    
+    
+    _nekochan.position = ccp( _nekochan.position.x+50*delta, _nekochan.position.y );
+    _cat.position = ccp( _cat.position.x+50*delta, _cat.position.y );
 
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
@@ -74,25 +80,25 @@ CGFloat gravitystrength = 5000;
 - (void)changeGravityLeft
 {
     _physNode.gravity= ccp(-1*gravitystrength,0);
-    CCLOG(@"Gravity changed");
+    CCLOG(@"Gravity changed left");
     
 }
 - (void)changeGravityRight
 {
     _physNode.gravity= ccp(1*gravitystrength,0);
-    CCLOG(@"Gravity changed");
+    CCLOG(@"Gravity changed right");
     
 }
 - (void)changeGravityUp
 {
     _physNode.gravity= ccp(0,1*gravitystrength);
-    CCLOG(@"Gravity changed");
+    CCLOG(@"Gravity changed up");
     
 }
 - (void)changeGravityDown
 {
     _physNode.gravity= ccp(0,-1*gravitystrength);
-    CCLOG(@"Gravity changed");
+    CCLOG(@"Gravity changed down");
     
 }
 
