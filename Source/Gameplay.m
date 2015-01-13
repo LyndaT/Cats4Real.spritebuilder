@@ -10,6 +10,8 @@
 #import <CoreMotion/CoreMotion.h>
 
 CGFloat gravitystrength = 5000;
+CGFloat direction = 0;
+CGFloat speed = 30;
 
 @implementation Gameplay
 {
@@ -37,71 +39,119 @@ CGFloat gravitystrength = 5000;
 }
 
 
-//NSLog(@" double %f",acceleration.y);
-//gravityleft -0.5 < accel.x < 0.5
-//accel.y < -0.5
-//gravitydown 0.5 < accel.x
-//-0.5 < accel.y < 0.5
-//gravityright -0.5 < accel.x < 0.5
-//0.5 < accel.y
-//gravityup accel.x < -0.5
-//-0.5 < accel.y <0.5
+
+
 - (void)update:(CCTime)delta
 {
-    
-    
-    _cat.position = ccp( _cat.position.x+50*delta, _cat.position.y );
-
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
-  
-    if (acceleration.x < 0.5 && acceleration.x > -0.5 && acceleration.y < -0.5)
+    
+    
+    [self changeGravity:acceleration.x :acceleration.y];
+    [self moveCat:delta];
+}
+
+
+
+/*
+ * Rotates and moves the cat based on the current direction of the screen
+ *
+ */
+- (void)moveCat:(CCTime)delta
+{
+    if (direction == 0)
+    {
+        _cat.position = ccp( _cat.position.x+speed*delta, _cat.position.y );
+        _cat.rotation = 0;
+    }
+    if (direction == 1)
+    {
+        _cat.position = ccp( _cat.position.x, _cat.position.y+speed*delta );
+        _cat.rotation = -90;
+    }
+    if (direction == 2)
+    {
+        _cat.position = ccp( _cat.position.x+speed*-1*delta, _cat.position.y );
+        _cat.rotation = 180;
+    }
+    if (direction == 3)
+    {
+        _cat.position = ccp( _cat.position.x, _cat.position.y+speed*-1*delta );
+        _cat.rotation = 90;
+    }
+}
+
+/*
+ * changeGravity takes in accelerometer values and changes gravity accordingly
+ *
+ * xaccel: the accelerometer.x value
+ * yaccel: the accelerometer.y value
+ *
+ * gravityleft: -0.5 < accel.x < 0.5 && accel.y < -0.5
+ * gravitydown: 0.5 < accel.x && -0.5 < accel.y < 0.5
+ * gravityright: -0.5 < accel.x < 0.5 && 0.5 < accel.y
+ * gravityup: accel.x < -0.5 && -0.5 < accel.y <0.5
+ */
+
+-(void)changeGravity:(CGFloat)xaccel :(CGFloat)yaccel
+{
+    
+    if (xaccel < 0.5 && xaccel > -0.5 && yaccel < -0.5)
     {
         [self changeGravityLeft];
     }
-    if (acceleration.y < 0.5 && acceleration.y > -0.5 && acceleration.x >0.5)
+    if (yaccel < 0.5 && yaccel > -0.5 && xaccel >0.5)
     {
         [self changeGravityDown];
     }
-    if (acceleration.x < 0.5 && acceleration.x > -0.5 && acceleration.y > 0.5)
+    if (xaccel < 0.5 && xaccel > -0.5 && yaccel> 0.5)
     {
         [self changeGravityRight];
     }
-    if (acceleration.y < 0.5 && acceleration.y > -0.5 && acceleration.x <-0.5)
+    if (yaccel < 0.5 && yaccel > -0.5 && xaccel<-0.5)
     {
         [self changeGravityUp];
     }
     
 }
 
-//Changes the Gravity direction in the game
+/*
+ * the changeGravity[direction] methods change the gravity of the physicsNode
+ * to the direction of the orientation of the screen
+ */
 - (void)changeGravityLeft
 {
+    direction = 3;
     _physNode.gravity= ccp(-1*gravitystrength,0);
     CCLOG(@"Gravity changed left");
     
 }
 - (void)changeGravityRight
 {
+    direction = 1;
     _physNode.gravity= ccp(1*gravitystrength,0);
     CCLOG(@"Gravity changed right");
     
 }
 - (void)changeGravityUp
 {
+    direction = 2;
     _physNode.gravity= ccp(0,1*gravitystrength);
     CCLOG(@"Gravity changed up");
     
 }
 - (void)changeGravityDown
 {
+    direction = 0;
     _physNode.gravity= ccp(0,-1*gravitystrength);
     CCLOG(@"Gravity changed down");
     
 }
 
-//onEnter and onExit call the startAccelerometerUpdates
 
+/*
+ * onEnter and onExit call to start and stop the accelerometer on the phone
+ */
 - (void)onEnter
 {
     [super onEnter];

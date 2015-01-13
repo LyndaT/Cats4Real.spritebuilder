@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5260B3781A65A8BF002A3A5A /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260B3771A65A8BE002A3A5A /* Cat.m */; };
 		52A4FE2D1A64B94800037A4C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A4FE2C1A64B94800037A4C /* CoreMotion.framework */; };
 		5B12100C19748281004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
 		5B121029197484DA004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
@@ -170,6 +171,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5260B3761A65A8BE002A3A5A /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cat.h; path = Source/Cat.h; sourceTree = "<group>"; };
+		5260B3771A65A8BE002A3A5A /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cat.m; path = Source/Cat.m; sourceTree = "<group>"; };
 		52A4FE2C1A64B94800037A4C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100B19748281004C1E1D /* BridgeKitV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeKitV3.framework; path = System/Library/Frameworks/BridgeKitV3.framework; sourceTree = SDKROOT; };
@@ -467,6 +470,8 @@
 				B7378992180767190076A88C /* MainScene.h */,
 				F2B780131A64AF7F00E09517 /* Gameplay.h */,
 				F2B780141A64AF7F00E09517 /* Gameplay.m */,
+				5260B3761A65A8BE002A3A5A /* Cat.h */,
+				5260B3771A65A8BE002A3A5A /* Cat.m */,
 				B7378993180767190076A88C /* MainScene.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
@@ -874,6 +879,7 @@
 				F2B780151A64AF7F00E09517 /* Gameplay.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				5260B3781A65A8BF002A3A5A /* Cat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
