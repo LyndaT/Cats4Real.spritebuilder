@@ -9,5 +9,13 @@
 #import "Gameplay.h"
 
 @implementation Gameplay
+{
+    CCNode *_levelNode;
+}
+
+- (void)didLoadFromCCB {
+    CCScene *level = [CCBReader load:@"Level1"];
+    [_levelNode addChild:level];
+}
 
 @end
