@@ -15,7 +15,6 @@ CGFloat gravitystrength = 5000;
 {
     CCNode *_levelNode;
     CCSprite *_cat;
-    CCSprite *_nekochan;
     CCPhysicsNode *_physNode;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
 
@@ -51,7 +50,6 @@ CGFloat gravitystrength = 5000;
 {
     
     
-    _nekochan.position = ccp( _nekochan.position.x+50*delta, _nekochan.position.y );
     _cat.position = ccp( _cat.position.x+50*delta, _cat.position.y );
 
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;

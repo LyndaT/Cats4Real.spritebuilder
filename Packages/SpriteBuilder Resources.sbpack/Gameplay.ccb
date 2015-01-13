@@ -309,7 +309,7 @@
 						<key>displayName</key>
 						<string>Cat</string>
 						<key>memberVarAssignmentName</key>
-						<string>_nekochan</string>
+						<string>_cat</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>physicsBody</key>
@@ -339,40 +339,40 @@
 							<key>points</key>
 							<array>
 								<array>
-									<real>0.0</real>
-									<real>0.0</real>
+									<real>61.265625</real>
+									<real>15.96881103515625</real>
 								</array>
 								<array>
-									<real>0.0</real>
-									<real>90</real>
+									<real>12.640625</real>
+									<real>154.25006103515625</real>
 								</array>
 								<array>
-									<real>93</real>
-									<real>90</real>
+									<real>166.15625</real>
+									<real>163.26568603515625</real>
 								</array>
 								<array>
-									<real>93</real>
-									<real>0.0</real>
+									<real>161.484375</real>
+									<real>24.46881103515625</real>
 								</array>
 							</array>
 							<key>polygons</key>
 							<array>
 								<array>
 									<array>
-										<real>93</real>
-										<real>0.0</real>
+										<real>161.484375</real>
+										<real>24.46881103515625</real>
 									</array>
 									<array>
-										<real>93</real>
-										<real>90</real>
+										<real>166.15625</real>
+										<real>163.26568603515625</real>
 									</array>
 									<array>
-										<real>0.0</real>
-										<real>90</real>
+										<real>12.640625</real>
+										<real>154.25006103515625</real>
 									</array>
 									<array>
-										<real>0.0</real>
-										<real>0.0</real>
+										<real>61.265625</real>
+										<real>15.96881103515625</real>
 									</array>
 								</array>
 							</array>
@@ -394,8 +394,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>139</real>
-									<real>203</real>
+									<real>255</real>
+									<real>186</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -419,8 +419,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.5</real>
-									<real>0.5</real>
+									<real>0.25</real>
+									<real>0.25</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -476,7 +476,7 @@
 				<key>displayName</key>
 				<string>CCPhysicsNode</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_physNode</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>physicsBody</key>
