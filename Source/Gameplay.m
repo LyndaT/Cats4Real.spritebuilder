@@ -48,9 +48,10 @@ BOOL hold = NO;
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
+    
     if(hold)
     {
-    
+        
     }
     else
     {
@@ -176,6 +177,7 @@ BOOL hold = NO;
     hold = NO;
     CCLOG(@"Touches ended");
 }
+
 
 
 /*
