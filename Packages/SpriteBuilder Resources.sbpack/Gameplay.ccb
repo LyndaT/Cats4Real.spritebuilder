@@ -71,11 +71,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>274</real>
-							<real>148</real>
+							<real>0.5</real>
+							<real>0.5</real>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>maxresdefault.png</string>
+							<string>assets/backg.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -339,40 +339,40 @@
 							<key>points</key>
 							<array>
 								<array>
-									<real>61.265625</real>
-									<real>15.96881103515625</real>
+									<real>0.0</real>
+									<real>0.0</real>
 								</array>
 								<array>
-									<real>12.640625</real>
-									<real>154.25006103515625</real>
+									<real>0.0</real>
+									<real>49</real>
 								</array>
 								<array>
-									<real>166.15625</real>
-									<real>163.26568603515625</real>
+									<real>55</real>
+									<real>49</real>
 								</array>
 								<array>
-									<real>161.484375</real>
-									<real>24.46881103515625</real>
+									<real>55</real>
+									<real>0.0</real>
 								</array>
 							</array>
 							<key>polygons</key>
 							<array>
 								<array>
 									<array>
-										<real>161.484375</real>
-										<real>24.46881103515625</real>
+										<real>55</real>
+										<real>0.0</real>
 									</array>
 									<array>
-										<real>166.15625</real>
-										<real>163.26568603515625</real>
+										<real>55</real>
+										<real>49</real>
 									</array>
 									<array>
-										<real>12.640625</real>
-										<real>154.25006103515625</real>
+										<real>0.0</real>
+										<real>49</real>
 									</array>
 									<array>
-										<real>61.265625</real>
-										<real>15.96881103515625</real>
+										<real>0.0</real>
+										<real>0.0</real>
 									</array>
 								</array>
 							</array>
@@ -419,8 +419,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.25</real>
-									<real>0.25</real>
+									<real>1</real>
+									<real>1</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -433,7 +433,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Cat.png</string>
+									<string>assets/Untitled-1.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -469,8 +469,6 @@
 								<array/>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
