@@ -14,6 +14,7 @@ CGFloat gravitystrength = 5000;
 CGFloat direction = 0;
 CGFloat speed = 30;
 BOOL hold = NO;
+BOOL onground = NO;
 
 @implementation Gameplay
 {
@@ -38,9 +39,23 @@ BOOL hold = NO;
 - (void)didLoadFromCCB {
     CCScene *level = [CCBReader load:@"Level1"];
     [_levelNode addChild:level];
+    
+    _physNode.collisionDelegate = self;
+    _cat.physicsBody.collisionType = @"cat";
 }
 
 
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
+{
+    onground = YES;
+    return TRUE;
+}
+
+-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
+{
+    onground = NO;
+    return TRUE;
+}
 
 
 - (void)update:(CCTime)delta
@@ -163,19 +178,22 @@ BOOL hold = NO;
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    hold = YES;
-    CCLOG(@"Touches began");
+    if (onground)
+    {
+        hold = YES;
+    }
+    //CCLOG(@"Touches began");
     
 }
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     hold = NO;
-    CCLOG(@"Touches ended");
+    //CCLOG(@"Touches ended");
 }
 - (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
     hold = NO;
-    CCLOG(@"Touches ended");
+    //CCLOG(@"Touches ended");
 }
 
 

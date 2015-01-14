@@ -8,7 +8,9 @@
 
 #import "CCSprite.h"
 
-@interface Cat : CCSprite
+
+
+@interface Cat : CCSprite 
 
 - (void)moveSelf:(CCTime)delta :(int)direction :(int)speed :(BOOL)hold;
 
