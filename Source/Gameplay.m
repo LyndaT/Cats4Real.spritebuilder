@@ -13,6 +13,7 @@
 CGFloat gravitystrength = 5000;
 CGFloat direction = 0;
 CGFloat speed = 30;
+BOOL hold = NO;
 
 @implementation Gameplay
 {
@@ -47,9 +48,16 @@ CGFloat speed = 30;
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
+    if(hold)
+    {
     
-    [self changeGravity:acceleration.x :acceleration.y];
-    [_cat moveSelf:delta :direction :speed];
+    }
+    else
+    {
+        [self changeGravity:acceleration.x :acceleration.y];
+        [_cat moveSelf:delta :direction :speed :hold];
+        
+    }
 }
 
 
@@ -147,6 +155,26 @@ CGFloat speed = 30;
     _physNode.gravity= ccp(0,-1*gravitystrength);
     //CCLOG(@"Gravity changed down");
     
+}
+
+/*
+ * Handling hold/clench using touches
+ */
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    hold = YES;
+    CCLOG(@"Touches began");
+    
+}
+- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    hold = NO;
+    CCLOG(@"Touches ended");
+}
+- (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    hold = NO;
+    CCLOG(@"Touches ended");
 }
 
 

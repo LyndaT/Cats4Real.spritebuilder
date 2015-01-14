@@ -10,6 +10,6 @@
 
 @interface Cat : CCSprite
 
-- (void)moveSelf:(CCTime)delta :(int)direction :(int)speed;
+- (void)moveSelf:(CCTime)delta :(int)direction :(int)speed :(BOOL)hold;
 
 @end
