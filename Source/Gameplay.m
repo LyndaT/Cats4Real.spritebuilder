@@ -8,6 +8,7 @@
 
 #import "Gameplay.h"
 #import <CoreMotion/CoreMotion.h>
+#import "Cat.h"
 
 CGFloat gravitystrength = 5000;
 CGFloat direction = 0;
@@ -16,7 +17,7 @@ CGFloat speed = 30;
 @implementation Gameplay
 {
     CCNode *_levelNode;
-    CCSprite *_cat;
+    Cat *_cat;
     CCPhysicsNode *_physNode;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
 
@@ -48,7 +49,7 @@ CGFloat speed = 30;
     
     
     [self changeGravity:acceleration.x :acceleration.y];
-    [self moveCat:delta];
+    [_cat moveSelf:delta :direction :speed];
 }
 
 
@@ -123,28 +124,28 @@ CGFloat speed = 30;
 {
     direction = 3;
     _physNode.gravity= ccp(-1*gravitystrength,0);
-    CCLOG(@"Gravity changed left");
+    //CCLOG(@"Gravity changed left");
     
 }
 - (void)changeGravityRight
 {
     direction = 1;
     _physNode.gravity= ccp(1*gravitystrength,0);
-    CCLOG(@"Gravity changed right");
+    //CCLOG(@"Gravity changed right");
     
 }
 - (void)changeGravityUp
 {
     direction = 2;
     _physNode.gravity= ccp(0,1*gravitystrength);
-    CCLOG(@"Gravity changed up");
+    //CCLOG(@"Gravity changed up");
     
 }
 - (void)changeGravityDown
 {
     direction = 0;
     _physNode.gravity= ccp(0,-1*gravitystrength);
-    CCLOG(@"Gravity changed down");
+    //CCLOG(@"Gravity changed down");
     
 }
 

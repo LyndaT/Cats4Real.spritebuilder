@@ -11,6 +11,14 @@
 
 @implementation Cat
 
+
+/*
+ * Moves the cat
+ *
+ * delta: CCTime
+ * direction: current direction to orient the cat the right way
+ * speed: speed of the cat
+ */
 - (void)moveSelf:(CCTime)delta :(int)direction :(int)speed
 {
     if (direction == 0)
@@ -33,7 +41,6 @@
         self.position = ccp( self.position.x, self.position.y+speed*-1*delta );
         self.rotation = 90;
     }
-    CCLOG(@"cat moved");
     
 }
 
