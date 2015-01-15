@@ -62,36 +62,39 @@ const CGSize FIXED_SIZE = {568, 384};
 // Only valid for iOS 6+. NOT VALID for iOS 4 / 5.
 -(NSUInteger)supportedInterfaceOrientations
 {
-    if ([_screenOrientation isEqual:CCScreenOrientationAll])
-    {
-        return UIInterfaceOrientationMaskAll;
-    }
-    else if ([_screenOrientation isEqual:CCScreenOrientationPortrait])
-    {
-        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
-    }
-    else
-    {
-        return UIInterfaceOrientationMaskLandscape;
-    }
+    return UIInterfaceOrientationMaskLandscapeLeft;
+//    if ([_screenOrientation isEqual:CCScreenOrientationAll])
+//    {
+//        return UIInterfaceOrientationMaskAll;
+//    }
+//    else if ([_screenOrientation isEqual:CCScreenOrientationPortrait])
+//    {
+//        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+//    }
+//    else
+//    {
+//        return UIInterfaceOrientationMaskLandscape;
+//    }
 }
 
 // Supported orientations. Customize it for your own needs
 // Only valid on iOS 4 / 5. NOT VALID for iOS 6.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if ([_screenOrientation isEqual:CCScreenOrientationAll])
-    {
-        return YES;
-    }
-    else if ([_screenOrientation isEqual:CCScreenOrientationPortrait])
-    {
-        return UIInterfaceOrientationIsPortrait(interfaceOrientation);
-    }
-    else
-    {
-        return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-    }
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+//    removed to allow only single orientation
+//    if ([_screenOrientation isEqual:CCScreenOrientationAll])
+//    {
+//        return YES;
+//    }
+//    else if ([_screenOrientation isEqual:CCScreenOrientationPortrait])
+//    {
+//        return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+//    }
+//    else
+//    {
+//        return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+//    }
 }
 
 // Projection delegate is only used if the fixed resolution mode is enabled
