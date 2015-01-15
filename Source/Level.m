@@ -9,25 +9,17 @@
 #import "Level.h"
 
 @implementation Level{
-    double *catX;
-    double *catY;
-    NSString *nextLevel;
 }
 
--(double*)getCatX
-{
-    return catX;
-}
+@synthesize catX;
+@synthesize catY;
+@synthesize nextLevel;
 
--(double*)getCatY
-{
-    return catY;
+- (id)init {
+    self = [super init];
+    if (self) {
+        CCLOG(@"Level created");
+    }
+    return self;
 }
-
--(NSString*)getNextLevel
-{
-    CCLOG(nextLevel);
-    return nextLevel;
-}
-
 @end

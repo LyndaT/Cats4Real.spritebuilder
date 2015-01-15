@@ -26,13 +26,12 @@ BOOL hasCake=NO;
     CCNode *_levelNode;
     Cat *_cat;
     CCPhysicsNode *_physNode;
-    Level *_currentLevel; //<--this doesnt' actually work. im gonna punch it o:<
     
+    
+    Level *_currentLevel; //<--this doesnt' actually work. im gonna punch it o:<
     CCScene *gameOverScreen;
     CCScene *currentLevel;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
-    
-    
 }
 
 - (id)init
@@ -48,11 +47,17 @@ BOOL hasCake=NO;
 
 - (void)didLoadFromCCB {
     CCLOG(@"Loading Level1");
+    
     gameOverScreen = [CCBReader load:@"GameOver"];
+    
     currentLevel = [CCBReader load:@"Levels/Level1"];
+    _currentLevel = (Level *)currentLevel;//[CCBReader load:@"Levels/Level1"];
+    
     [_levelNode addChild:currentLevel];
     CCLOG(@"Finished loading level");
     
+    CCLOG(@"%4.2f",_currentLevel.catY);
+//    CCLOG(_currentLevel.nextLevel);
 //    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
     
     _physNode.collisionDelegate = self;
@@ -71,7 +76,7 @@ BOOL hasCake=NO;
     {
         hasCake=YES;
         //show the door unlocked or smth
-        [currentLevel removeChild:Cake]; //this doesn't work lmao
+        [currentLevel removeChild:Cake];
     }
     return TRUE;
 }

@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "CCNode.h"
 
-@interface Level : CCNode
+@interface Level : CCNode{
+    double catX;
+    double catY;
+//    NSString *nextLevel;
+}
 
--(NSString*)getNextLevel;
-
--(double*)getCatX;
-
--(double*)getCatY;
+@property (nonatomic, assign) double catX;
+@property (nonatomic, assign) double catY;
+@property (nonatomic, assign) NSString* nextLevel;
+//@property(assign) NSString *nextLevel;
 
 @end
