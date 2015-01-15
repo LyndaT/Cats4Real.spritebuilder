@@ -54,21 +54,23 @@ BOOL atDoor = NO;
     _cat.physicsBody.collisionType = @"cat";
 }
 
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
+{
+    CCLOG(@"smoosh!");
+    return TRUE;
+}
+
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
     CCLOG(@"hit door");
-
     atDoor = YES;
-    
     return TRUE;
 }
 
 -(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
-    CCLOG(@"hit door");
-    
+    CCLOG(@"leaves door");
     atDoor = NO;
-    
     return TRUE;
 }
 
