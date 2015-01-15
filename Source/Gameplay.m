@@ -11,7 +11,7 @@
 #import "Cat.h"
 #import "Level.h"
 
-CGFloat gravitystrength = 5000;
+CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
 CGFloat speed = 50;
 BOOL hold = NO;
