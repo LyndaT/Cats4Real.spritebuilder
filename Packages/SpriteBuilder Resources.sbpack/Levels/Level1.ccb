@@ -1157,8 +1157,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>205</real>
-							<real>149.00001525878906</real>
+							<real>468</real>
+							<real>258</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1186,6 +1186,8 @@
 						<string>Sprites/Cake.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -1291,8 +1293,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

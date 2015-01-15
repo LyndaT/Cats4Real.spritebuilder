@@ -58,7 +58,11 @@ BOOL atDoor = NO;
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
 {
-    CCLOG(@"smoosh!");
+    if (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 100 )
+    {
+        //Replace following line of code with what happens when the cat squishes the cake
+        CCLOG(@"smoosh!");
+    }
     return TRUE;
 }
 
@@ -94,17 +98,11 @@ BOOL atDoor = NO;
 {
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
-    
-    
-    if(hold)
-    {
-        
-    }
-    else
+
+    if(!hold)
     {
         [self changeGravity:acceleration.x :acceleration.y];
         [_cat moveSelf:delta :direction :speed :hold];
-        
     }
 }
 
@@ -218,7 +216,7 @@ BOOL atDoor = NO;
 }
 
 /*
- * Handling hold/clench using touches
+ * Handling tap/hold/clench using touches
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
@@ -248,6 +246,7 @@ BOOL atDoor = NO;
 
 /*
  * onEnter and onExit call to start and stop the accelerometer on the phone
+ * Accelerometer updates whoo!
  */
 - (void)onEnter
 {
