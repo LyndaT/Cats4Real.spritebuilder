@@ -64,6 +64,21 @@ BOOL hasCake=NO;
     _cat.physicsBody.collisionType = @"cat";
 }
 
+- (void)update:(CCTime)delta
+{
+    CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
+    CMAcceleration acceleration = accelerometerData.acceleration;
+    
+    if(!hold)
+    {
+        [self changeGravity:acceleration.x :acceleration.y];
+        [_cat moveSelf:delta :direction :speed :hold];
+    }
+}
+
+
+/**----------------Collisions Begin Here LOL----------------
+ */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
 {
     if (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 100 )
@@ -109,17 +124,7 @@ BOOL hasCake=NO;
 }
 
 
-- (void)update:(CCTime)delta
-{
-    CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
-    CMAcceleration acceleration = accelerometerData.acceleration;
 
-    if(!hold)
-    {
-        [self changeGravity:acceleration.x :acceleration.y];
-        [_cat moveSelf:delta :direction :speed :hold];
-    }
-}
 
 -(void)died
 {
@@ -140,6 +145,8 @@ BOOL hasCake=NO;
         [_levelNode removeChild:gameOverScreen];
     }
 }
+
+
 
 
 /*
@@ -169,6 +176,8 @@ BOOL hasCake=NO;
         _cat.rotation = 90;
     }
 }
+
+
 
 /*
  * changeGravity takes in accelerometer values and changes gravity accordingly
