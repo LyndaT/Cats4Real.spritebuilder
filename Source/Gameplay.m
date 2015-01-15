@@ -9,6 +9,7 @@
 #import "Gameplay.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Cat.h"
+#import "Level.h"
 
 CGFloat gravitystrength = 5000;
 CGFloat direction = 0;
@@ -19,20 +20,24 @@ BOOL atDoor = NO;
 
 @implementation Gameplay
 {
+    //taken from Spritebuilder
     CCNode *_levelNode;
     Cat *_cat;
     CCPhysicsNode *_physNode;
+    Level *_currentLevel; //<--this doesnt' actually work. im gonna punch it o:<
+    
+    
     CCScene *currentLevel;
-    int *currentLevelNum;
-    CCScene *nextLevel;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
+    
+    
 }
 
 - (id)init
 {
     if (self = [super init])
     {
-        // activate touches on this scene probably won't need it
+        // activate touches on this scene
         self.userInteractionEnabled = TRUE;
         _motionManager = [[CMMotionManager alloc] init];//initiate the MotionManager
     }
@@ -40,9 +45,10 @@ BOOL atDoor = NO;
 }
 
 - (void)didLoadFromCCB {
-    currentLevelNum=1;
     currentLevel = [CCBReader load:@"Level1"];
     [_levelNode addChild:currentLevel];
+    
+//    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
     
     _physNode.collisionDelegate = self;
     _cat.physicsBody.collisionType = @"cat";
@@ -199,10 +205,12 @@ BOOL atDoor = NO;
 {
     [_levelNode removeChild:currentLevel];
     
-    currentLevelNum++;
     
+//    currentLevel = [CCBReader load:[_currentLevel getNextLevel]]; //NOT CURRENTLY WORKING
     currentLevel = [CCBReader load:@"Level2"];
     [_levelNode addChild:currentLevel];
+    
+//    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
 }
 
 /*
