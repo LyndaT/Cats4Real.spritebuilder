@@ -15,14 +15,17 @@ CGFloat direction = 0;
 CGFloat speed = 30;
 BOOL hold = NO;
 BOOL onground = NO;
+BOOL atDoor = NO;
 
 @implementation Gameplay
 {
     CCNode *_levelNode;
     Cat *_cat;
     CCPhysicsNode *_physNode;
+    CCScene *currentLevel;
+    int *currentLevelNum;
+    CCScene *nextLevel;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
-
 }
 
 - (id)init
@@ -37,11 +40,30 @@ BOOL onground = NO;
 }
 
 - (void)didLoadFromCCB {
-    CCScene *level = [CCBReader load:@"Level1"];
-    [_levelNode addChild:level];
+    currentLevelNum=1;
+    currentLevel = [CCBReader load:@"Level1"];
+    [_levelNode addChild:currentLevel];
     
     _physNode.collisionDelegate = self;
     _cat.physicsBody.collisionType = @"cat";
+}
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+{
+    CCLOG(@"hit door");
+
+    atDoor = YES;
+    
+    return TRUE;
+}
+
+-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+{
+    CCLOG(@"hit door");
+    
+    atDoor = NO;
+    
+    return TRUE;
 }
 
 
@@ -173,6 +195,16 @@ BOOL onground = NO;
     
 }
 
+-(void)toNextLevel
+{
+    [_levelNode removeChild:currentLevel];
+    
+    currentLevelNum++;
+    
+    currentLevel = [CCBReader load:@"Level2"];
+    [_levelNode addChild:currentLevel];
+}
+
 /*
  * Handling hold/clench using touches
  */
@@ -181,6 +213,10 @@ BOOL onground = NO;
     if (onground)
     {
         hold = YES;
+    }
+    if (atDoor)
+    {
+        [self toNextLevel];
     }
     //CCLOG(@"Touches began");
     
