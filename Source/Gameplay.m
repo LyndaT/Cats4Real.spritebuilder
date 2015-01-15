@@ -18,6 +18,7 @@ BOOL hold = NO;
 BOOL onground = NO;
 BOOL atDoor = NO;
 BOOL isDead=NO;
+BOOL hasCake=NO;
 
 @implementation Gameplay
 {
@@ -65,6 +66,12 @@ BOOL isDead=NO;
         //Replace following line of code with what happens when the cat squishes the cake
         CCLOG(@"smoosh!");
         [self died];
+    }
+    else
+    {
+        hasCake=YES;
+        //show the door unlocked or smth
+        [currentLevel removeChild:Cake]; //this doesn't work lmao
     }
     return TRUE;
 }
@@ -245,7 +252,7 @@ BOOL isDead=NO;
     {
         hold = YES;
     }
-    if (atDoor)
+    if (atDoor && hasCake)
     {
         [self toNextLevel];
     }
