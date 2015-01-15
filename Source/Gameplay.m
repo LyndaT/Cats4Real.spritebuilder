@@ -57,7 +57,7 @@ BOOL hasCake=NO;
     CCLOG(@"Finished loading level");
     
     CCLOG(@"%4.2f",_currentLevel.catY);
-//    CCLOG(_currentLevel.nextLevel);
+//    NSLog(@"%@", _currentLevel.nextLevel); //ERRORS ):
 //    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
     
     _physNode.collisionDelegate = self;

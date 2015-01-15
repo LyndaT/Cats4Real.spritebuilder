@@ -17,7 +17,7 @@
 
 @property (nonatomic, assign) double catX;
 @property (nonatomic, assign) double catY;
-@property (nonatomic, assign) NSString* nextLevel;
+@property (nonatomic, assign) NSString *nextLevel;
 //@property(assign) NSString *nextLevel;
 
 @end
