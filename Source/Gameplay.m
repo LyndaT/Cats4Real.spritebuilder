@@ -252,7 +252,7 @@ BOOL hasCake=NO;
     
     
 //    currentLevel = [CCBReader load:[_currentLevel getNextLevel]]; //NOT CURRENTLY WORKING
-    currentLevel = [CCBReader load:@"Level2"];
+    currentLevel = [CCBReader load:@"Levels/Level2"];
     [_levelNode addChild:currentLevel];
     
 //    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
