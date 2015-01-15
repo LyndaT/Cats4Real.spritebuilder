@@ -79,6 +79,11 @@ BOOL hasCake=NO;
 
 /**----------------Collisions Begin Here LOL----------------
  */
+
+/*
+ * Colliding with Cake
+ * Checks to see if the cat crashes into the cake
+ */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
 {
     if (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 100 )
@@ -96,6 +101,21 @@ BOOL hasCake=NO;
     return TRUE;
 }
 
+/*
+ * Colliding with Water
+ * Checks to see if the cat crashes into the cake
+ */
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat water:(CCNode *)Water
+{
+    [self died];
+    return TRUE;
+}
+
+
+/*
+ * Colliding with door
+ * Checks to see if the cat is at the door
+ */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
     CCLOG(@"hit door");
@@ -111,6 +131,10 @@ BOOL hasCake=NO;
 }
 
 
+/*
+ * Colliding with ground
+ * Checks to see if the cat is on the ground and can cling onto this
+ */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
 {
     onground = YES;
