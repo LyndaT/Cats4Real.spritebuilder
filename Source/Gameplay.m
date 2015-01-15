@@ -26,7 +26,7 @@ BOOL atDoor = NO;
     CCPhysicsNode *_physNode;
     Level *_currentLevel; //<--this doesnt' actually work. im gonna punch it o:<
     
-    
+    CCScene *gameOverScreen;
     CCScene *currentLevel;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
     
@@ -46,6 +46,7 @@ BOOL atDoor = NO;
 
 - (void)didLoadFromCCB {
     CCLOG(@"Loading Level1");
+    gameOverScreen = [CCBReader load:@"GameOver"];
     currentLevel = [CCBReader load:@"Levels/Level1"];
     [_levelNode addChild:currentLevel];
     CCLOG(@"Finished loading level");
@@ -59,6 +60,9 @@ BOOL atDoor = NO;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
 {
     CCLOG(@"smoosh!");
+
+    //if it's nyooming
+    [_levelNode addChild:gameOverScreen];
     return TRUE;
 }
 
@@ -108,6 +112,10 @@ BOOL atDoor = NO;
     }
 }
 
+-(void)retry
+{
+    [_levelNode removeChild:gameOverScreen];
+}
 
 
 /*
