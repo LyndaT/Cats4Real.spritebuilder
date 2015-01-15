@@ -131,6 +131,7 @@ BOOL hasCake=NO;
     
     if (isDead)
     {
+        isDead=NO;
         [_levelNode removeChild:gameOverScreen];
     }
 }
