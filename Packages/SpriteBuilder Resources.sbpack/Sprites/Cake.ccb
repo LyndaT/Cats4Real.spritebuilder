@@ -49,11 +49,76 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>IceBlock</string>
+				<string>Untitled-1a</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
+				<key>physicsBody</key>
+				<dict>
+					<key>affectedByGravity</key>
+					<true/>
+					<key>allowsRotation</key>
+					<true/>
+					<key>bodyShape</key>
+					<integer>0</integer>
+					<key>collisionCategories</key>
+					<array/>
+					<key>collisionMask</key>
+					<array/>
+					<key>collisionType</key>
+					<string>cake</string>
+					<key>cornerRadius</key>
+					<real>0.0</real>
+					<key>density</key>
+					<real>1</real>
+					<key>dynamic</key>
+					<false/>
+					<key>elasticity</key>
+					<real>0.30000001192092896</real>
+					<key>friction</key>
+					<real>0.30000001192092896</real>
+					<key>points</key>
+					<array>
+						<array>
+							<real>8.8177080154418945</real>
+							<real>7.9427285194396973</real>
+						</array>
+						<array>
+							<real>10.276041984558105</real>
+							<real>45.348979949951172</real>
+						</array>
+						<array>
+							<real>53.520832061767578</real>
+							<real>50.036479949951172</real>
+						</array>
+						<array>
+							<real>52.244792938232422</real>
+							<real>8.46356201171875</real>
+						</array>
+					</array>
+					<key>polygons</key>
+					<array>
+						<array>
+							<array>
+								<real>52.244792938232422</real>
+								<real>8.46356201171875</real>
+							</array>
+							<array>
+								<real>53.520832061767578</real>
+								<real>50.036479949951172</real>
+							</array>
+							<array>
+								<real>10.276041984558105</real>
+								<real>45.348979949951172</real>
+							</array>
+							<array>
+								<real>8.8177080154418945</real>
+								<real>7.9427285194396973</real>
+							</array>
+						</array>
+					</array>
+				</dict>
 				<key>properties</key>
 				<array>
 					<dict>
@@ -96,8 +161,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.10000000149011612</real>
-							<real>0.10000000149011612</real>
+							<real>0.75</real>
+							<real>0.75</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -110,7 +175,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>IceBlock.png</string>
+							<string>assets/Untitled-1a.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -146,81 +211,18 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>Door</string>
+		<string></string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
 		<string></string>
 		<key>memberVarAssignmentType</key>
 		<integer>1</integer>
-		<key>physicsBody</key>
-		<dict>
-			<key>affectedByGravity</key>
-			<true/>
-			<key>allowsRotation</key>
-			<true/>
-			<key>bodyShape</key>
-			<integer>0</integer>
-			<key>collisionCategories</key>
-			<array/>
-			<key>collisionMask</key>
-			<array/>
-			<key>collisionType</key>
-			<string>door</string>
-			<key>cornerRadius</key>
-			<real>0.0</real>
-			<key>density</key>
-			<real>1</real>
-			<key>dynamic</key>
-			<false/>
-			<key>elasticity</key>
-			<real>0.30000001192092896</real>
-			<key>friction</key>
-			<real>0.30000001192092896</real>
-			<key>points</key>
-			<array>
-				<array>
-					<real>0.0</real>
-					<real>0.0</real>
-				</array>
-				<array>
-					<real>0.0</real>
-					<real>32</real>
-				</array>
-				<array>
-					<real>32</real>
-					<real>32</real>
-				</array>
-				<array>
-					<real>32</real>
-					<real>0.0</real>
-				</array>
-			</array>
-			<key>polygons</key>
-			<array>
-				<array>
-					<array>
-						<real>32</real>
-						<real>0.0</real>
-					</array>
-					<array>
-						<real>32</real>
-						<real>32</real>
-					</array>
-					<array>
-						<real>0.0</real>
-						<real>32</real>
-					</array>
-					<array>
-						<real>0.0</real>
-						<real>0.0</real>
-					</array>
-				</array>
-			</array>
-		</dict>
 		<key>properties</key>
 		<array>
 			<dict>
