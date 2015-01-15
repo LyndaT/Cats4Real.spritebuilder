@@ -17,6 +17,7 @@ CGFloat speed = 50;
 BOOL hold = NO;
 BOOL onground = NO;
 BOOL atDoor = NO;
+BOOL isDead=NO;
 
 @implementation Gameplay
 {
@@ -63,8 +64,7 @@ BOOL atDoor = NO;
     {
         //Replace following line of code with what happens when the cat squishes the cake
         CCLOG(@"smoosh!");
-        hold=YES; //to stop player movement
-        [_levelNode addChild:gameOverScreen];
+        [self died];
     }
     return TRUE;
 }
@@ -109,10 +109,23 @@ BOOL atDoor = NO;
     }
 }
 
+-(void)died
+{
+    isDead=YES;
+    //to pause scene
+    [[CCDirector sharedDirector] pause];
+    
+    [_levelNode addChild:gameOverScreen];
+}
+
 -(void)retry
 {
-    hold=NO;
-    [_levelNode removeChild:gameOverScreen];
+    [[CCDirector sharedDirector] resume];
+    
+    if (isDead)
+    {
+        [_levelNode removeChild:gameOverScreen];
+    }
 }
 
 
