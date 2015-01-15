@@ -45,8 +45,10 @@ BOOL atDoor = NO;
 }
 
 - (void)didLoadFromCCB {
-    currentLevel = [CCBReader load:@"Level1"];
+    CCLOG(@"Loading Level1");
+    currentLevel = [CCBReader load:@"Levels/Level1"];
     [_levelNode addChild:currentLevel];
+    CCLOG(@"Finished loading level");
     
 //    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
     

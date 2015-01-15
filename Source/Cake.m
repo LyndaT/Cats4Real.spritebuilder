@@ -10,6 +10,16 @@
 
 @implementation Cake
 
+-(id)init{
+    self = [super init];
+    
+    if(self){
+        CCLOG(@"Cake created");
+    }
+    
+    return self;
+}
+
 - (void)didLoadFromCCB {
     self.physicsBody.collisionType = @"cake";
     self.physicsBody.sensor = TRUE;
