@@ -147,18 +147,28 @@ int numCake = 0;
  * Colliding with ground
  * Checks to see if the cat is on the ground and can cling onto this
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
-{
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
+//{
+//    onground = YES;
+//    return TRUE;
+//}
+//
+//-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
+//{
+//    onground = NO;
+//    return TRUE;
+//}
+
+-(BOOL)ccPhysicsCollisionPreSolve:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground {
+    CCLOG(@"catonground");
     onground = YES;
-    return TRUE;
+    return YES;
 }
 
--(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
-{
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground {
+    //CCLOG(@"catground");
     onground = NO;
-    return TRUE;
 }
-
 
 
 

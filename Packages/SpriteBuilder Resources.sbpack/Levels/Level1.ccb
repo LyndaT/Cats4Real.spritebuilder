@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>81</integer>
+	<integer>87</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -211,6 +211,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -392,8 +394,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -775,6 +775,133 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
+				<integer>81</integer>
+				<key>baseClass</key>
+				<string>CCBFile</string>
+				<key>children</key>
+				<array/>
+				<key>customClass</key>
+				<string></string>
+				<key>displayName</key>
+				<string>CCBFile</string>
+				<key>memberVarAssignmentName</key>
+				<string></string>
+				<key>memberVarAssignmentType</key>
+				<integer>1</integer>
+				<key>physicsBody</key>
+				<dict>
+					<key>affectedByGravity</key>
+					<true/>
+					<key>allowsRotation</key>
+					<true/>
+					<key>bodyShape</key>
+					<integer>0</integer>
+					<key>collisionCategories</key>
+					<array/>
+					<key>collisionMask</key>
+					<array/>
+					<key>collisionType</key>
+					<string>ground</string>
+					<key>cornerRadius</key>
+					<real>0.0</real>
+					<key>density</key>
+					<real>1</real>
+					<key>dynamic</key>
+					<false/>
+					<key>elasticity</key>
+					<real>0.30000001192092896</real>
+					<key>friction</key>
+					<real>0.30000001192092896</real>
+					<key>points</key>
+					<array>
+						<array>
+							<real>-28.356771469116211</real>
+							<real>71.327301025390625</real>
+						</array>
+						<array>
+							<real>-35.48046875</real>
+							<real>148.47573852539062</real>
+						</array>
+						<array>
+							<real>107.03775787353516</real>
+							<real>155.12808227539062</real>
+						</array>
+						<array>
+							<real>93.256507873535156</real>
+							<real>74.905426025390625</real>
+						</array>
+					</array>
+					<key>polygons</key>
+					<array>
+						<array>
+							<array>
+								<real>93.256507873535156</real>
+								<real>74.905426025390625</real>
+							</array>
+							<array>
+								<real>107.03775787353516</real>
+								<real>155.12808227539062</real>
+							</array>
+							<array>
+								<real>-35.48046875</real>
+								<real>148.47573852539062</real>
+							</array>
+							<array>
+								<real>-28.356771469116211</real>
+								<real>71.327301025390625</real>
+							</array>
+						</array>
+					</array>
+				</dict>
+				<key>properties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>name</string>
+						<key>type</key>
+						<string>StringSimple</string>
+						<key>value</key>
+						<string></string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>position</string>
+						<key>type</key>
+						<string>Position</string>
+						<key>value</key>
+						<array>
+							<real>184</real>
+							<real>189.3719482421875</real>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>scale</string>
+						<key>type</key>
+						<string>ScaleLock</string>
+						<key>value</key>
+						<array>
+							<real>3</real>
+							<real>1</real>
+							<false/>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>ccbFile</string>
+						<key>type</key>
+						<string>CCBFile</string>
+						<key>value</key>
+						<string>Ground.ccb</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>UUID</key>
 				<integer>18</integer>
 				<key>baseClass</key>
 				<string>CCBFile</string>
@@ -819,12 +946,12 @@
 							<real>-197.68360900878906</real>
 						</array>
 						<array>
-							<real>-33.855384826660156</real>
-							<real>-136.65299987792969</real>
+							<real>-28.233072280883789</real>
+							<real>-134.2860107421875</real>
 						</array>
 						<array>
-							<real>102.63874053955078</real>
-							<real>-137.41728210449219</real>
+							<real>95.451820373535156</real>
+							<real>-136.3758544921875</real>
 						</array>
 						<array>
 							<real>102.42708587646484</real>
@@ -839,12 +966,12 @@
 								<real>-198.24220275878906</real>
 							</array>
 							<array>
-								<real>102.63874053955078</real>
-								<real>-137.41728210449219</real>
+								<real>95.451820373535156</real>
+								<real>-136.3758544921875</real>
 							</array>
 							<array>
-								<real>-33.855384826660156</real>
-								<real>-136.65299987792969</real>
+								<real>-28.233072280883789</real>
+								<real>-134.2860107421875</real>
 							</array>
 							<array>
 								<real>-33.141921997070312</real>
@@ -889,6 +1016,268 @@
 							<false/>
 							<integer>0</integer>
 						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>ccbFile</string>
+						<key>type</key>
+						<string>CCBFile</string>
+						<key>value</key>
+						<string>Ground.ccb</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>UUID</key>
+				<integer>83</integer>
+				<key>baseClass</key>
+				<string>CCBFile</string>
+				<key>children</key>
+				<array/>
+				<key>customClass</key>
+				<string></string>
+				<key>displayName</key>
+				<string>CCBFile</string>
+				<key>memberVarAssignmentName</key>
+				<string></string>
+				<key>memberVarAssignmentType</key>
+				<integer>1</integer>
+				<key>physicsBody</key>
+				<dict>
+					<key>affectedByGravity</key>
+					<true/>
+					<key>allowsRotation</key>
+					<true/>
+					<key>bodyShape</key>
+					<integer>0</integer>
+					<key>collisionCategories</key>
+					<array/>
+					<key>collisionMask</key>
+					<array/>
+					<key>collisionType</key>
+					<string>ground</string>
+					<key>cornerRadius</key>
+					<real>0.0</real>
+					<key>density</key>
+					<real>1</real>
+					<key>dynamic</key>
+					<false/>
+					<key>elasticity</key>
+					<real>0.30000001192092896</real>
+					<key>friction</key>
+					<real>0.30000001192092896</real>
+					<key>points</key>
+					<array>
+						<array>
+							<real>-70.016929626464844</real>
+							<real>-164.98521423339844</real>
+						</array>
+						<array>
+							<real>-70.45703125</real>
+							<real>114.49917602539062</real>
+						</array>
+						<array>
+							<real>-32.604167938232422</real>
+							<real>60.589019775390625</real>
+						</array>
+						<array>
+							<real>-32.919269561767578</real>
+							<real>-116.78990173339844</real>
+						</array>
+					</array>
+					<key>polygons</key>
+					<array>
+						<array>
+							<array>
+								<real>-32.919269561767578</real>
+								<real>-116.78990173339844</real>
+							</array>
+							<array>
+								<real>-32.604167938232422</real>
+								<real>60.589019775390625</real>
+							</array>
+							<array>
+								<real>-70.45703125</real>
+								<real>114.49917602539062</real>
+							</array>
+							<array>
+								<real>-70.016929626464844</real>
+								<real>-164.98521423339844</real>
+							</array>
+						</array>
+					</array>
+				</dict>
+				<key>properties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>name</string>
+						<key>type</key>
+						<string>StringSimple</string>
+						<key>value</key>
+						<string></string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>position</string>
+						<key>type</key>
+						<string>Position</string>
+						<key>value</key>
+						<array>
+							<real>184</real>
+							<real>189.3719482421875</real>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>scale</string>
+						<key>type</key>
+						<string>ScaleLock</string>
+						<key>value</key>
+						<array>
+							<real>3</real>
+							<real>1</real>
+							<false/>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>ccbFile</string>
+						<key>type</key>
+						<string>CCBFile</string>
+						<key>value</key>
+						<string>Ground.ccb</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>UUID</key>
+				<integer>85</integer>
+				<key>baseClass</key>
+				<string>CCBFile</string>
+				<key>children</key>
+				<array/>
+				<key>customClass</key>
+				<string></string>
+				<key>displayName</key>
+				<string>CCBFile</string>
+				<key>memberVarAssignmentName</key>
+				<string></string>
+				<key>memberVarAssignmentType</key>
+				<integer>1</integer>
+				<key>physicsBody</key>
+				<dict>
+					<key>affectedByGravity</key>
+					<true/>
+					<key>allowsRotation</key>
+					<true/>
+					<key>bodyShape</key>
+					<integer>0</integer>
+					<key>collisionCategories</key>
+					<array/>
+					<key>collisionMask</key>
+					<array/>
+					<key>collisionType</key>
+					<string>ground</string>
+					<key>cornerRadius</key>
+					<real>0.0</real>
+					<key>density</key>
+					<real>1</real>
+					<key>dynamic</key>
+					<false/>
+					<key>elasticity</key>
+					<real>0.30000001192092896</real>
+					<key>friction</key>
+					<real>0.30000001192092896</real>
+					<key>points</key>
+					<array>
+						<array>
+							<real>-140.74868774414062</real>
+							<real>-117.76874542236328</real>
+						</array>
+						<array>
+							<real>-141.1875</real>
+							<real>153.64144897460938</real>
+						</array>
+						<array>
+							<real>-100.60546875</real>
+							<real>117.76254272460938</real>
+						</array>
+						<array>
+							<real>-101.015625</real>
+							<real>-57.983577728271484</real>
+						</array>
+					</array>
+					<key>polygons</key>
+					<array>
+						<array>
+							<array>
+								<real>-101.015625</real>
+								<real>-57.983577728271484</real>
+							</array>
+							<array>
+								<real>-100.60546875</real>
+								<real>117.76254272460938</real>
+							</array>
+							<array>
+								<real>-141.1875</real>
+								<real>153.64144897460938</real>
+							</array>
+							<array>
+								<real>-140.74868774414062</real>
+								<real>-117.76874542236328</real>
+							</array>
+						</array>
+					</array>
+				</dict>
+				<key>properties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>name</string>
+						<key>type</key>
+						<string>StringSimple</string>
+						<key>value</key>
+						<string></string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>position</string>
+						<key>type</key>
+						<string>Position</string>
+						<key>value</key>
+						<array>
+							<real>184</real>
+							<real>189.3719482421875</real>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>scale</string>
+						<key>type</key>
+						<string>ScaleLock</string>
+						<key>value</key>
+						<array>
+							<real>3</real>
+							<real>1</real>
+							<false/>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>rotation</string>
+						<key>type</key>
+						<string>Degrees</string>
+						<key>value</key>
+						<real>180</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1112,7 +1501,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1174,7 +1563,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1236,7 +1625,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1298,7 +1687,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1360,7 +1749,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1422,7 +1811,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1492,7 +1881,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1562,7 +1951,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1632,7 +2021,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1702,7 +2091,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1772,7 +2161,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1842,7 +2231,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1912,7 +2301,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1982,7 +2371,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2117,7 +2506,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2187,7 +2576,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>grasstile</string>
 					</dict>
 					<dict>
 						<key>name</key>
