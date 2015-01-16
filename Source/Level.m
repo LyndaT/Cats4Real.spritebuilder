@@ -13,6 +13,7 @@
 
 @synthesize catX;
 @synthesize catY;
+@synthesize totalCake;
 @synthesize nextLevel;
 
 - (id)init {

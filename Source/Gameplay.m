@@ -17,8 +17,9 @@ CGFloat speed = 50;
 BOOL hold = NO;
 BOOL onground = NO;
 BOOL atDoor = NO;
-BOOL isDead=NO;
-BOOL hasCake=NO;
+BOOL isDead = NO;
+BOOL hasCake = NO;
+int numCake = 0;
 
 @implementation Gameplay
 {
@@ -26,6 +27,7 @@ BOOL hasCake=NO;
     CCNode *_levelNode;
     Cat *_cat;
     CCPhysicsNode *_physNode;
+    CCLabelTTF *_cakeScore;
     
     
     Level *_currentLevel; //<--this doesnt' actually work. im gonna punch it o:<
@@ -94,7 +96,9 @@ BOOL hasCake=NO;
     }
     else
     {
-        hasCake=YES;
+//        hasCake=YES;
+        numCake++;
+        _cakeScore.string = [NSString stringWithFormat:@"%i/%i cake", numCake, _currentLevel.totalCake];
         //show the door unlocked or smth
         [currentLevel removeChild:Cake];
     }
@@ -291,7 +295,7 @@ BOOL hasCake=NO;
     {
         hold = YES;
     }
-    if (atDoor && hasCake)
+    if (atDoor && (numCake>=_currentLevel.totalCake))//hasCake)
     {
         [self toNextLevel];
     }
