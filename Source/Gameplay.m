@@ -10,6 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "Cat.h"
 #import "Level.h"
+#import "Cake.h"
 
 CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
@@ -30,7 +31,8 @@ int numCake = 0;
     CCLabelTTF *_cakeScore;
     
     
-    Level *_currentLevel; //<--this doesnt' actually work. im gonna punch it o:<
+    Level *_currentLevel;
+    NSString *currentLevelName;
     CCScene *gameOverScreen;
     CCScene *currentLevel;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
@@ -52,15 +54,14 @@ int numCake = 0;
     
     gameOverScreen = [CCBReader load:@"GameOver"];
     
+    currentLevelName=@"Levels/Level1";
     currentLevel = [CCBReader load:@"Levels/Level1"];
-    _currentLevel = (Level *)currentLevel;//[CCBReader load:@"Levels/Level1"];
+    _currentLevel = (Level *)currentLevel;
     
     [_levelNode addChild:currentLevel];
     CCLOG(@"Finished loading level");
     
-    CCLOG(@"%4.2f",_currentLevel.catY);
-    NSLog(@"next level %@", _currentLevel.nextLevel);
-    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
+    [self resetLevel];
     
     _physNode.collisionDelegate = self;
     _cat.physicsBody.collisionType = @"cat";
@@ -79,7 +80,7 @@ int numCake = 0;
 }
 
 
-/**----------------Collisions Begin Here LOL----------------
+/**----------------Collisions Begin Here----------------
  */
 
 /*
@@ -88,19 +89,26 @@ int numCake = 0;
  */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
 {
-    if (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 100 )
-    {
-        //Replace following line of code with what happens when the cat squishes the cake
-        CCLOG(@"smoosh!");
-        [self died];
-    }
-    else
-    {
-//        hasCake=YES;
-        numCake++;
-        _cakeScore.string = [NSString stringWithFormat:@"%i/%i cake", numCake, _currentLevel.totalCake];
-        //show the door unlocked or smth
-        [currentLevel removeChild:Cake];
+    //only interact w/cake if it's visible
+    if (Cake.visible==true){
+        if ([self isCatNyooming])
+        {
+            //if you're nyooming, you smash it and DIE
+            CCLOG(@"smoosh!");
+            [self died];
+        }
+        else
+        {
+            //if you're not nyooming, you collect the cake
+            numCake++;
+            [self updateCakeScore];
+            Cake.visible=false;
+            
+            if (numCake >= _currentLevel.totalCake)
+            {
+                //show the door unlocked or smth
+            }
+        }
     }
     return TRUE;
 }
@@ -167,9 +175,11 @@ int numCake = 0;
 {
     [[CCDirector sharedDirector] resume];
     
+    [self resetLevel];
+    
     if (isDead)
     {
-        isDead=NO;
+        isDead = NO;
         [_levelNode removeChild:gameOverScreen];
     }
 }
@@ -276,18 +286,40 @@ int numCake = 0;
 
 -(void)toNextLevel
 {
+    numCake=0;
     [_levelNode removeChild:currentLevel];
     
-    NSString *temp = [@"Levels/" stringByAppendingString:_currentLevel.nextLevel];
-    currentLevel = [CCBReader load:temp];
+    currentLevelName = [@"Levels/" stringByAppendingString:_currentLevel.nextLevel];
+    currentLevel = [CCBReader load:currentLevelName];
     _currentLevel = (Level *)currentLevel;
+    
     NSLog(@"next level %@", _currentLevel.nextLevel);
     
     [_levelNode addChild:currentLevel];
     
-    
+    [self resetLevel];
+}
+
+-(void)resetLevel
+{
+    [_levelNode removeChild:currentLevel];
+    currentLevel = [CCBReader load:currentLevelName];
+    [_levelNode addChild:currentLevel];
+    numCake=0;
+    [self updateCakeScore];
     _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
 }
+
+-(void)updateCakeScore
+{
+    _cakeScore.string = [NSString stringWithFormat:@"%i/%i cake", numCake, _currentLevel.totalCake];
+}
+
+-(BOOL)isCatNyooming
+{
+    return (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 100);
+}
+
 
 /*
  * Handling tap/hold/clench using touches
@@ -298,7 +330,7 @@ int numCake = 0;
     {
         hold = YES;
     }
-    if (atDoor && (numCake>=_currentLevel.totalCake))//hasCake)
+    if (atDoor && (numCake>=_currentLevel.totalCake))
     {
         [self toNextLevel];
     }
