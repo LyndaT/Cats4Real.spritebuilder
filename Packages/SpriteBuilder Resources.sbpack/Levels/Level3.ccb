@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>9</integer>
+	<integer>10</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1176,7 +1176,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>0.000000</string>
+				<string>114.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -1186,7 +1186,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>0.000000</string>
+				<string>129.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -1197,6 +1197,16 @@
 				<integer>3</integer>
 				<key>value</key>
 				<string>Level4</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>totalCake</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>0</string>
 			</dict>
 		</array>
 		<key>displayName</key>

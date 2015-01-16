@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>33</integer>
+	<integer>34</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1200,7 +1200,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>0.000000</string>
+				<string>120.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -1210,7 +1210,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>0.000000</string>
+				<string>120.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>

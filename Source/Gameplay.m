@@ -59,8 +59,8 @@ int numCake = 0;
     CCLOG(@"Finished loading level");
     
     CCLOG(@"%4.2f",_currentLevel.catY);
-//    NSLog(@"%@", _currentLevel.nextLevel); //ERRORS ):
-//    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
+    NSLog(@"next level %@", _currentLevel.nextLevel);
+    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
     
     _physNode.collisionDelegate = self;
     _cat.physicsBody.collisionType = @"cat";
@@ -278,12 +278,15 @@ int numCake = 0;
 {
     [_levelNode removeChild:currentLevel];
     
+    NSString *temp = [@"Levels/" stringByAppendingString:_currentLevel.nextLevel];
+    currentLevel = [CCBReader load:temp];
+    _currentLevel = (Level *)currentLevel;
+    NSLog(@"next level %@", _currentLevel.nextLevel);
     
-//    currentLevel = [CCBReader load:[_currentLevel getNextLevel]]; //NOT CURRENTLY WORKING
-    currentLevel = [CCBReader load:@"Levels/Level2"];
     [_levelNode addChild:currentLevel];
     
-//    _cat.position = ccp(*[_currentLevel getCatX], *[_currentLevel getCatY]);
+    
+    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
 }
 
 /*

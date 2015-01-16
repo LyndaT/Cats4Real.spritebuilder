@@ -19,7 +19,7 @@
 @property (nonatomic, assign) double catX;
 @property (nonatomic, assign) double catY;
 @property (nonatomic, assign) int totalCake;
-@property (nonatomic, assign) NSString* nextLevel;
+@property (nonatomic, retain) NSString* nextLevel;
 //@property(assign) NSString *nextLevel;
 
 @end
