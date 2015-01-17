@@ -14,7 +14,7 @@
 
 CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
-CGFloat speed = 50;
+CGFloat speed = 30;
 BOOL hold = NO;
 BOOL onground = NO;
 BOOL atDoor = NO;

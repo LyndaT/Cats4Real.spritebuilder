@@ -49,7 +49,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>cornertilesmall</string>
+				<string>sidetile</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>assets/tiles/cornertilesmall.png</string>
+							<string>assets/tiles/sidetile.png</string>
 						</array>
 					</dict>
 					<dict>
