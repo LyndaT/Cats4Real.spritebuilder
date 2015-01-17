@@ -14,6 +14,7 @@
     double catY;
     int totalCake;
 //    NSString *nextLevel;
+    CCNode *_door;
 }
 
 @property (nonatomic, assign) double catX;
@@ -21,5 +22,7 @@
 @property (nonatomic, assign) int totalCake;
 @property (nonatomic, retain) NSString* nextLevel;
 //@property(assign) NSString *nextLevel;
+
+-(void)putDoorBack;
 
 @end

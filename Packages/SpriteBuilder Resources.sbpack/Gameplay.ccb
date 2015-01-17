@@ -355,8 +355,6 @@
 								<string>Sprites/Cat.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -689,8 +687,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>294.99996948242188</real>
+							<real>36</real>
+							<real>290.99996948242188</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -714,8 +712,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>2</real>
+							<real>2</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -738,8 +736,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>21</real>
+							<real>21</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -772,7 +770,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>retry</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -784,7 +782,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>assets/retry.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -795,7 +793,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>assets/retry.png</string>
 						</array>
 					</dict>
 					<dict>

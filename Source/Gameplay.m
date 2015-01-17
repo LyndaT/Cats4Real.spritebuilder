@@ -50,12 +50,11 @@ int numCake = 0;
 }
 
 - (void)didLoadFromCCB {
-    CCLOG(@"Loading Level1");
     
     gameOverScreen = [CCBReader load:@"GameOver"];
     
-    currentLevelName=@"Levels/Level1";
-    currentLevel = [CCBReader load:@"Levels/Level1"];
+    currentLevelName=@"Levels/Level2";
+    currentLevel = [CCBReader load:currentLevelName];
     _currentLevel = (Level *)currentLevel;
     
     [_levelNode addChild:currentLevel];
@@ -317,8 +316,7 @@ int numCake = 0;
     [_levelNode addChild:currentLevel];
     numCake=0;
     [self updateCakeScore];
-    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
-}
+    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);}
 
 -(void)updateCakeScore
 {
@@ -341,7 +339,7 @@ int numCake = 0;
         hold = YES;
         [_cat cling];
     }
-    if (atDoor && (numCake>=_currentLevel.totalCake))
+    if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming])
     {
         [self toNextLevel];
     }
