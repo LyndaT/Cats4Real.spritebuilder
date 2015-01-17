@@ -339,6 +339,7 @@ int numCake = 0;
     if (onground)
     {
         hold = YES;
+        [_cat cling];
     }
     if (atDoor && (numCake>=_currentLevel.totalCake))
     {
@@ -350,11 +351,13 @@ int numCake = 0;
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     hold = NO;
+    [_cat walk];
     //CCLOG(@"Touches ended");
 }
 - (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
     hold = NO;
+    [_cat walk];
     //CCLOG(@"Touches ended");
 }
 

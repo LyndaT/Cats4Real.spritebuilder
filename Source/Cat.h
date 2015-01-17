@@ -14,4 +14,8 @@
 
 - (void)moveSelf:(CCTime)delta :(int)direction :(int)speed :(BOOL)hold;
 
+- (void)walk;
+- (void)stand;
+- (void)cling;
+
 @end

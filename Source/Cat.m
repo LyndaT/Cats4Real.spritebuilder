@@ -10,6 +10,29 @@
 #import "Cat.h"
 
 @implementation Cat
+{
+    CCAnimationManager* animationManager;
+}
+
+- (void)didLoadFromCCB
+{
+     animationManager = self.animationManager;
+}
+
+-(void)stand
+{
+    [animationManager runAnimationsForSequenceNamed:@"stand"];
+}
+
+-(void)walk
+{
+    [animationManager runAnimationsForSequenceNamed:@"walk"];
+}
+
+-(void)cling
+{
+    [animationManager runAnimationsForSequenceNamed:@"cling"];
+}
 
 
 /*
