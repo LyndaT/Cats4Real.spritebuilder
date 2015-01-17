@@ -480,6 +480,7 @@
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
+				B7378993180767190076A88C /* MainScene.m */,
 				F2B780131A64AF7F00E09517 /* Gameplay.h */,
 				F2B780141A64AF7F00E09517 /* Gameplay.m */,
 				F26F6C631A6751DF003276EE /* Level.h */,
@@ -492,7 +493,6 @@
 				528050371A65FD6A0037D1B3 /* Ground.m */,
 				5260B3761A65A8BE002A3A5A /* Cat.h */,
 				5260B3771A65A8BE002A3A5A /* Cat.m */,
-				B7378993180767190076A88C /* MainScene.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;

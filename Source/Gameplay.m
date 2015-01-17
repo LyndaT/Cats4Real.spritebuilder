@@ -32,7 +32,6 @@ int numCake = 0;
     Door *_door;
     CCPhysicsNode *_physNode;
     CCLabelTTF *_cakeScore;
-    Door *_door;
     
     
     Level *_currentLevel;
@@ -352,9 +351,16 @@ int numCake = 0;
         hold = YES;
         [_cat cling];
     }
-    if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming] && (_cat.rotation==_door.rotation))
+    if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming] )
     {
-        [self toNextLevel];
+        CCLOG(@"Cat rotation %f", _cat.rotation);
+        CCLOG(@"Door rotation %f", _door.rotation);
+        if (_cat.rotation!=_door.rotation) {
+            CCLOG(@"wrong rotation!");
+        }
+        else {
+            [self toNextLevel];
+        }
     }
     //CCLOG(@"Touches began");
     
