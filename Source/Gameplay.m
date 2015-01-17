@@ -9,6 +9,7 @@
 #import "Gameplay.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Cat.h"
+#import "Door.h"
 #import "Level.h"
 #import "Cake.h"
 #import "Door.h"
@@ -31,6 +32,7 @@ int numCake = 0;
     Door *_door;
     CCPhysicsNode *_physNode;
     CCLabelTTF *_cakeScore;
+    Door *_door;
     
     
     Level *_currentLevel;
@@ -132,6 +134,12 @@ int numCake = 0;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
     CCLOG(@"hit door");
+    if ([currentLevelName  isEqual: @"Levels/Level2"])
+    {
+        CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap to go through!" fontName:@"Lao Sangam MN" fontSize:16];
+        doorInstruc.position = ccp(367,52.5);
+        [currentLevel addChild:doorInstruc];
+    }
     atDoor = YES;
     return TRUE;
 }
@@ -318,7 +326,10 @@ int numCake = 0;
     [_levelNode addChild:currentLevel];
     numCake=0;
     [self updateCakeScore];
-    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);}
+    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
+    _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
+    _door.rotation = _currentLevel.doorAngle;
+}
 
 -(void)updateCakeScore
 {

@@ -10,11 +10,13 @@
 #import "CCNode.h"
 
 @implementation Level{
-//    CCNode *_door;
 }
 
 @synthesize catX;
 @synthesize catY;
+@synthesize doorX;
+@synthesize doorY;
+@synthesize doorAngle;
 @synthesize totalCake;
 @synthesize nextLevel;
 
@@ -22,15 +24,12 @@
 {
     self = [super init];
     if (self) {
-        _door.zOrder=-10;
         CCLOG(@"Level created");
-        _door.zOrder=-10;
     }
     return self;
 }
 
 -(void)didLoadFromCCB
 {
-    _door.zOrder=-10;
 }
 @end

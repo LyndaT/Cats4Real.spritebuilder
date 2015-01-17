@@ -19,6 +19,9 @@
 
 @property (nonatomic, assign) double catX;
 @property (nonatomic, assign) double catY;
+@property (nonatomic, assign) double doorX;
+@property (nonatomic, assign) double doorY;
+@property (nonatomic, assign) double doorAngle;
 @property (nonatomic, assign) int totalCake;
 @property (nonatomic, retain) NSString* nextLevel;
 //@property(assign) NSString *nextLevel;
