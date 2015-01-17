@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>65</integer>
+	<integer>69</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1087,8 +1087,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>292</real>
-							<real>120</real>
+							<real>289</real>
+							<real>188</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1106,6 +1106,14 @@
 							<false/>
 							<integer>0</integer>
 						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>rotation</string>
+						<key>type</key>
+						<string>Degrees</string>
+						<key>value</key>
+						<real>-180</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2681,7 +2689,7 @@
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>265.5333251953125</real>
+							<real>40</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>0</integer>
@@ -2710,6 +2718,14 @@
 							<false/>
 							<integer>0</integer>
 						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>rotation</string>
+						<key>type</key>
+						<string>Degrees</string>
+						<key>value</key>
+						<real>-180</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -3362,8 +3378,6 @@
 						<string>Ground.ccb</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -3378,7 +3392,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>163.000000</string>
+				<string>399.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3388,7 +3402,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>121.000000</string>
+				<string>188.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3418,7 +3432,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>401</string>
+				<string>192</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3428,7 +3442,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>116</string>
+				<string>126</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3509,6 +3523,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
