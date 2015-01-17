@@ -9,6 +9,7 @@
 #import "Gameplay.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Cat.h"
+#import "Door.h"
 #import "Level.h"
 #import "Cake.h"
 
@@ -29,6 +30,7 @@ int numCake = 0;
     Cat *_cat;
     CCPhysicsNode *_physNode;
     CCLabelTTF *_cakeScore;
+    Door *_door;
     
     
     Level *_currentLevel;
@@ -316,7 +318,10 @@ int numCake = 0;
     [_levelNode addChild:currentLevel];
     numCake=0;
     [self updateCakeScore];
-    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);}
+    _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
+    _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
+    _door.rotation = _currentLevel.doorAngle;
+}
 
 -(void)updateCakeScore
 {
