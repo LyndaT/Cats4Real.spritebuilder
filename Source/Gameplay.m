@@ -152,7 +152,7 @@ int numCake = 0;
 //    onground = YES;
 //    return TRUE;
 //}
-//
+
 //-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
 //{
 //    onground = NO;
@@ -160,13 +160,13 @@ int numCake = 0;
 //}
 
 -(BOOL)ccPhysicsCollisionPreSolve:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground {
-    CCLOG(@"catonground");
+    //CCLOG(@"catonground");
     onground = YES;
     return YES;
 }
 
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground {
-    //CCLOG(@"catground");
+    CCLOG(@"off ground");
     onground = NO;
 }
 
