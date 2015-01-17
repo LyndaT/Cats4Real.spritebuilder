@@ -11,6 +11,7 @@
 #import "Cat.h"
 #import "Level.h"
 #import "Cake.h"
+#import "Door.h"
 
 CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
@@ -27,6 +28,7 @@ int numCake = 0;
     //taken from Spritebuilder
     CCNode *_levelNode;
     Cat *_cat;
+    Door *_door;
     CCPhysicsNode *_physNode;
     CCLabelTTF *_cakeScore;
     
@@ -339,7 +341,7 @@ int numCake = 0;
         hold = YES;
         [_cat cling];
     }
-    if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming])
+    if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming] && (_cat.rotation==_door.rotation))
     {
         [self toNextLevel];
     }
