@@ -42,6 +42,76 @@
 			<dict>
 				<key>UUID</key>
 				<integer>1</integer>
+				<key>animatedProperties</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>position</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>position</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>3</integer>
+									<key>value</key>
+									<array>
+										<real>0.0</real>
+										<real>0.0</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>position</string>
+									<key>time</key>
+									<real>1</real>
+									<key>type</key>
+									<integer>3</integer>
+									<key>value</key>
+									<array>
+										<real>0.0</real>
+										<real>3</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>position</string>
+									<key>time</key>
+									<real>2</real>
+									<key>type</key>
+									<integer>3</integer>
+									<key>value</key>
+									<array>
+										<real>0.0</real>
+										<real>0.0</real>
+									</array>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>position</string>
+							<key>type</key>
+							<integer>3</integer>
+						</dict>
+					</dict>
+				</dict>
 				<key>baseClass</key>
 				<string>CCSprite</string>
 				<key>children</key>
@@ -65,6 +135,11 @@
 						<string></string>
 					</dict>
 					<dict>
+						<key>baseValue</key>
+						<array>
+							<real>0.0</real>
+							<real>0.0</real>
+						</array>
 						<key>name</key>
 						<string>position</string>
 						<key>type</key>
@@ -146,6 +221,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -313,8 +390,6 @@
 				<array/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -362,19 +437,19 @@
 				<integer>12</integer>
 			</dict>
 			<key>chainedSequenceId</key>
-			<integer>-1</integer>
+			<integer>0</integer>
 			<key>length</key>
-			<real>10</real>
+			<real>2</real>
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>2</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
-			<real>128</real>
+			<real>57.428371429443359</real>
 			<key>sequenceId</key>
 			<integer>0</integer>
 			<key>soundChannel</key>

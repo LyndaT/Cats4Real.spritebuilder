@@ -55,7 +55,7 @@ int numCake = 0;
     
     gameOverScreen = [CCBReader load:@"GameOver"];
     
-    currentLevelName=@"Levels/Level2";
+    currentLevelName=@"Levels/Level3";
     currentLevel = [CCBReader load:currentLevelName];
     _currentLevel = (Level *)currentLevel;
     
@@ -132,6 +132,12 @@ int numCake = 0;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
     CCLOG(@"hit door");
+    if ([currentLevelName  isEqual: @"Levels/Level2"])
+    {
+        CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap to go through!" fontName:@"Lao Sangam MN" fontSize:16];
+        doorInstruc.position = ccp(367,52.5);
+        [currentLevel addChild:doorInstruc];
+    }
     atDoor = YES;
     return TRUE;
 }

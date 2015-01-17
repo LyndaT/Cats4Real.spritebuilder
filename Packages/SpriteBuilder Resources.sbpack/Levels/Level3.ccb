@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>76</integer>
+	<integer>77</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -310,7 +310,7 @@
 						<key>value</key>
 						<array>
 							<real>118</real>
-							<real>147</real>
+							<real>149</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -2932,8 +2932,8 @@ to change gravity!</string>
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>319.41665649414062</real>
-							<real>144.77777099609375</real>
+							<real>318.02777099609375</real>
+							<real>143.38888549804688</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -3023,7 +3023,7 @@ to change gravity!</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>471</string>
+				<string>383</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3033,7 +3033,7 @@ to change gravity!</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>232</string>
+				<string>247</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3043,7 +3043,7 @@ to change gravity!</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>270</string>
+				<string>180</string>
 			</dict>
 		</array>
 		<key>displayName</key>
@@ -3114,6 +3114,8 @@ to change gravity!</string>
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
