@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>11</integer>
+	<integer>12</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -365,7 +365,7 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>8</integer>
+				<integer>11</integer>
 				<key>baseClass</key>
 				<string>CCBFile</string>
 				<key>children</key>
@@ -395,8 +395,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>56.695468902587891</real>
-							<real>-118.20867919921875</real>
+							<real>50</real>
+							<real>-116</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -421,7 +421,7 @@
 						<key>type</key>
 						<string>CCBFile</string>
 						<key>value</key>
-						<string>Sprites/Cat.ccb</string>
+						<string>Sprites/CatAnim.ccb</string>
 					</dict>
 				</array>
 			</dict>
@@ -749,9 +749,9 @@
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>7.5994787216186523</real>
+			<real>0.0</real>
 			<key>position</key>
-			<real>10.966666221618652</real>
+			<real>3.0666666030883789</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

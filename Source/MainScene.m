@@ -7,4 +7,10 @@
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
+- (void)playCutscene {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Anim/CutsceneScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
+
 @end
