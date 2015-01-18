@@ -395,8 +395,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>65.606407165527344</real>
-							<real>-122.16909790039062</real>
+							<real>56.695468902587891</real>
+							<real>-118.20867919921875</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -424,8 +424,6 @@
 						<string>Sprites/Cat.ccb</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -751,9 +749,9 @@
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>1.0722283124923706</real>
+			<real>7.5994787216186523</real>
 			<key>position</key>
-			<real>7.4000000953674316</real>
+			<real>10.966666221618652</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
