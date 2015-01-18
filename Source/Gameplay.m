@@ -56,7 +56,7 @@ int numCake = 0;
     
     gameOverScreen = [CCBReader load:@"GameOver"];
     
-    currentLevelName=@"Levels/Level2";
+    currentLevelName=@"Levels/Level7";
     currentLevel = [CCBReader load:currentLevelName];
     _currentLevel = (Level *)currentLevel;
     

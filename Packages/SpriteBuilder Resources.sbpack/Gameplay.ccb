@@ -213,9 +213,11 @@
 						<key>type</key>
 						<string>CCBFile</string>
 						<key>value</key>
-						<string>Test.ccb</string>
+						<string>Anim/ParticleEffects/Test.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -283,7 +285,7 @@
 						<key>type</key>
 						<string>CCBFile</string>
 						<key>value</key>
-						<string>Test.ccb</string>
+						<string>Anim/ParticleEffects/Test.ccb</string>
 					</dict>
 				</array>
 			</dict>
@@ -716,8 +718,6 @@
 						<real>0.5</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
