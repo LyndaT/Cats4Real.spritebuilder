@@ -324,6 +324,7 @@ int numCake = 0;
     currentLevel = [CCBReader load:currentLevelName];
     [_levelNode addChild:currentLevel];
     numCake=0;
+    
     [self updateCakeScore];
     _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
@@ -337,7 +338,7 @@ int numCake = 0;
 
 -(BOOL)isCatNyooming
 {
-    return (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 100);
+    return (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 150);
 }
 
 
