@@ -23,6 +23,7 @@ BOOL atDoor = NO;
 BOOL isDead = NO;
 BOOL hasCake = NO;
 int numCake = 0;
+BOOL isPaused = NO;
 
 @implementation Gameplay
 {
@@ -187,6 +188,20 @@ int numCake = 0;
     [[CCDirector sharedDirector] pause];
     
     [_levelNode addChild:gameOverScreen];
+}
+
+-(void)pause
+{
+    if (!isPaused){
+    //to pause scene
+        [[CCDirector sharedDirector] pause];
+    
+        //[_levelNode addChild:gameOverScreen];//to switch with pause screen
+    }
+    else{
+        [[CCDirector sharedDirector] resume];
+        CCLOG(@"resumed game");
+    }
 }
 
 -(void)retry
