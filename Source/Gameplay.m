@@ -194,16 +194,18 @@ BOOL isPaused = NO;
 
 -(void)pause
 {
-    if (!isPaused){
-    //to pause scene
-        [[CCDirector sharedDirector] pause];
-    
-        //[_levelNode addChild:gameOverScreen];//to switch with pause screen
-    }
-    else{
-        [[CCDirector sharedDirector] resume];
-        CCLOG(@"resumed game");
-    }
+    if (!isDead){
+        if (!isPaused){
+            //to pause scene
+            [[CCDirector sharedDirector] pause];
+            isPaused=YES;
+            //[_levelNode addChild:gameOverScreen];//to switch with pause screen
+        }
+        else{
+            isPaused=NO;
+            [[CCDirector sharedDirector] resume];
+            CCLOG(@"resumed game");
+        }    }
 }
 
 -(void)retry
