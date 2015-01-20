@@ -1489,7 +1489,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>GillSans-Bold</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1498,7 +1498,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>17</real>
+							<real>15</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -1516,7 +1516,7 @@
 						<key>type</key>
 						<string>IntegerLabeled</string>
 						<key>value</key>
-						<integer>1</integer>
+						<integer>2</integer>
 					</dict>
 					<dict>
 						<key>name</key>
