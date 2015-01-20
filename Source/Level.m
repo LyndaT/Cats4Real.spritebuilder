@@ -20,6 +20,7 @@
 @synthesize totalCake;
 @synthesize nextLevel;
 
+
 - (id)init
 {
     self = [super init];

@@ -62,6 +62,8 @@ BOOL isPaused = NO;
     _currentLevel = (Level *)currentLevel;
     
     [_levelNode addChild:currentLevel];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];//unlock level in loader
+    [defaults setInteger:1 forKey:currentLevelName];//TODO:get actual level number from name
     CCLOG(@"Finished loading level");
     
     [self resetLevel];
