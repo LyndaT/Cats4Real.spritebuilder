@@ -57,7 +57,7 @@ BOOL isPaused = NO;
     
     gameOverScreen = [CCBReader load:@"GameOver"];
     
-    currentLevelName=@"Levels/Level7";
+    currentLevelName=@"Levels/Level2";
     currentLevel = [CCBReader load:currentLevelName];
     _currentLevel = (Level *)currentLevel;
     

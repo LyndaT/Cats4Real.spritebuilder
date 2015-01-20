@@ -8,6 +8,7 @@
 
 #import "LevelSelect.h"
 
+
 @implementation LevelSelect {
     NSMutableArray *_levelArray;
     float _cakeWidth;
@@ -27,5 +28,10 @@
     }
 }
 
+- (void)returnMenu {
+    CCLOG(@"returnMenu");
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
 
 @end

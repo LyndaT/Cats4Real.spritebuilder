@@ -11,6 +11,7 @@
 		528050381A65FD6A0037D1B3 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = 528050371A65FD6A0037D1B3 /* Ground.m */; };
 		52A4FE2D1A64B94800037A4C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A4FE2C1A64B94800037A4C /* CoreMotion.framework */; };
 		52A9797A1A675F2D000A8049 /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A979791A675F2D000A8049 /* Cake.m */; };
+		52F441E61A6F026E00E7AE95 /* LevelSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F441E51A6F026E00E7AE95 /* LevelSelect.m */; };
 		5B12100C19748281004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
 		5B121029197484DA004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
 		5B12102A197484DD004C1E1D /* Cats_RealActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* Cats_RealActivity.java */; };
@@ -183,6 +184,8 @@
 		52A4FE2C1A64B94800037A4C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		52A979781A675F2D000A8049 /* Cake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cake.h; path = Source/Cake.h; sourceTree = "<group>"; };
 		52A979791A675F2D000A8049 /* Cake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cake.m; path = Source/Cake.m; sourceTree = "<group>"; };
+		52F441E41A6F026E00E7AE95 /* LevelSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelSelect.h; path = Source/LevelSelect.h; sourceTree = "<group>"; };
+		52F441E51A6F026E00E7AE95 /* LevelSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelect.m; path = Source/LevelSelect.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100B19748281004C1E1D /* BridgeKitV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeKitV3.framework; path = System/Library/Frameworks/BridgeKitV3.framework; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -484,6 +487,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				52F441E41A6F026E00E7AE95 /* LevelSelect.h */,
+				52F441E51A6F026E00E7AE95 /* LevelSelect.m */,
 				F2B780131A64AF7F00E09517 /* Gameplay.h */,
 				F2B780141A64AF7F00E09517 /* Gameplay.m */,
 				C676C1AD1A6DED9F00A6C252 /* LevelSelect.h */,
@@ -904,7 +909,7 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F26F6C651A6751DF003276EE /* Level.m in Sources */,
 				F2B780151A64AF7F00E09517 /* Gameplay.m in Sources */,
-				C676C1AF1A6DED9F00A6C252 /* LevelSelect.m in Sources */,
+				52F441E61A6F026E00E7AE95 /* LevelSelect.m in Sources */,
 				F26F6C611A6729B4003276EE /* Door.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				52A9797A1A675F2D000A8049 /* Cake.m in Sources */,
