@@ -346,6 +346,7 @@ BOOL isPaused = NO;
     
     [self updateCakeScore];
     _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
+    _cat.physicsBody.velocity = ccp(0,0);
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
 }
