@@ -3240,8 +3240,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -3274,9 +3272,9 @@
 				<key>optimized</key>
 				<false/>
 				<key>type</key>
-				<integer>3</integer>
+				<integer>0</integer>
 				<key>value</key>
-				<string>Level3</string>
+				<string>3</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3387,6 +3385,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

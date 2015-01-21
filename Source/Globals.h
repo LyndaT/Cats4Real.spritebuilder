@@ -18,6 +18,5 @@
 
 + (id)globalManager;
 - (void)setLevel:(int)levelNumber;
-- (BOOL)test;
 
 @end

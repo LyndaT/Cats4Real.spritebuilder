@@ -2991,8 +2991,6 @@ to change gravity!</string>
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -3265,8 +3263,6 @@ to change gravity!</string>
 						<string>Anim/tiltAnim.ccb</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -3299,9 +3295,9 @@ to change gravity!</string>
 				<key>optimized</key>
 				<false/>
 				<key>type</key>
-				<integer>3</integer>
+				<integer>0</integer>
 				<key>value</key>
-				<string>Level4</string>
+				<string>4</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3412,6 +3408,8 @@ to change gravity!</string>
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

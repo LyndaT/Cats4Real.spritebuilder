@@ -23,7 +23,7 @@
 @property (nonatomic, assign) double doorY;
 @property (nonatomic, assign) double doorAngle;
 @property (nonatomic, assign) int totalCake;
-@property (nonatomic, retain) NSString *nextLevel;
+@property (nonatomic, assign) int nextLevel;
 //@property(assign) NSString *nextLevel;
 
 -(void)putDoorBack;

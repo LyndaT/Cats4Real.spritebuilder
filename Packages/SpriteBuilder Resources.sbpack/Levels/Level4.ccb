@@ -4027,9 +4027,9 @@
 				<key>optimized</key>
 				<false/>
 				<key>type</key>
-				<integer>3</integer>
+				<integer>0</integer>
 				<key>value</key>
-				<string>Level5</string>
+				<string>5</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -4140,6 +4140,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

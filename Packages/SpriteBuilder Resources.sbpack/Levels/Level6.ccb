@@ -4394,8 +4394,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -4636,9 +4634,9 @@ Patience is a virtue.</string>
 				<key>optimized</key>
 				<false/>
 				<key>type</key>
-				<integer>3</integer>
+				<integer>0</integer>
 				<key>value</key>
-				<string>Level7</string>
+				<string>7</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -4749,6 +4747,8 @@ Patience is a virtue.</string>
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

@@ -251,8 +251,6 @@
 		C673DBBB1A6F1D1400CDF256 /* LevelSelectCake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelectCake.m; path = Source/LevelSelectCake.m; sourceTree = "<group>"; };
 		C673DBBE1A6F428C00CDF256 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = Source/Globals.h; sourceTree = "<group>"; };
 		C673DBBF1A6F428C00CDF256 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Globals.m; path = Source/Globals.m; sourceTree = "<group>"; };
-		C676C1AD1A6DED9F00A6C252 /* LevelSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelSelect.h; path = Source/LevelSelect.h; sourceTree = "<group>"; };
-		C676C1AE1A6DED9F00A6C252 /* LevelSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelect.m; path = Source/LevelSelect.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		F26F6C5F1A6729B4003276EE /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Door.h; path = Source/Door.h; sourceTree = "<group>"; };
 		F26F6C601A6729B4003276EE /* Door.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Door.m; path = Source/Door.m; sourceTree = "<group>"; };
@@ -492,12 +490,10 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
-				52F441E41A6F026E00E7AE95 /* LevelSelect.h */,
-				52F441E51A6F026E00E7AE95 /* LevelSelect.m */,
 				F2B780131A64AF7F00E09517 /* Gameplay.h */,
 				F2B780141A64AF7F00E09517 /* Gameplay.m */,
-				C676C1AD1A6DED9F00A6C252 /* LevelSelect.h */,
-				C676C1AE1A6DED9F00A6C252 /* LevelSelect.m */,
+				52F441E41A6F026E00E7AE95 /* LevelSelect.h */,
+				52F441E51A6F026E00E7AE95 /* LevelSelect.m */,
 				C673DBBA1A6F1D1400CDF256 /* LevelSelectCake.h */,
 				C673DBBB1A6F1D1400CDF256 /* LevelSelectCake.m */,
 				C673DBBE1A6F428C00CDF256 /* Globals.h */,

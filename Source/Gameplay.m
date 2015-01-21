@@ -50,6 +50,7 @@ BOOL isPaused = NO;
         // activate touches on this scene
         self.userInteractionEnabled = TRUE;
         _motionManager = [[CMMotionManager alloc] init];//initiate the MotionManager
+        _globals = [Globals globalManager];
     }
     return self;
 }
@@ -327,10 +328,16 @@ BOOL isPaused = NO;
     [_levelNode removeChild:currentLevel];
     [_globals setLevel:_currentLevel.nextLevel];
     
+    //check to see if next level is highest level so far, and store if so
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < _currentLevel.nextLevel) {
+        [[NSUserDefaults standardUserDefaults] setInteger:_currentLevel.nextLevel forKey:@"highestlevel"];
+    }
+    
     currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
     _currentLevel = (Level *)currentLevel;
     
-    NSLog(@"next level %@", _currentLevel.nextLevel);
+    NSLog(@"next level %d", _currentLevel.nextLevel);
+    NSLog(@"highest level so far: %ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"]);
     
     [_levelNode addChild:currentLevel];
     

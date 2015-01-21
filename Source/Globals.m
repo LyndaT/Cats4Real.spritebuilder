@@ -18,6 +18,7 @@
 
 #pragma mark Singleton Methods
 
+//call this inside the init for any class that is touching globals
 + (id)globalManager {
     static Globals *sharedGlobals = nil;
     static dispatch_once_t onceToken;
@@ -27,17 +28,10 @@
     return sharedGlobals;
 }
 
--(BOOL) test
-{
-    return true;
-}
-
-
 //set Level, assumes just giving an int will let us determine the level name
 - (void)setLevel:(int)levelNumber {
-    Globals *manager = [Globals globalManager];
-    manager.currentLevelName = [NSString stringWithFormat:@"Levels/Level%d", levelNumber];
-    manager.currentLevelNumber = levelNumber;
+    currentLevelName = [NSString stringWithFormat:@"Levels/Level%d", levelNumber];
+    currentLevelNumber = levelNumber;
 }
 
 - (id)init {

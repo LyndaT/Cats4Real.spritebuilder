@@ -8,18 +8,24 @@
 
 #import "LevelSelect.h"
 #import "LevelSelectCake.h"
+#import "Globals.h"
 
 
 @implementation LevelSelect {
     //NSMutableArray *_levelArray;
     float _cakeWidth;
     int _totalLevels;
+    Globals *_globals;
 }
 
 //Setting up the level select screen with the right amount of cake
 - (void)setTable {
     //Grabbing highest lvl cleared so far from NSUserDefaults
     NSUInteger highestLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
+    if (highestLevel == nil) {
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
+        highestLevel = 1;
+    }
     for (int i = 1; i < highestLevel; i++) {
         //smack down plate with cake
     }
@@ -36,4 +42,10 @@
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
+- (id)init {
+    if (self = [super init]) {
+        _globals = [Globals globalManager];
+    }
+    return self;
+}
 @end
