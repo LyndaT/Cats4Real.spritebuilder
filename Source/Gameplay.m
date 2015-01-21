@@ -13,6 +13,7 @@
 #import "Level.h"
 #import "Cake.h"
 #import "Door.h"
+#import "Globals.h"
 
 CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
@@ -25,18 +26,18 @@ BOOL hasCake = NO;
 int numCake = 0;
 BOOL isPaused = NO;
 
+
 @implementation Gameplay
 {
     //taken from Spritebuilder
     CCNode *_levelNode;
     Cat *_cat;
+    Globals *_globals;
     Door *_door;
     CCPhysicsNode *_physNode;
     CCLabelTTF *_cakeScore;
     
-    
     Level *_currentLevel;
-    NSString *currentLevelName;
     CCScene *gameOverScreen;
     CCScene *currentLevel;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
@@ -57,13 +58,12 @@ BOOL isPaused = NO;
     
     gameOverScreen = [CCBReader load:@"GameOver"];
     
-    currentLevelName=@"Levels/Level2";
-    currentLevel = [CCBReader load:currentLevelName];
+    currentLevel = [CCBReader load:_globals.currentLevelName];
     _currentLevel = (Level *)currentLevel;
     
     [_levelNode addChild:currentLevel];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];//unlock level in loader
-    [defaults setInteger:1 forKey:currentLevelName];//TODO:get actual level number from name
+    [defaults setInteger:_globals.currentLevelNumber forKey:_globals.currentLevelName];
     CCLOG(@"Finished loading level");
     
     [self resetLevel];
@@ -136,7 +136,7 @@ BOOL isPaused = NO;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
     CCLOG(@"hit door");
-    if ([currentLevelName  isEqual: @"Levels/Level2"])
+    if ([_globals.currentLevelName  isEqual: @"Levels/Level2"])
     {
         CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap to go through!" fontName:@"Lao Sangam MN" fontSize:16];
         doorInstruc.position = ccp(367,52.5);
@@ -325,9 +325,9 @@ BOOL isPaused = NO;
 {
     numCake=0;
     [_levelNode removeChild:currentLevel];
+    [_globals setLevel:_currentLevel.nextLevel];
     
-    currentLevelName = [@"Levels/" stringByAppendingString:_currentLevel.nextLevel];
-    currentLevel = [CCBReader load:currentLevelName];
+    currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
     _currentLevel = (Level *)currentLevel;
     
     NSLog(@"next level %@", _currentLevel.nextLevel);
@@ -340,8 +340,9 @@ BOOL isPaused = NO;
 -(void)resetLevel
 {
     [_levelNode removeChild:currentLevel];
-    currentLevel = [CCBReader load:currentLevelName];
+    currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
     [_levelNode addChild:currentLevel];
+    
     numCake=0;
     
     [self updateCakeScore];

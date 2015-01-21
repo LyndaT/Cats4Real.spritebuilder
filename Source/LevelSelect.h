@@ -10,4 +10,7 @@
 
 @interface LevelSelect : CCScene
 
+@property (nonatomic, assign) float _cakeWidth; //Value in pixels for how wide the cake is
+@property (nonatomic, assign) int _totalLevels;
+
 @end

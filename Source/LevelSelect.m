@@ -7,16 +7,18 @@
 //
 
 #import "LevelSelect.h"
+#import "LevelSelectCake.h"
 
 
 @implementation LevelSelect {
-    NSMutableArray *_levelArray;
+    //NSMutableArray *_levelArray;
     float _cakeWidth;
     int _totalLevels;
 }
 
 //Setting up the level select screen with the right amount of cake
 - (void)setTable {
+    //Grabbing highest lvl cleared so far from NSUserDefaults
     NSUInteger highestLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
     for (int i = 1; i < highestLevel; i++) {
         //smack down plate with cake
