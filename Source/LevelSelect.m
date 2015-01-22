@@ -18,6 +18,9 @@
     Globals *_globals;
 }
 
+@synthesize _cakeWidth;
+@synthesize _totalLevels;
+
 //Setting up the level select screen with the right amount of cake
 - (void)setTable {
     //Grabbing highest lvl cleared so far from NSUserDefaults
@@ -26,14 +29,34 @@
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
         highestLevel = 1;
     }
-    for (int i = 1; i < highestLevel; i++) {
-        //smack down plate with cake
-    }
-    //smack down plate without cake
     
-    for (int j = highestLevel+1; j < _totalLevels; j++) {
-        //smack down empty placemat
+    int tempY=0;
+    int tempX=0;
+    for (int j = 1; j <= _totalLevels; j++) {
+        //placemats
+        CCNode *placemat = [CCBReader load:@"assets/levelSelect/plateTag"];
+        placemat.position = ccp(100 + (_cakeWidth+12.5)*tempX,210 - tempY);
+        [self addChild:placemat];
+        
+        //plates w/cake
+        if (j<highestLevel)
+        {
+            LevelSelectCake *tempCake = (LevelSelectCake *)[CCBReader load:@"assets/levelSelect/cakePlate"];
+            tempCake.position = ccp(98 + (_cakeWidth+13)*tempX,250 - tempY);
+            [tempCake setLevel:j];
+            [self addChild:tempCake];
+        }
+        
+        tempY = (floor((j)/4) * 120);
+        tempX = (j) - (floor((j)/4) * 4);
     }
+    
+    //empty plate
+    tempY = (floor((highestLevel-1)/4) * 120);
+    tempX = (highestLevel-1) - (floor((highestLevel-1)/4) * 4);
+    CCNode *tempPlate = [CCBReader load:@"assets/levelSelect/emptyPlate"];
+    tempPlate.position = ccp(98 + (_cakeWidth+13)*tempX,250 - tempY);
+    [self addChild:tempPlate];
 }
 
 - (void)returnMenu {
@@ -47,5 +70,9 @@
         _globals = [Globals globalManager];
     }
     return self;
+}
+
+- (void)didLoadFromCCB {
+    [self setTable];
 }
 @end

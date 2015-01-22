@@ -11,8 +11,7 @@
 
 @interface LevelSelectCake : CCNode
 
-
-
-
 - (void)play;
+-(void)setLevel:(int)lvl;
+
 @end

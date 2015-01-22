@@ -13,22 +13,30 @@
 //Assumes levels follow the naming convention of "Level num"
 @implementation LevelSelectCake {
     Globals *_globals;
+    NSString *_name;
+    int _level;
 }
 
-- (id)init:(int)level {
+- (id)init{
     self = [super init];
     
     if (self) {
-        self.name = [NSString stringWithFormat:@"Level%d", level];
+        _name = [NSString stringWithFormat:@"Level%d", 1];
         _globals = [Globals globalManager];
     }
     
     return self;
 }
 
+-(void)setLevel:(int)lvl
+{
+    _level=lvl;
+    _name = [NSString stringWithFormat:@"Level%d", lvl];
+}
+
 - (void)play {
+    [_globals setLevel:_level];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
-    [_globals setLevel:self.name];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
