@@ -1,6 +1,16 @@
 #import "MainScene.h"
 
 @implementation MainScene
+{
+    CCButton *_levelScreenButton;
+}
+
+- (void)didLoadFromCCB {
+    NSUInteger highestLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
+    if (highestLevel == nil) {
+        _levelScreenButton.enabled = NO;
+    }
+}
 
 - (void)play {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];

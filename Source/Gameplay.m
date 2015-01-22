@@ -222,6 +222,13 @@ BOOL isPaused = NO;
     }
 }
 
+-(void)returnMenu
+{
+    CCLOG(@"returnMenu");
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
 
 
 

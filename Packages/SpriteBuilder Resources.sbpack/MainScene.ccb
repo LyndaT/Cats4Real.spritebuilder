@@ -928,7 +928,7 @@
 				<key>displayName</key>
 				<string>LevelButton</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_levelSelectButton</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1567,8 +1567,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
