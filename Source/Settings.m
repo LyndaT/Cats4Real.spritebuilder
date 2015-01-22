@@ -18,7 +18,7 @@
     // access audio object
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
-    [audio playBg:@"assets/music/CreditsMusic.mp3" loop:TRUE];
+    [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
 }
 
 
