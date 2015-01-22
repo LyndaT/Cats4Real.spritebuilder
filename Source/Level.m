@@ -19,6 +19,7 @@
 @synthesize doorAngle;
 @synthesize totalCake;
 @synthesize nextLevel;
+@synthesize isCutsceneNext;
 
 
 - (id)init

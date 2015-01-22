@@ -3,13 +3,24 @@
 @implementation MainScene
 {
     CCButton *_levelSelectButton;
+    BOOL firstTime;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        firstTime=YES;
+    }
+    return self;
 }
 
 - (void)didLoadFromCCB {
     NSUInteger highestLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
     if (highestLevel == nil || highestLevel == 1) {
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
-        _levelSelectButton.enabled = NO;
+        firstTime=YES;
+    }else
+    {
+        firstTime=NO;
     }
     
     // access audio object
@@ -19,14 +30,16 @@
 }
 
 - (void)play {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene];
-}
-
-- (void)levelSelect {
-    CCLOG(@"LevelSelect");
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"LevelSelect"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+    if (firstTime)
+    {
+        CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
+        [[CCDirector sharedDirector] replaceScene:gameplayScene];
+    }else
+    {
+        CCLOG(@"LevelSelect");
+        CCScene *gameplayScene = [CCBReader loadAsScene:@"LevelSelect"];
+        [[CCDirector sharedDirector] replaceScene:gameplayScene];
+    }
 }
 
 - (void)playCutscene {

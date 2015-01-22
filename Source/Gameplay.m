@@ -374,6 +374,15 @@ BOOL isPaused = NO;
 -(void)updateCakeScore
 {
     _cakeScore.string = [NSString stringWithFormat:@"%i/%i cake", numCake, _currentLevel.totalCake];
+    if (numCake>=_currentLevel.totalCake)
+    {
+        CCLOG(@"door open");
+        [_door open];
+    }else
+    {
+        CCLOG(@"door close");
+        [_door close];
+    }
 }
 
 -(BOOL)isCatNyooming

@@ -10,4 +10,7 @@
 
 @interface Door : CCNode
 
+- (void)open;
+- (void)close;
+
 @end

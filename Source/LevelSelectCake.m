@@ -35,6 +35,7 @@
 }
 
 - (void)play {
+    CCLOG(_name);
     [_globals setLevel:_level];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];

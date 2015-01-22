@@ -9,12 +9,23 @@
 #import "Door.h"
 
 @implementation Door{
-    
-}
+    CCAnimationManager* animationManager;}
 
-- (void)didLoadFromCCB {
+- (void)didLoadFromCCB
+{
+    animationManager = self.animationManager;
     self.physicsBody.collisionType = @"door";
     self.physicsBody.sensor = TRUE;
+}
+
+- (void)open
+{
+    [animationManager runAnimationsForSequenceNamed:@"open"];
+}
+
+- (void)close
+{
+    [animationManager runAnimationsForSequenceNamed:@"closed"];
 }
 
 @end

@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>21</integer>
+	<integer>22</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -296,7 +296,7 @@
 				<array>
 					<dict>
 						<key>UUID</key>
-						<integer>16</integer>
+						<integer>21</integer>
 						<key>baseClass</key>
 						<string>CCBFile</string>
 						<key>children</key>
@@ -326,8 +326,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>397.00003051757812</real>
-									<real>208</real>
+									<real>438</real>
+									<real>207</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -355,6 +355,8 @@
 								<string>Sprites/Door.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>

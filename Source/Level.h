@@ -24,6 +24,7 @@
 @property (nonatomic, assign) double doorAngle;
 @property (nonatomic, assign) int totalCake;
 @property (nonatomic, assign) int nextLevel;
+@property (nonatomic, assign) BOOL isCutsceneNext;
 //@property(assign) NSString *nextLevel;
 
 -(void)putDoorBack;
