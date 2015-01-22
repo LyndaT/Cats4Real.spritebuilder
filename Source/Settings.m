@@ -7,8 +7,12 @@
 //
 
 #import "Settings.h"
+#import "Globals.h"
 
 @implementation Settings
+{
+    Globals *_globals;
+}
 
 -(void)returnMenu
 {
@@ -21,6 +25,7 @@
 {
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
     int temp = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
+    [_globals setLevel:1];
     CCLOG(@"reset progress to lvl%i",temp);
 }
 
