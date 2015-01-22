@@ -23,10 +23,20 @@
 
 -(void)resetProgress
 {
+    [_globals setLevel:1];
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
     int temp = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
-    [_globals setLevel:1];
-    CCLOG(@"reset progress to lvl%i",temp);
+    CCLOG(@"reset progress to lvl%i, global %i",temp, _globals.currentLevelNumber);
+}
+
+- (id)init{
+    self = [super init];
+    
+    if (self) {
+        _globals = [Globals globalManager];
+    }
+    
+    return self;
 }
 
 @end

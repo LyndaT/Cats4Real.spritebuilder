@@ -36,8 +36,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        currentLevelName = @"Levels/Level2";
-        currentLevelNumber = 2;
+        currentLevelName = @"Levels/Level1";
+        currentLevelNumber = 1;
     }
     return self;
 }

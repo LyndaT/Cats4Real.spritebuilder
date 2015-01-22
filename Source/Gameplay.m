@@ -65,7 +65,7 @@ BOOL isPaused = NO;
     [_levelNode addChild:currentLevel];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];//unlock level in loader
     [defaults setInteger:_globals.currentLevelNumber forKey:_globals.currentLevelName];
-    CCLOG(@"Finished loading level");
+    CCLOG(@"Finished loading level %i", _globals.currentLevelNumber);
     
     [self resetLevel];
     
