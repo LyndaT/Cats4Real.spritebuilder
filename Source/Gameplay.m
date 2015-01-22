@@ -71,6 +71,11 @@ BOOL isPaused = NO;
     
     _physNode.collisionDelegate = self;
     _cat.physicsBody.collisionType = @"cat";
+    
+    // access audio object
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    // play background sound
+    [audio playBg:@"assets/music/CreditsMusic.mp3" loop:TRUE];
 }
 
 - (void)update:(CCTime)delta
