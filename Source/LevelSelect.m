@@ -21,6 +21,24 @@
 @synthesize _cakeWidth;
 @synthesize _totalLevels;
 
+
+- (id)init {
+    if (self = [super init]) {
+        _globals = [Globals globalManager];
+    }
+    return self;
+}
+
+- (void)didLoadFromCCB {
+    [self setTable];
+    
+    // access audio object
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    // play background sound
+    [audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
+    
+}
+
 //Setting up the level select screen with the right amount of cake
 - (void)setTable {
     //Grabbing highest lvl cleared so far from NSUserDefaults
@@ -66,14 +84,4 @@
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
-- (id)init {
-    if (self = [super init]) {
-        _globals = [Globals globalManager];
-    }
-    return self;
-}
-
-- (void)didLoadFromCCB {
-    [self setTable];
-}
 @end

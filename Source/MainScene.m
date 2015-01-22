@@ -11,6 +11,11 @@
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
         _levelSelectButton.enabled = NO;
     }
+    
+    // access audio object
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    // play background sound
+    [audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
 }
 
 - (void)play {
