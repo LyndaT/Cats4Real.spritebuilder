@@ -2,13 +2,14 @@
 
 @implementation MainScene
 {
-    CCButton *_levelScreenButton;
+    CCButton *_levelSelectButton;
 }
 
 - (void)didLoadFromCCB {
     NSUInteger highestLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
-    if (highestLevel == nil) {
-        _levelScreenButton.enabled = NO;
+    if (highestLevel == nil || highestLevel == 1) {
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
+        _levelSelectButton.enabled = NO;
     }
 }
 
