@@ -338,22 +338,32 @@ BOOL isPaused = NO;
 {
     numCake=0;
     [_levelNode removeChild:currentLevel];
-    [_globals setLevel:_currentLevel.nextLevel];
     
-    //check to see if next level is highest level so far, and store if so
-    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < _currentLevel.nextLevel) {
-        [[NSUserDefaults standardUserDefaults] setInteger:_currentLevel.nextLevel forKey:@"highestlevel"];
-    }
-    
-    currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
-    _currentLevel = (Level *)currentLevel;
-    
-    NSLog(@"next level %d", _currentLevel.nextLevel);
-    NSLog(@"highest level so far: %ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"]);
-    
-    [_levelNode addChild:currentLevel];
-    
-    [self resetLevel];
+    int nextLvl = _currentLevel.nextLevel;
+    BOOL isCutsceneNext = _currentLevel.isCutsceneNext;
+    if (!isCutsceneNext)
+    {
+        [_globals setLevel:nextLvl];
+        
+        //check to see if next level is highest level so far, and store if so
+        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < nextLvl) {
+            [[NSUserDefaults standardUserDefaults] setInteger:nextLvl forKey:@"highestlevel"];
+        }
+        
+        currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
+        _currentLevel = (Level *)currentLevel;
+        
+        NSLog(@"next level %d", _currentLevel.nextLevel);
+        NSLog(@"highest level so far: %ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"]);
+        
+        [_levelNode addChild:currentLevel];
+        
+        [self resetLevel];
+    }else
+    {
+        [_globals setCutscene:nextLvl];
+        CCScene *cutscene = [CCBReader loadAsScene:@"Anim/CutsceneScene"];
+        [[CCDirector sharedDirector] replaceScene:cutscene];    }
 }
 
 -(void)resetLevel

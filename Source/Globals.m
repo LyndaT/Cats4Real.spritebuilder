@@ -15,6 +15,7 @@
 
 @synthesize currentLevelName;
 @synthesize currentLevelNumber;
+@synthesize isCurrentCutscene;
 
 - (id)init {
     if (self = [super init]) {
@@ -37,9 +38,16 @@
 }
 
 //set Level, assumes just giving an int will let us determine the level name
-- (void)setLevel:(int)levelNumber{// :(NSString*)levelName{
+- (void)setLevel:(int)levelNumber{
+    isCurrentCutscene=NO;
     currentLevelName = [NSString stringWithFormat:@"Levels/Level%d", levelNumber];
     currentLevelNumber = levelNumber;
+}
+
+- (void)setCutscene:(int)cutNumber{
+    isCurrentCutscene=YES;
+    currentLevelName = [NSString stringWithFormat:@"Anim/Cutscene%d", cutNumber];
+    currentLevelNumber = cutNumber;
 }
 
 @end

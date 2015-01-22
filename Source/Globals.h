@@ -11,12 +11,15 @@
 @interface Globals : NSObject {
     NSString *currentLevelName;
     int currentLevelNumber;
+    BOOL isCurrentCutscene;
 }
 
 @property (nonatomic, retain) NSString *currentLevelName;
 @property (nonatomic, assign) int currentLevelNumber;
+@property (nonatomic, assign) BOOL isCurrentCutscene;
 
 + (id)globalManager;
-- (void)setLevel:(int)levelNumber;// :(NSString*)levelName;
+- (void)setLevel:(int)levelNumber;
+- (void)setCutscene:(int)cutNumber;
 
 @end

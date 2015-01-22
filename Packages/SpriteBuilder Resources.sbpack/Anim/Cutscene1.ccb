@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>17</integer>
+	<integer>19</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -483,7 +483,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>-55</real>
+							<real>-20</real>
 							<real>-85</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -549,7 +549,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -561,7 +561,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -741,8 +741,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.10000000149011612</real>
-							<real>0.10000000149011612</real>
+							<real>1</real>
+							<real>1</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -785,7 +785,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -797,7 +797,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -1010,8 +1010,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>31</real>
-							<real>-52</real>
+							<real>314</real>
+							<real>16.999998092651367</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1049,7 +1049,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>-22.745458602905273</real>
+						<real>193.55752563476562</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1081,7 +1081,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1093,7 +1093,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -2213,7 +2213,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>158.33332824707031</real>
+							<real>0.0</real>
 							<real>-111.00000762939453</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -2683,8 +2683,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>84.232002258300781</real>
-							<real>6.3634333610534668</real>
+							<real>318</real>
+							<real>138</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -2713,8 +2713,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.10000000149011612</real>
-							<real>0.10000000149011612</real>
+							<real>1.2999999523162842</real>
+							<real>1.2999999523162842</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -2727,7 +2727,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>139.48713684082031</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2759,7 +2759,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2771,7 +2771,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -2786,7 +2786,30 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>SingleCutscene</string>
+		<key>customProperties</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>nextLevel</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>5</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>isCutsceneNext</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>2</integer>
+				<key>value</key>
+				<string>0</string>
+			</dict>
+		</array>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -2824,8 +2847,8 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>0.5</real>
-					<real>0.5</real>
+					<real>0.0</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>
@@ -2885,6 +2908,8 @@
 				<array/>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -2938,9 +2963,9 @@
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>0.39689105749130249</real>
+			<real>7.673828125</real>
 			<key>position</key>
-			<real>1.4666666984558105</real>
+			<real>9</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
