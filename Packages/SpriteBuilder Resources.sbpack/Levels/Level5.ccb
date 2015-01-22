@@ -4475,7 +4475,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>assets/Lao Sangam MN.ttf</string>
+						<string>assets/playtime.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -4484,7 +4484,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>16</real>
+							<real>20</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -4601,6 +4601,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

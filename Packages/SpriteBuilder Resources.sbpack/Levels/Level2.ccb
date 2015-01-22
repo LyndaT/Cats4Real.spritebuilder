@@ -2865,7 +2865,7 @@ to change gravity!</string>
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>assets/Lao Sangam MN.ttf</string>
+						<string>assets/playtime.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2874,7 +2874,7 @@ to change gravity!</string>
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>16</real>
+							<real>20</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -3418,8 +3418,6 @@ to change gravity!</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

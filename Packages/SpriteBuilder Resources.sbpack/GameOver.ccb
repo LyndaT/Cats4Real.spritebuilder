@@ -72,7 +72,7 @@
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>0.64999997615814209</real>
+							<real>0.60000002384185791</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>assets/fuqedup.png</string>
+							<string>assets/died_cake.png</string>
 						</array>
 					</dict>
 					<dict>

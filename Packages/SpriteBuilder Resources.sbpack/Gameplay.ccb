@@ -355,8 +355,6 @@
 								<string>Sprites/Door.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -1166,7 +1164,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>assets/playtime.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1175,7 +1173,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>15</real>
+							<real>18</real>
 							<integer>0</integer>
 						</array>
 					</dict>

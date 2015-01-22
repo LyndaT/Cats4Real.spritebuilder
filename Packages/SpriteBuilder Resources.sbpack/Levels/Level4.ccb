@@ -3932,7 +3932,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Futura-Medium</string>
+						<string>assets/playtime.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -3941,7 +3941,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>16</real>
+							<real>20</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -4058,6 +4058,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -4213,8 +4215,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
