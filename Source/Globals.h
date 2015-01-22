@@ -17,6 +17,6 @@
 @property (nonatomic, assign) int currentLevelNumber;
 
 + (id)globalManager;
-- (void)setLevel:(int)levelNumber;
+- (void)setLevel:(int)levelNumber;// :(NSString*)levelName;
 
 @end

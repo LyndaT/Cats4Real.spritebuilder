@@ -4071,6 +4071,16 @@
 				<key>value</key>
 				<string>180</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>isCutsceneNext</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>0</string>
+			</dict>
 		</array>
 		<key>displayName</key>
 		<string>CCNode</string>

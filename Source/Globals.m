@@ -16,6 +16,14 @@
 @synthesize currentLevelName;
 @synthesize currentLevelNumber;
 
+- (id)init {
+    if (self = [super init]) {
+        currentLevelName = @"Levels/Level1";
+        currentLevelNumber = 1;
+    }
+    return self;
+}
+
 #pragma mark Singleton Methods
 
 //call this inside the init for any class that is touching globals
@@ -29,18 +37,9 @@
 }
 
 //set Level, assumes just giving an int will let us determine the level name
-- (void)setLevel:(int)levelNumber {
+- (void)setLevel:(int)levelNumber{// :(NSString*)levelName{
     currentLevelName = [NSString stringWithFormat:@"Levels/Level%d", levelNumber];
     currentLevelNumber = levelNumber;
 }
-
-- (id)init {
-    if (self = [super init]) {
-        currentLevelName = @"Levels/Level1";
-        currentLevelNumber = 1;
-    }
-    return self;
-}
-
 
 @end

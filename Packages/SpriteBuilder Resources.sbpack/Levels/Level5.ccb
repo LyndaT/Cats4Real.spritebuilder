@@ -4465,8 +4465,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Don't smoosh it!!
-Patience is a virtue.</string>
+							<string>do not sit on cake</string>
 							<false/>
 						</array>
 					</dict>
@@ -4678,6 +4677,16 @@ Patience is a virtue.</string>
 				<key>value</key>
 				<string>180</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>isCutsceneNext</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>0</string>
+			</dict>
 		</array>
 		<key>displayName</key>
 		<string>CCNode</string>
@@ -4747,8 +4756,6 @@ Patience is a virtue.</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
