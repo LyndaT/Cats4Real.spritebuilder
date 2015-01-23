@@ -873,11 +873,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>49</real>
-							<real>291.00003051757812</real>
-							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<real>0.039999999105930328</real>
+							<real>0.070000000298023224</real>
+							<integer>1</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -898,8 +898,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.25</real>
+							<real>0.25</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -922,8 +922,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>128</real>
+							<real>128</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -956,7 +956,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Pause</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -968,8 +968,16 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>assets/buttons/button_pause.png</string>
 						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundOpacity|Normal</string>
+						<key>type</key>
+						<string>Float</string>
+						<key>value</key>
+						<real>0.75</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -979,7 +987,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>assets/buttons/button_pause.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1003,7 +1011,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>assets/buttons/button_pause.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1022,7 +1030,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>assets/buttons/button_pause.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1166,6 +1174,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

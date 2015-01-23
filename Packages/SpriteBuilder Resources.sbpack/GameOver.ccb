@@ -297,6 +297,14 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>backgroundOpacity|Highlighted</string>
+								<key>type</key>
+								<string>Float</string>
+								<key>value</key>
+								<real>0.75</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>labelColor|Highlighted</string>
 								<key>type</key>
 								<string>Color3</string>
@@ -620,6 +628,14 @@
 									<string></string>
 									<string>assets/buttons/button_retry.png</string>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundOpacity|Highlighted</string>
+								<key>type</key>
+								<string>Float</string>
+								<key>value</key>
+								<real>0.75</real>
 							</dict>
 							<dict>
 								<key>name</key>

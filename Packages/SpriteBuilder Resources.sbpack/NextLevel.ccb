@@ -146,8 +146,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -296,6 +294,14 @@
 									<string></string>
 									<string>assets/buttons/button_menu.png</string>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundOpacity|Highlighted</string>
+								<key>type</key>
+								<string>Float</string>
+								<key>value</key>
+								<real>0.75</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -625,6 +631,14 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>backgroundOpacity|Highlighted</string>
+								<key>type</key>
+								<string>Float</string>
+								<key>value</key>
+								<real>0.75</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>labelColor|Highlighted</string>
 								<key>type</key>
 								<string>Color3</string>
@@ -807,6 +821,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
