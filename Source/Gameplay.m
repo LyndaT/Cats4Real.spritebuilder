@@ -275,6 +275,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 //from nextlevel menu
 -(void)returnMenuFromLevelEnd
 {
+    isOpeningDoor=NO;
     CCLOG(@"returnMenu");
     [self removeChild:_levelDoneMenu];
     [[CCDirector sharedDirector] resume];
@@ -295,6 +296,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 
 -(void)catThroughDoor
 {
+    CCLOG(@"cat thru door");
     [[CCDirector sharedDirector] pause];
     [self addChild:_levelDoneMenu];
 }
@@ -472,12 +474,12 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    if (onground)
+    if (onground && !isOpeningDoor)
     {
         hold = YES;
         [_cat cling];
     }
-    if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming] )
+    if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming] && !isOpeningDoor)
     {
         CCLOG(@"Cat rotation %f", _cat.rotation);
         CCLOG(@"Door rotation %f", _door.rotation);
