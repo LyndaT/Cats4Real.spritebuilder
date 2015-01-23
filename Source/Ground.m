@@ -14,7 +14,7 @@
 
 - (void)didLoadFromCCB {
     self.physicsBody.collisionType = @"ground";
-    self.physicsBody.sensor = TRUE;
+//    self.physicsBody.sensor = TRUE;
 }
 
 @end
