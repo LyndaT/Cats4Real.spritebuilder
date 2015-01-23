@@ -47,7 +47,7 @@
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
         highestLevel = 1;
     }
-    
+    highestLevel = 7;
     int tempY=0;
     int tempX=0;
     for (int j = 1; j <= _totalLevels; j++) {
