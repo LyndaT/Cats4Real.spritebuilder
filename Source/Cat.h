@@ -17,5 +17,6 @@
 - (void)walk;
 - (void)stand;
 - (void)cling;
+- (void)openDoor;
 
 @end

@@ -25,21 +25,24 @@ BOOL isDead = NO;
 BOOL hasCake = NO;
 int numCake = 0;
 BOOL isPaused = NO;
+BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 
 
 @implementation Gameplay
 {
     //taken from Spritebuilder
     CCNode *_levelNode;
-    Cat *_cat;
     Globals *_globals;
-    Door *_door;
     CCPhysicsNode *_physNode;
     CCLabelTTF *_cakeScore;
     
+    CCNode *_gameOverMenu;
+    CCNode *_levelDoneMenu;
+    CCNode *_pauseMenu;
     Level *_currentLevel;
-    CCScene *gameOverScreen;
     CCScene *currentLevel;
+    Door *_door;
+    Cat *_cat;
     CMMotionManager *_motionManager; //instance of the motion manager, please ONLY create one
 }
 
@@ -55,9 +58,11 @@ BOOL isPaused = NO;
     return self;
 }
 
-- (void)didLoadFromCCB {
-    
-    gameOverScreen = [CCBReader load:@"GameOver"];
+- (void)didLoadFromCCB
+{
+    _gameOverMenu = [CCBReader load:@"GameOver" owner:self];
+    _levelDoneMenu = [CCBReader load:@"NextLevel" owner:self];
+    _pauseMenu = [CCBReader load:@"Pause" owner:self];
     
     currentLevel = [CCBReader load:_globals.currentLevelName];
     _currentLevel = (Level *)currentLevel;
@@ -66,6 +71,11 @@ BOOL isPaused = NO;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];//unlock level in loader
     [defaults setInteger:_globals.currentLevelNumber forKey:_globals.currentLevelName];
     CCLOG(@"Finished loading level %i", _globals.currentLevelNumber);
+    
+    _door = (Door *)[CCBReader load:@"Sprites/Door" owner:self];
+    _cat = (Cat *)[CCBReader load:@"Sprites/Cat" owner:self];
+    [_levelNode addChild:_door];
+    [_levelNode addChild:_cat];
     
     [self resetLevel];
     
@@ -83,7 +93,7 @@ BOOL isPaused = NO;
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    if(!hold)
+    if(!hold && !isOpeningDoor)
     {
         [self changeGravity:acceleration.x :acceleration.y];
         [_cat moveSelf:delta :direction :speed :hold];
@@ -195,43 +205,79 @@ BOOL isPaused = NO;
     //to pause scene
     [[CCDirector sharedDirector] pause];
     
-    [_levelNode addChild:gameOverScreen];
+    [self addChild:_gameOverMenu];
 }
 
 -(void)pause
 {
-    if (!isDead){
+    if (!isDead && !isOpeningDoor){
         if (!isPaused){
             //to pause scene
             [[CCDirector sharedDirector] pause];
             isPaused=YES;
-            //[_levelNode addChild:gameOverScreen];//to switch with pause screen
+            [self addChild:_pauseMenu];
         }
         else{
-            isPaused=NO;
-            [[CCDirector sharedDirector] resume];
-            CCLOG(@"resumed game");
-        }    }
+            [self unpause];
+        }
+    }
+}
+
+-(void)unpause
+{
+    isPaused=NO;
+    [[CCDirector sharedDirector] resume];
+    [self removeChild:_pauseMenu];
+    CCLOG(@"resumed game");
 }
 
 -(void)retry
 {
-    [[CCDirector sharedDirector] resume];
+    [self unpause];
     
     [self resetLevel];
     
     if (isDead)
     {
         isDead = NO;
-        [_levelNode removeChild:gameOverScreen];
+        [self removeChild:_gameOverMenu];
     }
 }
 
+//from pause menu or gameover menu
 -(void)returnMenu
 {
     CCLOG(@"returnMenu");
+    [self unpause];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
+//from nextlevel menu
+-(void)returnMenuFromLevelEnd
+{
+    CCLOG(@"returnMenu");
+    [self removeChild:_levelDoneMenu];
+    [[CCDirector sharedDirector] resume];
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
+//continue to next level
+-(void)cont
+{
+    isOpeningDoor=NO;
+    [_cat walk];
+    [_door close];
+    [self removeChild:_levelDoneMenu];
+    [[CCDirector sharedDirector] resume];
+    [self toNextLevel];
+}
+
+-(void)catThroughDoor
+{
+    [[CCDirector sharedDirector] pause];
+    [self addChild:_levelDoneMenu];
 }
 
 
@@ -377,6 +423,7 @@ BOOL isPaused = NO;
     [self updateCakeScore];
     _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
     _cat.physicsBody.velocity = ccp(0,0);
+//    CCLOG(@"cat added, %d, %d, supposedly %d, %d",_cat.position.x,_cat.position.y, _currentLevel.catX, _currentLevel.catY);
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
 }
@@ -419,7 +466,9 @@ BOOL isPaused = NO;
             CCLOG(@"wrong rotation!");
         }
         else {
-            [self toNextLevel];
+            isOpeningDoor=YES;
+            [_cat openDoor];
+            [_door fade];
         }
     }
     //CCLOG(@"Touches began");
@@ -427,14 +476,20 @@ BOOL isPaused = NO;
 }
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    if (!isOpeningDoor && hold)
+    {
+        [_cat walk];
+    }
     hold = NO;
-    [_cat walk];
     //CCLOG(@"Touches ended");
 }
 - (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    if (!isOpeningDoor && hold)
+    {
+        [_cat walk];
+    }
     hold = NO;
-    [_cat walk];
     //CCLOG(@"Touches ended");
 }
 

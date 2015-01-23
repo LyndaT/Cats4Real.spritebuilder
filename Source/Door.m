@@ -28,4 +28,9 @@
     [animationManager runAnimationsForSequenceNamed:@"closed"];
 }
 
+- (void)fade
+{
+    [animationManager runAnimationsForSequenceNamed:@"fade"];
+}
+
 @end

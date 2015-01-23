@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>3</integer>
+	<integer>2</integer>
 	<key>docDimensionsType</key>
 	<integer>1</integer>
 	<key>fileType</key>
@@ -46,6 +46,31 @@
 				<dict>
 					<key>0</key>
 					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>1</real>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>10</integer>
+						</dict>
 						<key>spriteFrame</key>
 						<dict>
 							<key>keyframes</key>
@@ -201,8 +226,61 @@
 							<integer>7</integer>
 						</dict>
 					</dict>
+					<key>1</key>
+					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>1</real>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>10</integer>
+						</dict>
+					</dict>
 					<key>2</key>
 					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>1</real>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>10</integer>
+						</dict>
 						<key>spriteFrame</key>
 						<dict>
 							<key>keyframes</key>
@@ -257,7 +335,7 @@
 									<key>easing</key>
 									<dict>
 										<key>type</key>
-										<integer>1</integer>
+										<integer>0</integer>
 									</dict>
 									<key>name</key>
 									<string>opacity</string>
@@ -726,7 +804,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>20</real>
+							<real>0.0</real>
 							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -792,7 +870,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -804,7 +882,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -827,6 +905,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -1146,24 +1226,41 @@
 			<key>callbackChannel</key>
 			<dict>
 				<key>keyframes</key>
-				<array/>
+				<array>
+					<dict>
+						<key>easing</key>
+						<dict>
+							<key>type</key>
+							<integer>0</integer>
+						</dict>
+						<key>time</key>
+						<real>2.2999999523162842</real>
+						<key>type</key>
+						<integer>12</integer>
+						<key>value</key>
+						<array>
+							<string>catThroughDoor</string>
+							<integer>2</integer>
+						</array>
+					</dict>
+				</array>
 				<key>type</key>
 				<integer>12</integer>
 			</dict>
 			<key>chainedSequenceId</key>
 			<integer>-1</integer>
 			<key>length</key>
-			<real>10</real>
+			<real>3</real>
 			<key>name</key>
 			<string>doorOpen</string>
 			<key>offset</key>
-			<real>1.3130471706390381</real>
+			<real>0.89566421508789062</real>
 			<key>position</key>
-			<real>2.7999999523162842</real>
+			<real>2.3666665554046631</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
-			<real>373.01824951171875</real>
+			<real>322.66714477539062</real>
 			<key>sequenceId</key>
 			<integer>3</integer>
 			<key>soundChannel</key>

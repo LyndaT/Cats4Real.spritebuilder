@@ -12,5 +12,6 @@
 
 - (void)open;
 - (void)close;
+- (void)fade;
 
 @end
