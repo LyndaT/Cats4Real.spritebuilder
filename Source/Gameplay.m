@@ -152,7 +152,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
     CCLOG(@"hit door");
-    if ([_globals.currentLevelName  isEqual: @"Levels/Level2"])
+    if (_globals.currentLevelNumber==1)
     {
         CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap to go through!" fontName:@"Lao Sangam MN" fontSize:16];
         doorInstruc.position = ccp(367,52.5);
