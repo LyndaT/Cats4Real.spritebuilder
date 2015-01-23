@@ -244,11 +244,29 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
     }
 }
 
+-(void)retryFromDeath
+{
+    isDead = NO;
+    [self removeChild:_gameOverMenu];
+    [[CCDirector sharedDirector] resume];
+    [self resetLevel];
+}
+
 //from pause menu or gameover menu
 -(void)returnMenu
 {
     CCLOG(@"returnMenu");
     [self unpause];
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
+//from death menu
+-(void)returnMenuFromDied
+{
+    CCLOG(@"returnMenu");
+    [self removeChild:_gameOverMenu];
+    [[CCDirector sharedDirector] resume];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
