@@ -1,9 +1,11 @@
 #import "MainScene.h"
+#import "Globals.h"
 
 @implementation MainScene
 {
     CCButton *_levelSelectButton;
     BOOL firstTime;
+    Globals *_globals;
 }
 
 - (id)init {
@@ -27,6 +29,7 @@
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
     [audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
+    //[[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
 }
 
 - (void)play {

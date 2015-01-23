@@ -32,6 +32,11 @@
     _currentScene = (SingleCutscene *)currentScene;
     [_cut addChild:currentScene];
     CCLOG(@"loaded cutscene, next %i", _currentScene.nextLevel);
+    
+    // access audio object
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    // play background sound
+    [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
 }
 
 - (void)continue

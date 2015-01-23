@@ -12,14 +12,17 @@
     NSString *currentLevelName;
     int currentLevelNumber;
     BOOL isCurrentCutscene;
+    float musicVolume;
 }
 
 @property (nonatomic, retain) NSString *currentLevelName;
 @property (nonatomic, assign) int currentLevelNumber;
 @property (nonatomic, assign) BOOL isCurrentCutscene;
+@property (nonatomic, assign) float musicVolume;
 
 + (id)globalManager;
 - (void)setLevel:(int)levelNumber;
 - (void)setCutscene:(int)cutNumber;
+- (void)setMusicVolume:(float)volume;
 
 @end

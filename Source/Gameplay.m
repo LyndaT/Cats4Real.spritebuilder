@@ -86,6 +86,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
     [audio playBg:@"assets/music/CreditsMusic.mp3" loop:TRUE];
+    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
 }
 
 - (void)update:(CCTime)delta

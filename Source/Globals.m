@@ -16,11 +16,13 @@
 @synthesize currentLevelName;
 @synthesize currentLevelNumber;
 @synthesize isCurrentCutscene;
+@synthesize musicVolume;
 
 - (id)init {
     if (self = [super init]) {
         currentLevelName = @"Levels/Level1";
         currentLevelNumber = 1;
+        musicVolume = 1.0;
     }
     return self;
 }
@@ -48,6 +50,10 @@
     isCurrentCutscene=YES;
     currentLevelName = [NSString stringWithFormat:@"Anim/Cutscene%d", cutNumber];
     currentLevelNumber = cutNumber;
+}
+
+- (void)setMusicVolume:(float)volume{
+    musicVolume = volume;
 }
 
 @end

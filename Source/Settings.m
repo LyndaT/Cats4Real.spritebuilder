@@ -19,6 +19,7 @@
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
     [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
+    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
 }
 
 
@@ -45,6 +46,15 @@
     }
     
     return self;
+}
+
+-(void)changeMusic:(CCSlider *)musicVol
+{
+    [_globals setMusicVolume:musicVol.sliderValue];
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
+    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
+    CCLOG(@"%f", musicVol.sliderValue);
 }
 
 @end
