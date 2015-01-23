@@ -697,6 +697,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -731,7 +733,7 @@
 						<key>value</key>
 						<array>
 							<real>0.50880283117294312</real>
-							<real>50</real>
+							<real>32</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>0</integer>
@@ -836,7 +838,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string></string>
 						</array>
 					</dict>
 					<dict>
@@ -1023,8 +1025,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
