@@ -34,6 +34,11 @@
     [animationManager runAnimationsForSequenceNamed:@"cling"];
 }
 
+-(void)openDoor
+{
+    [animationManager runAnimationsForSequenceNamed:@"doorOpen"];
+}
+
 
 /*
  * Moves the cat
