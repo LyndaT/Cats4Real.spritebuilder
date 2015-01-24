@@ -13,5 +13,6 @@
 - (void)open;
 - (void)close;
 - (void)fade;
+- (void)hover;
 
 @end

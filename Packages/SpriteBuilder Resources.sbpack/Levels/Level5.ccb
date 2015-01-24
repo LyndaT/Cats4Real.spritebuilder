@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>89</integer>
+	<integer>90</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1441,8 +1441,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>218.33334350585938</real>
-							<real>213</real>
+							<real>382.33334350585938</real>
+							<real>216</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -4014,8 +4014,6 @@ Very smooshy, do not fall on!</string>
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -4030,7 +4028,7 @@ Very smooshy, do not fall on!</string>
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>419.000000</string>
+				<string>300.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -4171,6 +4169,8 @@ Very smooshy, do not fall on!</string>
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

@@ -33,4 +33,9 @@
     [animationManager runAnimationsForSequenceNamed:@"fade"];
 }
 
+- (void)hover
+{
+    [animationManager runAnimationsForSequenceNamed:@"hover"];
+}
+
 @end

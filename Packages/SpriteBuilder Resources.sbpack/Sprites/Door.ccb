@@ -145,7 +145,7 @@
 									<integer>7</integer>
 									<key>value</key>
 									<array>
-										<string>assets/door1.png/door2.png</string>
+										<string>assets/door1.png/door4.png</string>
 										<string>Use regular file</string>
 									</array>
 								</dict>
@@ -191,6 +191,34 @@
 									<integer>10</integer>
 									<key>value</key>
 									<real>0.0</real>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>10</integer>
+						</dict>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>1</real>
 								</dict>
 							</array>
 							<key>name</key>
@@ -426,6 +454,34 @@
 							<integer>10</integer>
 						</dict>
 					</dict>
+					<key>3</key>
+					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>1</real>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>10</integer>
+						</dict>
+					</dict>
 				</dict>
 				<key>baseClass</key>
 				<string>CCSprite</string>
@@ -541,6 +597,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -580,19 +638,19 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>-12.671382904052734</real>
+					<real>-23.496112823486328</real>
 					<real>-14.771484375</real>
 				</array>
 				<array>
-					<real>-12.671382904052734</real>
+					<real>-23.496112823486328</real>
 					<real>12.808609008789062</real>
 				</array>
 				<array>
-					<real>13.8466796875</real>
+					<real>1.3280088901519775</real>
 					<real>12.808609008789062</real>
 				</array>
 				<array>
-					<real>13.8466796875</real>
+					<real>1.3280088901519775</real>
 					<real>-14.771484375</real>
 				</array>
 			</array>
@@ -600,19 +658,19 @@
 			<array>
 				<array>
 					<array>
-						<real>13.8466796875</real>
+						<real>1.3280088901519775</real>
 						<real>-14.771484375</real>
 					</array>
 					<array>
-						<real>13.8466796875</real>
+						<real>1.3280088901519775</real>
 						<real>12.808609008789062</real>
 					</array>
 					<array>
-						<real>-12.671382904052734</real>
+						<real>-23.496112823486328</real>
 						<real>12.808609008789062</real>
 					</array>
 					<array>
-						<real>-12.671382904052734</real>
+						<real>-23.496112823486328</real>
 						<real>-14.771484375</real>
 					</array>
 				</array>
@@ -710,8 +768,6 @@
 				<array/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -846,6 +902,42 @@
 			<real>128</real>
 			<key>sequenceId</key>
 			<integer>2</integer>
+			<key>soundChannel</key>
+			<dict>
+				<key>isExpanded</key>
+				<false/>
+				<key>keyframes</key>
+				<array/>
+				<key>type</key>
+				<integer>11</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>autoPlay</key>
+			<false/>
+			<key>callbackChannel</key>
+			<dict>
+				<key>keyframes</key>
+				<array/>
+				<key>type</key>
+				<integer>12</integer>
+			</dict>
+			<key>chainedSequenceId</key>
+			<integer>-1</integer>
+			<key>length</key>
+			<real>10</real>
+			<key>name</key>
+			<string>hover</string>
+			<key>offset</key>
+			<real>0.0</real>
+			<key>position</key>
+			<real>0.0</real>
+			<key>resolution</key>
+			<real>30</real>
+			<key>scale</key>
+			<real>128</real>
+			<key>sequenceId</key>
+			<integer>3</integer>
 			<key>soundChannel</key>
 			<dict>
 				<key>isExpanded</key>

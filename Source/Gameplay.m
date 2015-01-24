@@ -127,11 +127,6 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
             numCake++;
             [self updateCakeScore];
             Cake.visible=false;
-            
-            if (numCake >= _currentLevel.totalCake)
-            {
-                //show the door unlocked or smth
-            }
         }
     }
     return TRUE;
@@ -157,11 +152,12 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     CCLOG(@"hit door");
     if (_globals.currentLevelNumber==1)
     {
-        CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap to go through!" fontName:@"Lao Sangam MN" fontSize:16];
+        CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap the screen to go through!" fontName:@"Lao Sangam MN" fontSize:16];
         doorInstruc.position = ccp(367,52.5);
         [currentLevel addChild:doorInstruc];
     }
     atDoor = YES;
+    [_door hover];
     return TRUE;
 }
 
@@ -169,6 +165,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 {
     CCLOG(@"leaves door");
     atDoor = NO;
+    [self updateCakeScore];
     return TRUE;
 }
 

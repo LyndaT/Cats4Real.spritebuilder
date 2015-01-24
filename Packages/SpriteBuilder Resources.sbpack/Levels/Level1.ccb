@@ -304,6 +304,14 @@
 				<array>
 					<dict>
 						<key>name</key>
+						<string>visible</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>name</string>
 						<key>type</key>
 						<string>StringSimple</string>
@@ -317,7 +325,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>392.13330078125</real>
+							<real>384.13330078125</real>
 							<real>162.63336181640625</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -2312,7 +2320,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Cat always walk forward. Never turn back!</string>
+							<string>Cat always walk right. Never turn back!</string>
 							<false/>
 						</array>
 					</dict>
@@ -2448,8 +2456,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2952,7 +2958,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>347</string>
+				<string>352</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -3053,6 +3059,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
