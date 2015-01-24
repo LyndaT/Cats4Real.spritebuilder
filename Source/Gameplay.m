@@ -14,6 +14,7 @@
 #import "Cake.h"
 #import "Door.h"
 #import "Globals.h"
+#import "GameOver.h"
 
 CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
@@ -38,7 +39,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     CCLabelTTF *_cakeScore;
     CCNode *_menus;
     
-    CCNode *_gameOverMenu;
+    GameOver *_gameOverMenu;
     CCNode *_levelDoneMenu;
     CCNode *_pauseMenu;
     Level *_currentLevel;
@@ -62,7 +63,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 
 - (void)didLoadFromCCB
 {
-    _gameOverMenu = [CCBReader load:@"GameOver" owner:self];
+    _gameOverMenu = (GameOver *)[CCBReader load:@"GameOver" owner:self];
     _levelDoneMenu = [CCBReader load:@"NextLevel" owner:self];
     _pauseMenu = [CCBReader load:@"Pause" owner:self];
     
@@ -119,6 +120,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
         {
             //if you're nyooming, you smash it and DIE
             CCLOG(@"smoosh!");
+            [_gameOverMenu cake];
             [self died];
         }
         else
@@ -138,6 +140,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
  */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat water:(CCNode *)Water
 {
+    [_gameOverMenu water];
     [self died];
     return TRUE;
 }
@@ -147,7 +150,8 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
  * Colliding with door
  * Checks to see if the cat is at the door
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair
+                                *)pair cat:(CCNode *)Cat door:(CCNode *)Door
 {
     CCLOG(@"hit door");
     if (_globals.currentLevelNumber==1)

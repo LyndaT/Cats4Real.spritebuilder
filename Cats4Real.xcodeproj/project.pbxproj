@@ -99,6 +99,7 @@
 		B78A0B10198AF87200C63841 /* Published-Android in Resources */ = {isa = PBXBuildFile; fileRef = B78A0B0F198AF87200C63841 /* Published-Android */; };
 		C673DBBC1A6F1D1400CDF256 /* LevelSelectCake.m in Sources */ = {isa = PBXBuildFile; fileRef = C673DBBB1A6F1D1400CDF256 /* LevelSelectCake.m */; };
 		C673DBC01A6F428C00CDF256 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = C673DBBF1A6F428C00CDF256 /* Globals.m */; };
+		F217D0631A74591600F03B88 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = F217D0621A74591600F03B88 /* GameOver.m */; };
 		F26E0D471A7082DE00E5C553 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F26E0D461A7082DE00E5C553 /* Settings.m */; };
 		F26F6C611A6729B4003276EE /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F6C601A6729B4003276EE /* Door.m */; };
 		F26F6C651A6751DF003276EE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F6C641A6751DF003276EE /* Level.m */; };
@@ -256,6 +257,8 @@
 		C673DBBE1A6F428C00CDF256 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = Source/Globals.h; sourceTree = "<group>"; };
 		C673DBBF1A6F428C00CDF256 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Globals.m; path = Source/Globals.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
+		F217D0611A74591600F03B88 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOver.h; path = Source/GameOver.h; sourceTree = "<group>"; };
+		F217D0621A74591600F03B88 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOver.m; path = Source/GameOver.m; sourceTree = "<group>"; };
 		F26E0D451A7082DE00E5C553 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Source/Settings.h; sourceTree = "<group>"; };
 		F26E0D461A7082DE00E5C553 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Source/Settings.m; sourceTree = "<group>"; };
 		F26F6C5F1A6729B4003276EE /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Door.h; path = Source/Door.h; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 				B7378993180767190076A88C /* MainScene.m */,
 				F2B780131A64AF7F00E09517 /* Gameplay.h */,
 				F2B780141A64AF7F00E09517 /* Gameplay.m */,
+				F217D0611A74591600F03B88 /* GameOver.h */,
+				F217D0621A74591600F03B88 /* GameOver.m */,
 				F277D15C1A70BE8B001B52F0 /* Cutscene.h */,
 				F277D15D1A70BE8B001B52F0 /* Cutscene.m */,
 				F277D1601A70C540001B52F0 /* SingleCutscene.h */,
@@ -940,6 +945,7 @@
 				C673DBBC1A6F1D1400CDF256 /* LevelSelectCake.m in Sources */,
 				52F441E61A6F026E00E7AE95 /* LevelSelect.m in Sources */,
 				F26F6C611A6729B4003276EE /* Door.m in Sources */,
+				F217D0631A74591600F03B88 /* GameOver.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				52A9797A1A675F2D000A8049 /* Cake.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
