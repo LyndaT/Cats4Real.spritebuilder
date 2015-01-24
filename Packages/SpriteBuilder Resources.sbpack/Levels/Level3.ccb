@@ -3021,7 +3021,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Hold down to cling to the ground!</string>
+							<string>Cat paws are best! Touch screen to cling!</string>
 							<false/>
 						</array>
 					</dict>
@@ -3157,6 +3157,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

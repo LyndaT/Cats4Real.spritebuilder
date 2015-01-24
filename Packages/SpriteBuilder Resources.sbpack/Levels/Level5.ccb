@@ -3877,8 +3877,8 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Get the cake,
-but don't crush it!</string>
+							<string>Master's cake!
+Very smooshy, do not fall on!</string>
 							<false/>
 						</array>
 					</dict>
@@ -4014,6 +4014,8 @@ but don't crush it!</string>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
