@@ -161,7 +161,10 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
         [currentLevel addChild:doorInstruc];
     }
     atDoor = YES;
-    [_door hover];
+    if (numCake>=_currentLevel.totalCake && ![self isCatNyooming])
+    {
+        [_door hover];
+    }
     return TRUE;
 }
 
