@@ -104,6 +104,7 @@
 		F26F6C651A6751DF003276EE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F26F6C641A6751DF003276EE /* Level.m */; };
 		F277D15E1A70BE8B001B52F0 /* Cutscene.m in Sources */ = {isa = PBXBuildFile; fileRef = F277D15D1A70BE8B001B52F0 /* Cutscene.m */; };
 		F277D1621A70C540001B52F0 /* SingleCutscene.m in Sources */ = {isa = PBXBuildFile; fileRef = F277D1611A70C540001B52F0 /* SingleCutscene.m */; };
+		F28979891A73601000CC8C2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28979881A73601000CC8C2A /* Images.xcassets */; };
 		F2B780151A64AF7F00E09517 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B780141A64AF7F00E09517 /* Gameplay.m */; };
 /* End PBXBuildFile section */
 
@@ -265,6 +266,7 @@
 		F277D15D1A70BE8B001B52F0 /* Cutscene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cutscene.m; path = Source/Cutscene.m; sourceTree = "<group>"; };
 		F277D1601A70C540001B52F0 /* SingleCutscene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleCutscene.h; path = Source/SingleCutscene.h; sourceTree = "<group>"; };
 		F277D1611A70C540001B52F0 /* SingleCutscene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleCutscene.m; path = Source/SingleCutscene.m; sourceTree = "<group>"; };
+		F28979881A73601000CC8C2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Cats4Real iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		F2B780131A64AF7F00E09517 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
 		F2B780141A64AF7F00E09517 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -599,6 +601,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F28979881A73601000CC8C2A /* Images.xcassets */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
@@ -829,6 +832,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
+				F28979891A73601000CC8C2A /* Images.xcassets in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -1301,6 +1305,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1337,6 +1343,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
