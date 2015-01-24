@@ -12,5 +12,6 @@
 
 @synthesize nextLevel;
 @synthesize isCutsceneNext;
+@synthesize sceneRotation;
 
 @end

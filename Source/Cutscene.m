@@ -28,9 +28,11 @@
 
 - (void)didLoadFromCCB
 {
-    currentScene = [CCBReader load:_globals.currentLevelName];
+    currentScene = [CCBReader load:_globals.currentLevelName owner:self];
     _currentScene = (SingleCutscene *)currentScene;
-    [_cut addChild:currentScene];
+    _currentScene.rotation = _currentScene.sceneRotation;
+    CCLOG(@"cutscene rotation supposedly %i, is %i",_currentScene.sceneRotation, _currentScene.rotation);
+    [_cut addChild:_currentScene];
     CCLOG(@"loaded cutscene, next %i", _currentScene.nextLevel);
     
     // access audio object

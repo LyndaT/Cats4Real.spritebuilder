@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) int nextLevel;
 @property (nonatomic, assign) BOOL isCutsceneNext;
+@property (nonatomic, assign) int sceneRotation;
 
 @end

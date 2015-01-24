@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>docDimensionsType</key>
 	<integer>1</integer>
 	<key>fileType</key>
@@ -371,24 +371,6 @@
 									<key>value</key>
 									<array>
 										<real>0.0</real>
-										<real>0.0</real>
-									</array>
-								</dict>
-								<dict>
-									<key>easing</key>
-									<dict>
-										<key>type</key>
-										<integer>1</integer>
-									</dict>
-									<key>name</key>
-									<string>position</string>
-									<key>time</key>
-									<real>2.2999999523162842</real>
-									<key>type</key>
-									<integer>3</integer>
-									<key>value</key>
-									<array>
-										<real>20</real>
 										<real>0.0</real>
 									</array>
 								</dict>
@@ -870,7 +852,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>1</real>
+						<real>0.0</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -882,7 +864,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>1</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -905,8 +887,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -946,40 +926,40 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>-15.9921875</real>
-					<real>-14.917953491210938</real>
+					<real>-16.676265716552734</real>
+					<real>-15.589845657348633</real>
 				</array>
 				<array>
-					<real>-16.296875</real>
-					<real>12.925796508789062</real>
+					<real>-16.676265716552734</real>
+					<real>9.1904296875</real>
 				</array>
 				<array>
-					<real>16.1875</real>
-					<real>14.316421508789062</real>
+					<real>9.9599685668945312</real>
+					<real>9.1904296875</real>
 				</array>
 				<array>
-					<real>8.54296875</real>
-					<real>-15.656234741210938</real>
+					<real>9.9599685668945312</real>
+					<real>-15.589845657348633</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>8.54296875</real>
-						<real>-15.656234741210938</real>
+						<real>9.9599685668945312</real>
+						<real>-15.589845657348633</real>
 					</array>
 					<array>
-						<real>16.1875</real>
-						<real>14.316421508789062</real>
+						<real>9.9599685668945312</real>
+						<real>9.1904296875</real>
 					</array>
 					<array>
-						<real>-16.296875</real>
-						<real>12.925796508789062</real>
+						<real>-16.676265716552734</real>
+						<real>9.1904296875</real>
 					</array>
 					<array>
-						<real>-15.9921875</real>
-						<real>-14.917953491210938</real>
+						<real>-16.676265716552734</real>
+						<real>-15.589845657348633</real>
 					</array>
 				</array>
 			</array>
@@ -1250,13 +1230,13 @@
 			<key>chainedSequenceId</key>
 			<integer>-1</integer>
 			<key>length</key>
-			<real>10</real>
+			<real>3</real>
 			<key>name</key>
 			<string>doorOpen</string>
 			<key>offset</key>
-			<real>1.2499831914901733</real>
+			<real>1.1797137260437012</real>
 			<key>position</key>
-			<real>2.2999999523162842</real>
+			<real>3</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

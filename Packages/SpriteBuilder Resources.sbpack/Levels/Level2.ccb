@@ -310,7 +310,7 @@
 						<key>value</key>
 						<array>
 							<real>118</real>
-							<real>149</real>
+							<real>152.47222900390625</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -384,6 +384,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -663,7 +665,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>505</real>
+							<real>507.08331298828125</real>
 							<real>120</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1026,7 +1028,7 @@
 						<key>value</key>
 						<array>
 							<real>388</real>
-							<real>278</real>
+							<real>281.47222900390625</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -3418,8 +3420,6 @@ to change gravity!</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

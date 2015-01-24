@@ -26,6 +26,7 @@ BOOL hasCake = NO;
 int numCake = 0;
 BOOL isPaused = NO;
 BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
+int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 
 
 @implementation Gameplay
@@ -35,6 +36,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
     Globals *_globals;
     CCPhysicsNode *_physNode;
     CCLabelTTF *_cakeScore;
+    CCNode *_menus;
     
     CCNode *_gameOverMenu;
     CCNode *_levelDoneMenu;
@@ -206,7 +208,8 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
     //to pause scene
     [[CCDirector sharedDirector] pause];
     
-    [self addChild:_gameOverMenu];
+    _gameOverMenu.rotation = rotation;
+    [_menus addChild:_gameOverMenu];
 }
 
 -(void)pause
@@ -216,7 +219,9 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
             //to pause scene
             [[CCDirector sharedDirector] pause];
             isPaused=YES;
-            [self addChild:_pauseMenu];
+            CCLOG(@"rotation: %i",rotation);
+            _pauseMenu.rotation = rotation;
+            [_menus addChild:_pauseMenu];
         }
         else{
             [self unpause];
@@ -228,7 +233,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 {
     isPaused=NO;
     [[CCDirector sharedDirector] resume];
-    [self removeChild:_pauseMenu];
+    [_menus removeChild:_pauseMenu];
     CCLOG(@"resumed game");
 }
 
@@ -241,14 +246,14 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
     if (isDead)
     {
         isDead = NO;
-        [self removeChild:_gameOverMenu];
+        [_menus removeChild:_gameOverMenu];
     }
 }
 
 -(void)retryFromDeath
 {
     isDead = NO;
-    [self removeChild:_gameOverMenu];
+    [_menus removeChild:_gameOverMenu];
     [[CCDirector sharedDirector] resume];
     [self resetLevel];
 }
@@ -266,7 +271,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 -(void)returnMenuFromDied
 {
     CCLOG(@"returnMenu");
-    [self removeChild:_gameOverMenu];
+    [_menus removeChild:_gameOverMenu];
     [[CCDirector sharedDirector] resume];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
@@ -276,8 +281,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 -(void)returnMenuFromLevelEnd
 {
     isOpeningDoor=NO;
-    CCLOG(@"returnMenu");
-    [self removeChild:_levelDoneMenu];
+    [_menus removeChild:_levelDoneMenu];
     [[CCDirector sharedDirector] resume];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
@@ -289,7 +293,7 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
     isOpeningDoor=NO;
     [_cat walk];
     [_door close];
-    [self removeChild:_levelDoneMenu];
+    [_menus removeChild:_levelDoneMenu];
     [[CCDirector sharedDirector] resume];
     [self toNextLevel];
 }
@@ -298,7 +302,8 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 {
     CCLOG(@"cat thru door");
     [[CCDirector sharedDirector] pause];
-    [self addChild:_levelDoneMenu];
+    _levelDoneMenu.rotation = rotation;
+    [_menus addChild:_levelDoneMenu];
 }
 
 
@@ -351,18 +356,22 @@ BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
     
     if (xaccel < 0.5 && xaccel > -0.5 && yaccel < -0.5)
     {
+        rotation = 90;
         [self changeGravityLeft];
     }
     if (yaccel < 0.5 && yaccel > -0.5 && xaccel >0.5)
     {
+        rotation = 0;
         [self changeGravityDown];
     }
     if (xaccel < 0.5 && xaccel > -0.5 && yaccel> 0.5)
     {
+        rotation = 270;
         [self changeGravityRight];
     }
     if (yaccel < 0.5 && yaccel > -0.5 && xaccel<-0.5)
     {
+        rotation = 180;
         [self changeGravityUp];
     }
     
