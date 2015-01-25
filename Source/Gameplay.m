@@ -19,6 +19,7 @@
 CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
 CGFloat speed = 30;
+CGFloat immuneTime = 2.0f;
 BOOL hold = NO;
 BOOL onground = NO;
 BOOL atDoor = NO;
@@ -491,7 +492,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     //TODO:cat pause
     //set cat rotation
     [self startImmunity];
-    [self scheduleOnce:@selector(endImmunity) delay:3.0f];
+    [self scheduleOnce:@selector(endImmunity) delay:immuneTime];
     
 }
 
