@@ -3946,6 +3946,22 @@
 							<real>40</real>
 						</array>
 						<array>
+							<real>80.377998352050781</real>
+							<real>22.029632568359375</real>
+						</array>
+						<array>
+							<real>11.725289344787598</real>
+							<real>21.521921157836914</real>
+						</array>
+						<array>
+							<real>13.068367958068848</real>
+							<real>10.805850028991699</real>
+						</array>
+						<array>
+							<real>79.836875915527344</real>
+							<real>10.208148002624512</real>
+						</array>
+						<array>
 							<real>80</real>
 							<real>0.0</real>
 						</array>
@@ -3954,8 +3970,48 @@
 					<array>
 						<array>
 							<array>
+								<real>0.0</real>
+								<real>0.0</real>
+							</array>
+							<array>
 								<real>80</real>
 								<real>0.0</real>
+							</array>
+							<array>
+								<real>79.836875915527344</real>
+								<real>10.208148002624512</real>
+							</array>
+							<array>
+								<real>13.068367958068848</real>
+								<real>10.805850028991699</real>
+							</array>
+						</array>
+						<array>
+							<array>
+								<real>0.0</real>
+								<real>40</real>
+							</array>
+							<array>
+								<real>0.0</real>
+								<real>0.0</real>
+							</array>
+							<array>
+								<real>13.068367958068848</real>
+								<real>10.805850028991699</real>
+							</array>
+							<array>
+								<real>11.725289344787598</real>
+								<real>21.521921157836914</real>
+							</array>
+						</array>
+						<array>
+							<array>
+								<real>11.725289344787598</real>
+								<real>21.521921157836914</real>
+							</array>
+							<array>
+								<real>80.377998352050781</real>
+								<real>22.029632568359375</real>
 							</array>
 							<array>
 								<real>80</real>
@@ -3964,10 +4020,6 @@
 							<array>
 								<real>0.0</real>
 								<real>40</real>
-							</array>
-							<array>
-								<real>0.0</real>
-								<real>0.0</real>
 							</array>
 						</array>
 					</array>
@@ -4072,6 +4124,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -4509,8 +4563,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
