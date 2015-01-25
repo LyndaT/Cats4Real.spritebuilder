@@ -1224,8 +1224,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -3491,6 +3489,16 @@
 				<key>value</key>
 				<string>0</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>defaultOrientation</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>2</string>
+			</dict>
 		</array>
 		<key>displayName</key>
 		<string>CCNode</string>
@@ -3560,6 +3568,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
