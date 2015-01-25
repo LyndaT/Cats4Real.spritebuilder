@@ -13,9 +13,6 @@
 {
     CCAnimationManager* animationManager;
 }
-@synthesize immuneCountdown = _immuneCountdown;
-@synthesize immuneTimer = _immuneTimer;
-@synthesize isImmune = _isImmune;
 
 - (void)didLoadFromCCB
 {
@@ -25,6 +22,11 @@
 -(void)stand
 {
     [animationManager runAnimationsForSequenceNamed:@"stand"];
+}
+
+-(void)blink
+{
+    [animationManager runAnimationsForSequenceNamed:@"blink"];
 }
 
 -(void)walk
@@ -41,7 +43,6 @@
 {
     [animationManager runAnimationsForSequenceNamed:@"doorOpen"];
 }
-
 
 /*
  * Moves the cat

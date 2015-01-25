@@ -23,6 +23,7 @@ BOOL hold = NO;
 BOOL onground = NO;
 BOOL atDoor = NO;
 BOOL isDead = NO;
+BOOL isImmune = YES;
 BOOL hasCake = NO;
 int numCake = 0;
 BOOL isPaused = NO;
@@ -97,7 +98,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    if(!hold && !isOpeningDoor)
+    if(!hold && !isOpeningDoor && !isImmune)
     {
         [self changeGravity:acceleration.x :acceleration.y];
         [_cat moveSelf:delta :direction :speed :hold];
@@ -379,7 +380,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
         [self changeGravityUp];
     }
     if (prevRotation != rotation) {
-        CCLOG(@"gravity Changed");
+        //CCLOG(@"gravity Changed");
         _cat.physicsBody.velocity = ccp(0,0);
         
     }
@@ -465,6 +466,25 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 //    CCLOG(@"cat added, %d, %d, supposedly %d, %d",_cat.position.x,_cat.position.y, _currentLevel.catX, _currentLevel.catY);
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
+    //TODO:cat pause
+    //set cat rotation
+    [self startImmunity];
+    [self scheduleOnce:@selector(endImmunity) delay:3.0f];
+    
+}
+
+-(void)startImmunity
+{
+    isImmune = YES;
+    [_cat blink];
+    CCLOG(@"starting immune");
+}
+
+-(void)endImmunity
+{
+    isImmune = NO;
+    [_cat walk];
+    CCLOG(@"ending immune");
 }
 
 -(void)updateCakeScore
