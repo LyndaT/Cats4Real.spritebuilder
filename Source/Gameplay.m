@@ -357,7 +357,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 
 -(void)changeGravity:(CGFloat)xaccel :(CGFloat)yaccel
 {
-    
+    int prevRotation = rotation;
     if (xaccel < 0.5 && xaccel > -0.5 && yaccel < -0.5)
     {
         rotation = 90;
@@ -377,6 +377,11 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     {
         rotation = 180;
         [self changeGravityUp];
+    }
+    if (prevRotation != rotation) {
+        CCLOG(@"gravity Changed");
+        _cat.physicsBody.velocity = ccp(0,0);
+        
     }
     
 }
