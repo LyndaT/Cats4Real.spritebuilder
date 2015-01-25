@@ -3877,7 +3877,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Master's cake!
+							<string>Get Master's cake!
 Very smooshy, do not fall on!</string>
 							<false/>
 						</array>
@@ -4179,8 +4179,6 @@ Very smooshy, do not fall on!</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
