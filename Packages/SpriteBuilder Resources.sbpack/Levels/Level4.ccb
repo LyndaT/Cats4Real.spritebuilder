@@ -3489,7 +3489,8 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Cat don't like water! Too wet!</string>
+							<string>Cat don't like water!
+Too wet!</string>
 							<false/>
 						</array>
 					</dict>
@@ -3539,7 +3540,7 @@
 						<key>type</key>
 						<string>IntegerLabeled</string>
 						<key>value</key>
-						<integer>0</integer>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -4267,8 +4268,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

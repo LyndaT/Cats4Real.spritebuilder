@@ -204,8 +204,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.44999998807907104</real>
+							<real>0.44999998807907104</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -228,8 +228,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>128</real>
+							<real>128</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -262,7 +262,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Return to Menu</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -274,7 +274,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>assets/buttons/button_menu.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -285,8 +285,16 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>assets/buttons/button_menu.png</string>
 						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundOpacity|Highlighted</string>
+						<key>type</key>
+						<string>Float</string>
+						<key>value</key>
+						<real>0.75</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -309,7 +317,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>assets/buttons/button_menu.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -328,7 +336,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>assets/buttons/button_menu.png</string>
 						</array>
 					</dict>
 					<dict>
