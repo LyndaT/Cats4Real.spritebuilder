@@ -13,6 +13,9 @@
 {
     CCAnimationManager* animationManager;
 }
+@synthesize immuneCountdown = _immuneCountdown;
+@synthesize immuneTimer = _immuneTimer;
+@synthesize isImmune = _isImmune;
 
 - (void)didLoadFromCCB
 {

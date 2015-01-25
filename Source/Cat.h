@@ -10,7 +10,18 @@
 
 
 
-@interface Cat : CCSprite 
+@interface Cat : CCSprite {
+    CCTime _immuneCountdown;
+    CCTimer* _immuneTimer;
+    BOOL _isImmune;
+}
+
+@property (nonatomic, assign) CCTime immuneCountdown;
+@property (nonatomic, retain) CCTimer* immuneTimer;
+@property (nonatomic, assign) BOOL isImmune;
+
+- (void) startImmuneTimer;
+- (void) endImmuneTimer;
 
 - (void)moveSelf:(CCTime)delta :(int)direction :(int)speed :(BOOL)hold;
 
