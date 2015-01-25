@@ -358,28 +358,25 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 
 -(void)changeGravity:(CGFloat)xaccel :(CGFloat)yaccel
 {
-    int prevRotation = rotation;
+    int prevDirection = direction;
     if (xaccel < 0.5 && xaccel > -0.5 && yaccel < -0.5)
     {
-        rotation = 90;
-        [self changeGravityLeft];
+        direction = 3;
     }
     if (yaccel < 0.5 && yaccel > -0.5 && xaccel >0.5)
     {
-        rotation = 0;
-        [self changeGravityDown];
+        direction = 0;
     }
     if (xaccel < 0.5 && xaccel > -0.5 && yaccel> 0.5)
     {
-        rotation = 270;
-        [self changeGravityRight];
+        direction = 1;
     }
     if (yaccel < 0.5 && yaccel > -0.5 && xaccel<-0.5)
     {
-        rotation = 180;
-        [self changeGravityUp];
+        direction = 2;
     }
-    if (prevRotation != rotation) {
+    [self updateGravity:direction];
+    if (prevDirection != direction) {
         //CCLOG(@"gravity Changed");
         _cat.physicsBody.velocity = ccp(0,0);
         
@@ -388,37 +385,62 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 }
 
 /*
+ * General updateGravity method
+ * Changes gravity depending on current direction
+ */
+- (void)updateGravity:(int)dir
+{
+    if (dir == 1) { //gravity right
+        rotation = 270;
+        _physNode.gravity= ccp(1*gravitystrength,0);
+    }
+    else if (dir == 2) { //gravity up
+        rotation = 180;
+        _physNode.gravity= ccp(0,1*gravitystrength);
+    }
+    else if (dir == 3) { //gravity left
+        rotation = 90;
+        _physNode.gravity= ccp(-1*gravitystrength,0);
+    }
+    else { //gravity down
+        rotation = 0;
+        _physNode.gravity= ccp(0,-1*gravitystrength);
+    }
+}
+
+/*
  * the changeGravity[direction] methods change the gravity of the physicsNode
  * to the direction of the orientation of the screen
+ * DEPRECATED
  */
-- (void)changeGravityLeft
-{
-    direction = 3;
-    _physNode.gravity= ccp(-1*gravitystrength,0);
-    //CCLOG(@"Gravity changed left");
-    
-}
-- (void)changeGravityRight
-{
-    direction = 1;
-    _physNode.gravity= ccp(1*gravitystrength,0);
-    //CCLOG(@"Gravity changed right");
-    
-}
-- (void)changeGravityUp
-{
-    direction = 2;
-    _physNode.gravity= ccp(0,1*gravitystrength);
-    //CCLOG(@"Gravity changed up");
-    
-}
-- (void)changeGravityDown
-{
-    direction = 0;
-    _physNode.gravity= ccp(0,-1*gravitystrength);
-    //CCLOG(@"Gravity changed down");
-    
-}
+//- (void)changeGravityLeft
+//{
+//    direction = 3;
+//    _physNode.gravity= ccp(-1*gravitystrength,0);
+//    //CCLOG(@"Gravity changed left");
+//    
+//}
+//- (void)changeGravityRight
+//{
+//    direction = 1;
+//    _physNode.gravity= ccp(1*gravitystrength,0);
+//    //CCLOG(@"Gravity changed right");
+//    
+//}
+//- (void)changeGravityUp
+//{
+//    direction = 2;
+//    _physNode.gravity= ccp(0,1*gravitystrength);
+//    //CCLOG(@"Gravity changed up");
+//    
+//}
+//- (void)changeGravityDown
+//{
+//    direction = 0;
+//    _physNode.gravity= ccp(0,-1*gravitystrength);
+//    //CCLOG(@"Gravity changed down");
+//    
+//}
 
 -(void)toNextLevel
 {
@@ -473,18 +495,30 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     
 }
 
+//Sets the cat in a frozen 'immune' state
 -(void)startImmunity
 {
+    [_cat moveSelf:0 :_currentLevel.defaultOrientation :0 :NO];
+    _physNode.gravity= ccp(0,0);
     isImmune = YES;
+    _cat.physicsBody.velocity = ccp(0,0);
+    _cat.physicsBody.angularVelocity = 0;
     [_cat blink];
     CCLOG(@"starting immune");
 }
 
+//Ends cat's immune state
+//called automatically after time passes, or after screen is tapped
 -(void)endImmunity
 {
-    isImmune = NO;
-    [_cat walk];
-    CCLOG(@"ending immune");
+    if (isImmune) {
+        isImmune = NO;
+        [_cat walk];
+        [_cat moveSelf:0 :direction :speed :NO];
+        direction = _currentLevel.defaultOrientation;
+        [self updateGravity:_currentLevel.defaultOrientation];
+        CCLOG(@"ending immune");
+    }
 }
 
 -(void)updateCakeScore
@@ -512,6 +546,9 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
+    if (isImmune) {
+        [self endImmunity];
+    }
     if (onground && !isOpeningDoor)
     {
         hold = YES;

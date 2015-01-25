@@ -3946,22 +3946,6 @@
 							<real>40</real>
 						</array>
 						<array>
-							<real>80.073822021484375</real>
-							<real>20.624996185302734</real>
-						</array>
-						<array>
-							<real>43.866378784179688</real>
-							<real>22.760309219360352</real>
-						</array>
-						<array>
-							<real>36.926601409912109</real>
-							<real>9.0059719085693359</real>
-						</array>
-						<array>
-							<real>79.592605590820312</real>
-							<real>11.108349800109863</real>
-						</array>
-						<array>
 							<real>80</real>
 							<real>0.0</real>
 						</array>
@@ -3970,48 +3954,8 @@
 					<array>
 						<array>
 							<array>
-								<real>0.0</real>
-								<real>0.0</real>
-							</array>
-							<array>
 								<real>80</real>
 								<real>0.0</real>
-							</array>
-							<array>
-								<real>79.592605590820312</real>
-								<real>11.108349800109863</real>
-							</array>
-							<array>
-								<real>36.926601409912109</real>
-								<real>9.0059719085693359</real>
-							</array>
-						</array>
-						<array>
-							<array>
-								<real>0.0</real>
-								<real>40</real>
-							</array>
-							<array>
-								<real>0.0</real>
-								<real>0.0</real>
-							</array>
-							<array>
-								<real>36.926601409912109</real>
-								<real>9.0059719085693359</real>
-							</array>
-							<array>
-								<real>43.866378784179688</real>
-								<real>22.760309219360352</real>
-							</array>
-						</array>
-						<array>
-							<array>
-								<real>43.866378784179688</real>
-								<real>22.760309219360352</real>
-							</array>
-							<array>
-								<real>80.073822021484375</real>
-								<real>20.624996185302734</real>
 							</array>
 							<array>
 								<real>80</real>
@@ -4020,6 +3964,10 @@
 							<array>
 								<real>0.0</real>
 								<real>40</real>
+							</array>
+							<array>
+								<real>0.0</real>
+								<real>0.0</real>
 							</array>
 						</array>
 					</array>
@@ -4482,6 +4430,16 @@
 				<key>value</key>
 				<string>0</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>defaultOrientation</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>3</string>
+			</dict>
 		</array>
 		<key>displayName</key>
 		<string>CCNode</string>
@@ -4551,6 +4509,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

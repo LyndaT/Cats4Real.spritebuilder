@@ -2991,8 +2991,6 @@ Turn phone to see!</string>
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -3351,6 +3349,16 @@ Turn phone to see!</string>
 				<key>value</key>
 				<string>0</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>defaultOrientation</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>0</string>
+			</dict>
 		</array>
 		<key>displayName</key>
 		<string>CCNode</string>
@@ -3420,6 +3428,8 @@ Turn phone to see!</string>
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

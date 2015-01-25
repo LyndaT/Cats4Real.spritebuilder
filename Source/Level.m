@@ -17,6 +17,7 @@
 @synthesize doorX;
 @synthesize doorY;
 @synthesize doorAngle;
+@synthesize defaultOrientation;
 @synthesize totalCake;
 @synthesize nextLevel;
 @synthesize isCutsceneNext;
