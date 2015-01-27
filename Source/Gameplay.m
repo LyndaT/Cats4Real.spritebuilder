@@ -131,7 +131,7 @@ CGSize screenSize;
  * Colliding with Cake
  * Checks to see if the cat crashes into the cake
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(Cake *)Cake
 {
     //only interact w/cake if it's visible
     if (Cake.visible==true){
@@ -148,7 +148,8 @@ CGSize screenSize;
             numCake++;
             [_dial increaseCake];
             [self updateCakeScore];
-            Cake.visible=false;
+            [Cake collected];
+//            Cake.visible=false;
         }
     }
     return TRUE;

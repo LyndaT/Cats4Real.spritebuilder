@@ -9,6 +9,9 @@
 #import "Cake.h"
 
 @implementation Cake
+{
+    CCAnimationManager* animationManager;
+}
 
 -(id)init{
     self = [super init];
@@ -21,8 +24,14 @@
 }
 
 - (void)didLoadFromCCB {
+    animationManager = self.animationManager;
     self.physicsBody.collisionType = @"cake";
     self.physicsBody.sensor = TRUE;
+}
+
+-(void)collected
+{
+    [animationManager runAnimationsForSequenceNamed:@"collected"];
 }
 
 @end

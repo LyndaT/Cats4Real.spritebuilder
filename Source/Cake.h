@@ -10,4 +10,6 @@
 
 @interface Cake : CCNode
 
+-(void)collected;
+
 @end
