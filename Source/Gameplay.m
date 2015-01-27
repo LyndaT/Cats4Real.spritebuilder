@@ -17,6 +17,7 @@
 #import "Door.h"
 #import "Globals.h"
 #import "GameOver.h"
+#import "CakeDial.h"
 
 CGFloat gravitystrength = 3000;
 CGFloat direction = 0;
@@ -32,6 +33,7 @@ int numCake = 0;
 BOOL isPaused = NO;
 BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 int rotation = 0; //a number 1-4, phone is at (rotation) degrees
+CGSize screenSize;
 
 
 @implementation Gameplay
@@ -43,6 +45,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     CCLabelTTF *_cakeScore;
     CCNode *_menus;
     
+    CakeDial *_dial;
     GameOver *_gameOverMenu;
     CCNode *_levelDoneMenu;
     CCNode *_pauseMenu;
@@ -67,6 +70,8 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 
 - (void)didLoadFromCCB
 {
+    screenSize = [CCDirector sharedDirector].viewSize;
+    
     _gameOverMenu = (GameOver *)[CCBReader load:@"GameOver" owner:self];
     _levelDoneMenu = [CCBReader load:@"NextLevel" owner:self];
     _pauseMenu = [CCBReader load:@"Pause" owner:self];
@@ -79,10 +84,15 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     [defaults setInteger:_globals.currentLevelNumber forKey:_globals.currentLevelName];
     CCLOG(@"Finished loading level %i", _globals.currentLevelNumber);
     
+    _dial = (CakeDial *)[CCBReader load:@"Sprites/CakeDial" owner:self];
     _door = (Door *)[CCBReader load:@"Sprites/Door" owner:self];
     _cat = (Cat *)[CCBReader load:@"Sprites/Cat" owner:self];
     [currentLevel addChild:_door];
     [_levelNode addChild:_cat];
+    
+    _dial.position = ccp(0,screenSize.height);
+    _dial.scale = 0.8;
+    [self addChild:_dial];
     
     [self resetLevel];
     
@@ -150,7 +160,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
  * Colliding with Cake
  * Checks to see if the cat crashes into the cake
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(CCNode *)Cake
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(Cake *)Cake
 {
     //only interact w/cake if it's visible
     if (Cake.visible==true){
@@ -165,8 +175,9 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
         {
             //if you're not nyooming, you collect the cake
             numCake++;
+            [_dial increaseCake];
             [self updateCakeScore];
-            Cake.visible=false;
+            [Cake collected];
         }
     }
     return TRUE;
@@ -518,6 +529,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     [currentLevel addChild:_door];
     
     numCake=0;
+    [_dial setNumSlices:_currentLevel.totalCake];
     
     [self updateCakeScore];
     _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
@@ -601,10 +613,18 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
             CCLOG(@"wrong rotation!");
         }
         else {
+            //knock sound
+            OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
+            [effect playEffect:@"assets/music/knock.mp3"];
+            CCLOG(@"audioplayed");
+            
             isOpeningDoor=YES;
             [_cat openDoor];
             [_door fade];
         }
+    }else if (atDoor && (numCake<_currentLevel.totalCake) && ![self isCatNyooming] && !isOpeningDoor)
+    {
+        [_dial pulse];
     }
     //CCLOG(@"Touches began");
     
