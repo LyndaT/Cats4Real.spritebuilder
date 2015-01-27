@@ -580,6 +580,11 @@ CGSize screenSize;
             CCLOG(@"wrong rotation!");
         }
         else {
+            //knock sound
+            OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
+            [effect playEffect:@"assets/music/knock.mp3"];
+            CCLOG(@"audioplayed");
+            
             isOpeningDoor=YES;
             [_cat openDoor];
             [_door fade];
