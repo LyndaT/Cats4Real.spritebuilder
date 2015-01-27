@@ -88,9 +88,18 @@
     int tempX=0;
     for (int j = 1; j <=8; j++) {
         //placemats
-        CCNode *placemat = [CCBReader load:@"assets/levelSelect/plateTag"];
-        placemat.position = ccp(100 + (_cakeWidth+12.5)*tempX,210 - tempY);
-        [_plateHolder addChild:placemat];
+        if (j+8*_currTable<=_totalLevels)
+        {
+            CCNode *placemat = [CCBReader load:@"assets/levelSelect/plateTag"];
+            placemat.position = ccp(100 + (_cakeWidth+12.5)*tempX,210 - tempY);
+            [_plateHolder addChild:placemat];
+            
+            CCLabelTTF *lvlText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"level %i",j+8*_currTable]
+                                                     fontName:@"Lao Sangam MN" fontSize:16];
+            lvlText.color = [CCColor colorWithCcColor3b:ccBLACK];
+            lvlText.position = ccp(100 + (_cakeWidth+12.5)*tempX,205 - tempY);
+            [_plateHolder addChild:lvlText];
+        }
         
         //plates w/cake
         if (j+8*_currTable<highestLevel)
@@ -100,12 +109,6 @@
             [tempCake setLevel:j+8*_currTable];
             [_plateHolder addChild:tempCake];
         }
-        
-        CCLabelTTF *lvlText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"level %i",j+8*_currTable]
-                                                 fontName:@"Lao Sangam MN" fontSize:16];
-        lvlText.color = [CCColor colorWithCcColor3b:ccBLACK];
-        lvlText.position = ccp(100 + (_cakeWidth+12.5)*tempX,205 - tempY);
-        [_plateHolder addChild:lvlText];
         
         tempY = (floor((j)/4) * 120);
         tempX = (j) - (floor((j)/4) * 4);
