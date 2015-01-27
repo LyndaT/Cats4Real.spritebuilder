@@ -45,7 +45,7 @@
 -(void)increaseCake
 {
     _numFound++;
-    _plate.rotation = _numFound * (90 / _numSlices);
+    [_plate runAction:[CCActionRotateBy actionWithDuration:0.25 angle:(90 / _numSlices)]];
 }
 
 -(void)clearCake

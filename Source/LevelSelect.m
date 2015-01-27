@@ -59,6 +59,9 @@
     if (_currTable == 0)
     {
         _prevTable.visible = false;
+    }else
+    {
+        _prevTable.visible = true;
     }
     if (_currTable == _totalTables)
     {
@@ -66,7 +69,6 @@
     }
     else
     {
-        _prevTable.visible = true;
         _nextTable.visible = true;
     }
     
