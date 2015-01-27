@@ -149,7 +149,6 @@ CGSize screenSize;
             [_dial increaseCake];
             [self updateCakeScore];
             [Cake collected];
-//            Cake.visible=false;
         }
     }
     return TRUE;

@@ -34,4 +34,10 @@
     [animationManager runAnimationsForSequenceNamed:@"collected"];
 }
 
+-(void)gone
+{
+    CCLOG(@"cake gone");
+    self.visible=false;
+}
+
 @end
