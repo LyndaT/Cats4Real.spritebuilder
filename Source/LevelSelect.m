@@ -16,7 +16,6 @@
     float _cakeWidth;
     int _totalLevels;
     Globals *_globals;
-    int _totalTables;
     int _currTable;
     CCButton *_nextTable;
     CCButton *_prevTable;
@@ -31,7 +30,6 @@
     if (self = [super init]) {
         _globals = [Globals globalManager];
     }
-    _totalTables = ceil(_totalLevels/3)-1;
     _currTable = 0;
     return self;
 }
@@ -55,7 +53,6 @@
  */
 -(void)setButtonMenus
 {
-    CCLOG(@"Setting up menu for %i", _currTable);
     if (_currTable == 0)
     {
         _prevTable.visible = false;
@@ -63,7 +60,7 @@
     {
         _prevTable.visible = true;
     }
-    if (_currTable == _totalTables)
+    if (_currTable >= (_totalLevels/8))
     {
         _nextTable.visible = false;
     }
