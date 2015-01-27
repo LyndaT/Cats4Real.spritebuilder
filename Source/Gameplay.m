@@ -8,6 +8,8 @@
 
 #import "Gameplay.h"
 #import <CoreMotion/CoreMotion.h>
+#import <UIKit/UIKit.h>
+#import <CCAction.h>
 #import "Cat.h"
 #import "Door.h"
 #import "Level.h"
@@ -79,7 +81,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     
     _door = (Door *)[CCBReader load:@"Sprites/Door" owner:self];
     _cat = (Cat *)[CCBReader load:@"Sprites/Cat" owner:self];
-    [_levelNode addChild:_door];
+    [currentLevel addChild:_door];
     [_levelNode addChild:_cat];
     
     [self resetLevel];
@@ -99,6 +101,8 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
+    //[self adjustLayer];
+    
     if(!hold && !isOpeningDoor && !isImmune)
     {
         [self changeGravity:acceleration.x :acceleration.y];
@@ -113,6 +117,31 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
     }
 }
 
+/**----------------Level moving stuff----------------
+ *Actually this is shit, ignore
+ */
+
+-(void) adjustLayer
+{
+    float newXposition = _cat.position.x;
+    float newYposition = _cat.position.y;
+    
+    CGSize screenSize = [CCDirector sharedDirector].viewSize;
+    
+    float halfOfScreenX = screenSize.width/2.0f;
+    float halfOfScreenY = screenSize.height/2.0f;
+    
+    CGSize levelSize = _currentLevel.contentSize;
+    if ((_cat.position.x > halfOfScreenX) && (_cat.position.x < (levelSize.width - halfOfScreenX))) {
+        newXposition = halfOfScreenX - _cat.position.x;
+        CCLOG(@"move sceen");
+    }
+    
+    if ((_cat.position.y > halfOfScreenX) && (_cat.position.y < (levelSize.height - halfOfScreenY))) {
+        newYposition = halfOfScreenY - _cat.position.y;
+    }
+    [currentLevel setPosition:ccp(newXposition, newYposition)];
+}
 
 /**----------------Collisions Begin Here----------------
  */
@@ -483,8 +512,10 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 -(void)resetLevel
 {
     [_levelNode removeChild:currentLevel];
+    [_door removeFromParent];
     currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
     [_levelNode addChild:currentLevel];
+    [currentLevel addChild:_door];
     
     numCake=0;
     
@@ -494,11 +525,13 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 //    CCLOG(@"cat added, %d, %d, supposedly %d, %d",_cat.position.x,_cat.position.y, _currentLevel.catX, _currentLevel.catY);
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
-    //TODO:cat pause
-    //set cat rotation
+
     [self startImmunity];
     [self scheduleOnce:@selector(endImmunity) delay:immuneTime];
     
+    CGRect worldBoundary = CGRectMake(0, 0, _currentLevel.contentSize.width, _currentLevel.contentSize.height);
+    id camMove =[CCActionFollow actionWithTarget:_cat worldBoundary:worldBoundary];
+    [currentLevel runAction:camMove];
 }
 
 //Sets the cat in a frozen 'immune' state
