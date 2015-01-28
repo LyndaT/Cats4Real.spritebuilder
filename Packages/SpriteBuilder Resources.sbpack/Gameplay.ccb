@@ -592,8 +592,6 @@
 						<real>0.5</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -607,7 +605,7 @@
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_pause</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -731,7 +729,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.75</real>
+						<real>0.5</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -743,6 +741,14 @@
 							<string></string>
 							<string>assets/buttons/button_pause.png</string>
 						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundOpacity|Highlighted</string>
+						<key>type</key>
+						<string>Float</string>
+						<key>value</key>
+						<real>0.75</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -770,6 +776,14 @@
 					</dict>
 					<dict>
 						<key>name</key>
+						<string>backgroundOpacity|Disabled</string>
+						<key>type</key>
+						<string>Float</string>
+						<key>value</key>
+						<real>0.25</real>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>labelOpacity|Disabled</string>
 						<key>type</key>
 						<string>Float</string>
@@ -786,6 +800,14 @@
 							<string></string>
 							<string>assets/buttons/button_pause.png</string>
 						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundOpacity|Selected</string>
+						<key>type</key>
+						<string>Float</string>
+						<key>value</key>
+						<real>0.25</real>
 					</dict>
 					<dict>
 						<key>name</key>

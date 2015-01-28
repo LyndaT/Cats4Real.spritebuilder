@@ -47,6 +47,7 @@ BOOL hasClung = NO;
     CCPhysicsNode *_physNode;
 //    CCLabelTTF *_cakeScore;
     CCNode *_menus;
+    CCButton *_pause;
     
     CakeDial *_dial;
     GameOver *_gameOverMenu;
@@ -275,6 +276,8 @@ BOOL hasClung = NO;
     
     _gameOverMenu.rotation = rotation;
     [_menus addChild:_gameOverMenu];
+    _pause.enabled=false;
+    _pause.visible=false;
 }
 
 -(void)pause
@@ -311,6 +314,8 @@ BOOL hasClung = NO;
     if (isDead)
     {
         isDead = NO;
+        _pause.enabled=true;
+        _pause.visible=true;
         [_menus removeChild:_gameOverMenu];
     }
 }
@@ -318,6 +323,8 @@ BOOL hasClung = NO;
 -(void)retryFromDeath
 {
     isDead = NO;
+    _pause.enabled=true;
+    _pause.visible=true;
     [_menus removeChild:_gameOverMenu];
     [[CCDirector sharedDirector] resume];
     [self resetLevel];
@@ -336,6 +343,8 @@ BOOL hasClung = NO;
 -(void)returnMenuFromDied
 {
     CCLOG(@"returnMenu");
+    _pause.enabled=true;
+    _pause.visible=true;
     [_menus removeChild:_gameOverMenu];
     [[CCDirector sharedDirector] resume];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
@@ -346,6 +355,8 @@ BOOL hasClung = NO;
 -(void)returnMenuFromLevelEnd
 {
     isOpeningDoor=NO;
+    _pause.enabled=true;
+    _pause.visible=true;
     [_menus removeChild:_levelDoneMenu];
     [[CCDirector sharedDirector] resume];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
@@ -359,6 +370,8 @@ BOOL hasClung = NO;
     [_cat walk];
     [_door close];
     [_menus removeChild:_levelDoneMenu];
+    _pause.enabled=true;
+    _pause.visible=true;
     [[CCDirector sharedDirector] resume];
     [self toNextLevel];
 }
@@ -369,6 +382,8 @@ BOOL hasClung = NO;
     [[CCDirector sharedDirector] pause];
     _levelDoneMenu.rotation = rotation;
     [_menus addChild:_levelDoneMenu];
+    _pause.enabled=false;
+    _pause.visible=false;
     if(!hasClung)
     {
         CCLOG(@"no cling star!");
