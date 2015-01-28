@@ -17,12 +17,14 @@
 @synthesize currentLevelNumber;
 @synthesize isCurrentCutscene;
 @synthesize musicVolume;
+@synthesize clingStar;
 
 - (id)init {
     if (self = [super init]) {
         currentLevelName = @"Levels/Level1";
         currentLevelNumber = 1;
         musicVolume = 1.0;
+        int clingStar[0];
     }
     return self;
 }
@@ -54,6 +56,25 @@
 
 - (void)setMusicVolume:(float)volume{
     musicVolume = volume;
+}
+
+/* sets the value of the clingstar of the current level
+ * 
+ * 0 = cling used
+ * 1 = no cling used
+ */
+- (void)setClingStars: (int)currLevel : (BOOL)noCling
+{
+    if (clingStar[currLevel]!=1){
+        if (noCling)
+        {
+            [clingStar insertObject:[NSNumber numberWithInt:1] atIndex:currLevel];
+        }
+        else
+        {
+            [clingStar insertObject:[NSNumber numberWithInt:0] atIndex:currLevel];
+        }
+    }
 }
 
 @end
