@@ -129,7 +129,7 @@
     tempX = (highestLevel-1) - (floor((highestLevel-1)/4) * 4);
     LevelSelectCake *tempPlate = (LevelSelectCake *)[CCBReader load:@"assets/levelSelect/emptyPlate"];
     tempPlate.position = ccp(98 + (_cakeWidth+13)*tempX,245 - tempY);
-    [tempPlate setLevel:0]; //set to 0 for testing, set to highestLevel for normal behavior
+    [tempPlate setLevel:highestLevel]; //set to 0 for testing, set to highestLevel for normal behavior
     if ((8*_currTable)+1 < highestLevel){
         [_plateHolder addChild:tempPlate];
     }
