@@ -179,8 +179,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.56999999284744263</real>
-							<real>0.5</real>
+							<real>0.52950704097747803</real>
+							<real>0.48124998807907104</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -225,6 +225,7 @@
 Music
 	Presence of Sound
 	MusicMaterial
+	FreeSound.org
 
 Font
 	Graham Meade at GemFonts</string>
@@ -363,6 +364,8 @@ Font
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1364,7 +1367,7 @@ Font
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>18.084909439086914</real>
+						<real>11.417362213134766</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1981,7 +1984,7 @@ Font
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>3.2999999523162842</real>
+			<real>2.6333334445953369</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
