@@ -187,6 +187,8 @@ BOOL hasClung = NO;
         if ([self isCatNyooming])
         {
             //if you're nyooming, you smash it and DIE
+            OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
+            [effect playEffect:@"assets/music/splat.mp3"];
             CCLOG(@"smoosh!");
             [_gameOverMenu cake];
             [self died];
@@ -196,6 +198,8 @@ BOOL hasClung = NO;
             //if you're not nyooming, you collect the cake
             numCake++;
             [_dial increaseCake];
+            OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
+            [effect playEffect:@"assets/music/ding.mp3"];
             [self updateCakeScore];
             [Cake collected];
         }
@@ -209,6 +213,8 @@ BOOL hasClung = NO;
  */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat water:(CCNode *)Water
 {
+    OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
+    [effect playEffect:@"assets/music/splash.mp3"];
     [_gameOverMenu water];
     [self died];
     return TRUE;
