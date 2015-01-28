@@ -28,6 +28,6 @@
 @property (nonatomic, assign) BOOL isCutsceneNext;
 //@property(assign) NSString *nextLevel;
 
--(void)putDoorBack;
+-(void)pulseCakes;
 
 @end

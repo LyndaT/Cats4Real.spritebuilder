@@ -713,7 +713,7 @@ BOOL hasClung = NO;
             [effect playEffect:@"assets/music/knock.mp3"];
             CCLOG(@"audioplayed");
             
-            int currLevel = _globals.currentLevelNumber;
+//            int currLevel = _globals.currentLevelNumber;
 //            CCLOG(@"has not clung: %i", !hasClung);
 //            [_globals setClingStars: currLevel :(int)(!hasClung)];
             isOpeningDoor=YES;
@@ -722,6 +722,7 @@ BOOL hasClung = NO;
         }
     }else if (atDoor && (numCake<_currentLevel.totalCake) && ![self isCatNyooming] && !isOpeningDoor)
     {
+        [_currentLevel pulseCakes];
         [_dial pulse];
     }
     //CCLOG(@"Touches began");

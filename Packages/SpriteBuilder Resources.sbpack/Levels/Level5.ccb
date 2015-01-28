@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>89</integer>
+	<integer>90</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -75,7 +75,7 @@
 					<key>dynamic</key>
 					<false/>
 					<key>elasticity</key>
-					<real>0.30000001192092896</real>
+					<real>0.0</real>
 					<key>friction</key>
 					<real>0.30000001192092896</real>
 					<key>points</key>
@@ -256,7 +256,7 @@
 					<key>dynamic</key>
 					<false/>
 					<key>elasticity</key>
-					<real>0.30000001192092896</real>
+					<real>0.0</real>
 					<key>friction</key>
 					<real>0.30000001192092896</real>
 					<key>points</key>
@@ -429,7 +429,7 @@
 					<key>dynamic</key>
 					<false/>
 					<key>elasticity</key>
-					<real>0.30000001192092896</real>
+					<real>0.0</real>
 					<key>friction</key>
 					<real>0.30000001192092896</real>
 					<key>points</key>
@@ -602,7 +602,7 @@
 					<key>dynamic</key>
 					<false/>
 					<key>elasticity</key>
-					<real>0.30000001192092896</real>
+					<real>0.0</real>
 					<key>friction</key>
 					<real>0.30000001192092896</real>
 					<key>points</key>
@@ -783,7 +783,7 @@
 					<key>dynamic</key>
 					<false/>
 					<key>elasticity</key>
-					<real>0.30000001192092896</real>
+					<real>0.0</real>
 					<key>friction</key>
 					<real>0.30000001192092896</real>
 					<key>points</key>
@@ -964,7 +964,7 @@
 					<key>dynamic</key>
 					<false/>
 					<key>elasticity</key>
-					<real>0.30000001192092896</real>
+					<real>0.0</real>
 					<key>friction</key>
 					<real>0.30000001192092896</real>
 					<key>points</key>
@@ -1406,76 +1406,6 @@
 						<string>Float</string>
 						<key>value</key>
 						<real>1</real>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>UUID</key>
-				<integer>57</integer>
-				<key>baseClass</key>
-				<string>CCBFile</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>Cake</string>
-				<key>memberVarAssignmentName</key>
-				<string></string>
-				<key>memberVarAssignmentType</key>
-				<integer>1</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>name</string>
-						<key>type</key>
-						<string>StringSimple</string>
-						<key>value</key>
-						<string></string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>218.33334350585938</real>
-							<real>213</real>
-							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<false/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>rotation</string>
-						<key>type</key>
-						<string>Degrees</string>
-						<key>value</key>
-						<real>-180</real>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>ccbFile</string>
-						<key>type</key>
-						<string>CCBFile</string>
-						<key>value</key>
-						<string>Sprites/Cake.ccb</string>
 					</dict>
 				</array>
 			</dict>
@@ -3888,7 +3818,7 @@ Very smooshy, do not fall on!</string>
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>assets/playtime.ttf</string>
+						<string>assets/Playtime With Hot Toddies.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -4014,6 +3944,157 @@ Very smooshy, do not fall on!</string>
 						</array>
 					</dict>
 				</array>
+			</dict>
+			<dict>
+				<key>UUID</key>
+				<integer>89</integer>
+				<key>baseClass</key>
+				<string>CCNode</string>
+				<key>children</key>
+				<array>
+					<dict>
+						<key>UUID</key>
+						<integer>57</integer>
+						<key>baseClass</key>
+						<string>CCBFile</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>Cake</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>1</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>name</string>
+								<key>type</key>
+								<string>StringSimple</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>218.33334350585938</real>
+									<real>213</real>
+									<integer>0</integer>
+									<integer>0</integer>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-180</real>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccbFile</string>
+								<key>type</key>
+								<string>CCBFile</string>
+								<key>value</key>
+								<string>Sprites/Cake.ccb</string>
+							</dict>
+						</array>
+					</dict>
+				</array>
+				<key>customClass</key>
+				<string></string>
+				<key>displayName</key>
+				<string>cake</string>
+				<key>memberVarAssignmentName</key>
+				<string>_cakes</string>
+				<key>memberVarAssignmentType</key>
+				<integer>1</integer>
+				<key>properties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>name</string>
+						<key>type</key>
+						<string>StringSimple</string>
+						<key>value</key>
+						<string></string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>position</string>
+						<key>type</key>
+						<string>Position</string>
+						<key>value</key>
+						<array>
+							<real>0.0</real>
+							<real>0.0</real>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>contentSize</string>
+						<key>type</key>
+						<string>Size</string>
+						<key>value</key>
+						<array>
+							<real>0.0</real>
+							<real>0.0</real>
+							<integer>0</integer>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>anchorPoint</string>
+						<key>type</key>
+						<string>Point</string>
+						<key>value</key>
+						<array>
+							<real>0.0</real>
+							<real>0.0</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>scale</string>
+						<key>type</key>
+						<string>ScaleLock</string>
+						<key>value</key>
+						<array>
+							<real>1</real>
+							<real>1</real>
+							<false/>
+							<integer>0</integer>
+						</array>
+					</dict>
+				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

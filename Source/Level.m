@@ -8,8 +8,10 @@
 
 #import "Level.h"
 #import "CCNode.h"
+#import "Cake.h"
 
 @implementation Level{
+    CCNode *_cakes;
 }
 
 @synthesize catX;
@@ -34,5 +36,16 @@
 
 -(void)didLoadFromCCB
 {
+}
+
+-(void)pulseCakes
+{
+    for (CCNode *cake in _cakes.children)
+    {
+        if (cake.visible)
+        {
+            [(Cake *)cake pulse];
+        }
+    }
 }
 @end
