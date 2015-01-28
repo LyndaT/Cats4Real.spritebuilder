@@ -89,4 +89,11 @@
     }
 }
 
+-(void)credits
+{
+    CCLOG(@"to credits");
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
 @end

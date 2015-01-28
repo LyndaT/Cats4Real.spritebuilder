@@ -107,6 +107,7 @@
 		F277D15E1A70BE8B001B52F0 /* Cutscene.m in Sources */ = {isa = PBXBuildFile; fileRef = F277D15D1A70BE8B001B52F0 /* Cutscene.m */; };
 		F277D1621A70C540001B52F0 /* SingleCutscene.m in Sources */ = {isa = PBXBuildFile; fileRef = F277D1611A70C540001B52F0 /* SingleCutscene.m */; };
 		F28979891A73601000CC8C2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28979881A73601000CC8C2A /* Images.xcassets */; };
+		F2946D8C1A789E3D00586C63 /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = F2946D8B1A789E3D00586C63 /* Credits.m */; };
 		F2B780151A64AF7F00E09517 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B780141A64AF7F00E09517 /* Gameplay.m */; };
 /* End PBXBuildFile section */
 
@@ -273,6 +274,8 @@
 		F277D1601A70C540001B52F0 /* SingleCutscene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleCutscene.h; path = Source/SingleCutscene.h; sourceTree = "<group>"; };
 		F277D1611A70C540001B52F0 /* SingleCutscene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleCutscene.m; path = Source/SingleCutscene.m; sourceTree = "<group>"; };
 		F28979881A73601000CC8C2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Cats4Real iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		F2946D8A1A789E3D00586C63 /* Credits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Credits.h; path = Source/Credits.h; sourceTree = "<group>"; };
+		F2946D8B1A789E3D00586C63 /* Credits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Credits.m; path = Source/Credits.m; sourceTree = "<group>"; };
 		F2B780131A64AF7F00E09517 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
 		F2B780141A64AF7F00E09517 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -521,6 +524,8 @@
 				52F441E51A6F026E00E7AE95 /* LevelSelect.m */,
 				F26E0D451A7082DE00E5C553 /* Settings.h */,
 				F26E0D461A7082DE00E5C553 /* Settings.m */,
+				F2946D8A1A789E3D00586C63 /* Credits.h */,
+				F2946D8B1A789E3D00586C63 /* Credits.m */,
 				C673DBBA1A6F1D1400CDF256 /* LevelSelectCake.h */,
 				C673DBBB1A6F1D1400CDF256 /* LevelSelectCake.m */,
 				C673DBBE1A6F428C00CDF256 /* Globals.h */,
@@ -955,6 +960,7 @@
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				52A9797A1A675F2D000A8049 /* Cake.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				F2946D8C1A789E3D00586C63 /* Credits.m in Sources */,
 				5260B3781A65A8BF002A3A5A /* Cat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
