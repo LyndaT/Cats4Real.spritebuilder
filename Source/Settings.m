@@ -12,6 +12,8 @@
 @implementation Settings
 {
     Globals *_globals;
+    CCButton *_musicButton;
+    CCButton *_SFXButton;
 }
 
 - (void)didLoadFromCCB {
@@ -55,6 +57,36 @@
     [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
     [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
     CCLOG(@"%f", musicVol.sliderValue);
+}
+
+-(void)musicToggle
+{
+    _globals.isMusicOn = !_globals.isMusicOn;
+    if (_globals.isMusicOn)
+    {
+        [_globals setMusicVolume:1];
+        [_musicButton setTitle:@"ON"];
+    }else
+    {
+        [_globals setMusicVolume:0];
+        [_musicButton setTitle:@"OFF"];
+    }
+    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
+}
+
+-(void)sfxToggle
+{
+    CCLOG(@"sfx tggle");
+    _globals.isSFXOn = !_globals.isSFXOn;
+    if (_globals.isSFXOn)
+    {
+        [_globals setSFXVolume:1];
+        [_SFXButton setTitle:@"ON"];
+    }else
+    {
+        [_globals setSFXVolume:0];
+        [_SFXButton setTitle:@"OFF"];
+    }
 }
 
 @end

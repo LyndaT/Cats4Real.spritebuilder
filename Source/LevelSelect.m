@@ -95,7 +95,7 @@
             [_plateHolder addChild:placemat];
             
             CCLabelTTF *lvlText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"level %i",j+8*_currTable]
-                                                     fontName:@"Lao Sangam MN" fontSize:16];
+                                                     fontName:@"Playtime With Hot Toddies" fontSize:16];
             lvlText.color = [CCColor colorWithCcColor3b:ccBLACK];
             lvlText.position = ccp(100 + (_cakeWidth+12.5)*tempX,205 - tempY);
             [_plateHolder addChild:lvlText];

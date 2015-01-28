@@ -17,14 +17,20 @@
 @synthesize currentLevelNumber;
 @synthesize isCurrentCutscene;
 @synthesize musicVolume;
+@synthesize SFXVolume;
 @synthesize clingStar;
+@synthesize isMusicOn;
+@synthesize isSFXOn;
 
 - (id)init {
     if (self = [super init]) {
         currentLevelName = @"Levels/Level1";
         currentLevelNumber = 1;
         musicVolume = 1.0;
+        SFXVolume = 1.0;
         int clingStar[0];
+        isMusicOn=YES;
+        isSFXOn=YES;
     }
     return self;
 }
@@ -56,6 +62,10 @@
 
 - (void)setMusicVolume:(float)volume{
     musicVolume = volume;
+}
+
+- (void)setSFXVolume:(float)volume{
+    SFXVolume = volume;
 }
 
 /* sets the value of the clingstar of the current level

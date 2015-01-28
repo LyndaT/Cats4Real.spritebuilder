@@ -19,12 +19,16 @@
 @property (nonatomic, assign) int currentLevelNumber;
 @property (nonatomic, assign) BOOL isCurrentCutscene;
 @property (nonatomic, assign) float musicVolume;
+@property (nonatomic, assign) float SFXVolume;
 @property (nonatomic, assign) NSMutableArray* clingStar;
+@property (nonatomic, assign) BOOL isMusicOn;
+@property (nonatomic, assign) BOOL isSFXOn;
 
 + (id)globalManager;
 - (void)setLevel:(int)levelNumber;
 - (void)setCutscene:(int)cutNumber;
 - (void)setMusicVolume:(float)volume;
+- (void)setSFXVolume:(float)volume;
 - (void)setClingStars: (int)currLevel: (BOOL)noCling;
 
 @end
