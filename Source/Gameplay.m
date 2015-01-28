@@ -669,7 +669,8 @@ BOOL hasClung = NO;
             CCLOG(@"audioplayed");
             
             int currLevel = _globals.currentLevelNumber;
-            [_globals setClingStars: currLevel :(!hasClung)];
+            CCLOG(@"has not clung: %i", !hasClung);
+            [_globals setClingStars: currLevel :(int)(!hasClung)];
             isOpeningDoor=YES;
             [_cat openDoor];
             [_door fade];
