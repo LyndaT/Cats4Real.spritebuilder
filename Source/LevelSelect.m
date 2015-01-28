@@ -83,7 +83,6 @@
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
         highestLevel = 1;
     }
-    highestLevel = 8;
     int tempY=0;
     int tempX=0;
     for (int j = 1; j <=8; j++) {
@@ -95,7 +94,7 @@
             [_plateHolder addChild:placemat];
             
             CCLabelTTF *lvlText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"level %i",j+8*_currTable]
-                                                     fontName:@"Playtime With Hot Toddies" fontSize:16];
+                                                     fontName:@"PlaytimeWithHotToddies" fontSize:16];
             lvlText.color = [CCColor colorWithCcColor3b:ccBLACK];
             lvlText.position = ccp(100 + (_cakeWidth+12.5)*tempX,205 - tempY);
             [_plateHolder addChild:lvlText];
@@ -125,12 +124,14 @@
     
     //empty plate
     
-    tempY = (floor((highestLevel-1)/4) * 120);
+    tempY = (floor(((highestLevel-1)-8*_currTable)/4) * 120);
     tempX = (highestLevel-1) - (floor((highestLevel-1)/4) * 4);
     LevelSelectCake *tempPlate = (LevelSelectCake *)[CCBReader load:@"assets/levelSelect/emptyPlate"];
     tempPlate.position = ccp(98 + (_cakeWidth+13)*tempX,245 - tempY);
     [tempPlate setLevel:highestLevel]; //set to 0 for testing, set to highestLevel for normal behavior
-    if ((8*_currTable)+1 < highestLevel){
+    if ((8*(_currTable+1))+1 > highestLevel){
+//        CCLOG(@"currtbl %i, ihghest lvl %lu, 8*currtbl %i",_currTable, (unsigned long)highestLevel, 8*(_currTable+1));
+//        CCLOG(@"plate empty pos %i, %i",tempX, tempY);
         [_plateHolder addChild:tempPlate];
     }
 }

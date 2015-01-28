@@ -28,7 +28,7 @@
         currentLevelNumber = 1;
         musicVolume = 1.0;
         SFXVolume = 1.0;
-        int clingStar[0];
+        NSInteger clingStar[0];
         isMusicOn=YES;
         isSFXOn=YES;
     }
@@ -52,6 +52,7 @@
     isCurrentCutscene=NO;
     currentLevelName = [NSString stringWithFormat:@"Levels/Level%d", levelNumber];
     currentLevelNumber = levelNumber;
+    CCLOG(@"level set to %d",currentLevelNumber);
 }
 
 - (void)setCutscene:(int)cutNumber{
@@ -79,7 +80,7 @@
         if (noCling == 1)
         {
             [clingStar insertObject:[NSNumber numberWithInt:1] atIndex:currLevel];
-            clingStar[currLevel]=(NSInteger)1;
+//            clingStar[currLevel]=(NSInteger)1;
             CCLOG(@"current level %i set cling %i", currLevel, [[clingStar objectAtIndex:currLevel]intValue]);
         }
         else

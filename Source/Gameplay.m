@@ -225,7 +225,7 @@ BOOL hasClung = NO;
     CCLOG(@"hit door");
     if (_globals.currentLevelNumber==1)
     {
-        CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap the screen to go through!" fontName:@"Lao Sangam MN" fontSize:16];
+        CCLabelTTF *doorInstruc = [CCLabelTTF labelWithString:@"Tap the screen to go through!" fontName:@"PlaytimeWithHotToddies" fontSize:20];
         doorInstruc.position = ccp(367,52.5);
         [currentLevel addChild:doorInstruc];
     }
@@ -388,11 +388,16 @@ BOOL hasClung = NO;
     [_menus addChild:_levelDoneMenu];
     _pause.enabled=false;
     _pause.visible=false;
+    CCLOG(@"no cling star!");
+    _noClingStar.rotation = rotation;
+    [_menus addChild:_noClingStar];
     if(!hasClung)
     {
         CCLOG(@"no cling star!");
-        _noClingStar.rotation = rotation;
-        [_menus addChild:_noClingStar];
+        _noClingStar.visible=false;
+    }else
+    {
+        _noClingStar.visible=true;
     }
 }
 
