@@ -20,7 +20,7 @@
 @property (nonatomic, assign) BOOL isCurrentCutscene;
 @property (nonatomic, assign) float musicVolume;
 @property (nonatomic, assign) float SFXVolume;
-@property (nonatomic, assign) NSMutableArray* clingStar;
+//@property (nonatomic, assign) NSMutableArray* clingStar;
 @property (nonatomic, assign) BOOL isMusicOn;
 @property (nonatomic, assign) BOOL isSFXOn;
 
@@ -30,5 +30,6 @@
 - (void)setMusicVolume:(float)volume;
 - (void)setSFXVolume:(float)volume;
 - (void)setClingStars: (int)currLevel: (BOOL)noCling;
+- (int)getClingStar: (int)currLevel;
 
 @end

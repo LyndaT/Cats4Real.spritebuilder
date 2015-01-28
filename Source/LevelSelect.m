@@ -111,8 +111,8 @@
             CCNode *noClingStar = [CCBReader load:@"Star"];
             noClingStar.position = ccp(120 + (_cakeWidth+12.5)*tempX,225 - tempY);
             
-            CCLOG(@"level %i, cling star %i", j+8*_currTable,(int)[_globals.clingStar objectAtIndex:j+8*_currTable]);
-            if ((int)[_globals.clingStar objectAtIndex:j+8*_currTable]==1)
+//            CCLOG(@"level %i, cling star %i", j+8*_currTable,(int)[_globals.clingStar objectAtIndex:j+8*_currTable]);
+            if ([[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"clingLevel%i",j+8*_currTable]])//(int)[_globals getClingStar:j+8*_currTable]==1)
             {
                 [_plateHolder addChild:noClingStar];
             }

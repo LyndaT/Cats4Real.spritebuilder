@@ -388,16 +388,18 @@ BOOL hasClung = NO;
     [_menus addChild:_levelDoneMenu];
     _pause.enabled=false;
     _pause.visible=false;
-    CCLOG(@"no cling star!");
     _noClingStar.rotation = rotation;
     [_menus addChild:_noClingStar];
     if(!hasClung)
     {
-        CCLOG(@"no cling star!");
-        _noClingStar.visible=false;
+        CCLOG(@"cling star!");
+        _noClingStar.visible=true;
+        [_globals setClingStars:_globals.currentLevelNumber :1];
     }else
     {
-        _noClingStar.visible=true;
+        CCLOG(@"no cling star");
+        _noClingStar.visible=false;
+        [_globals setClingStars:_globals.currentLevelNumber :0];
     }
 }
 
@@ -576,6 +578,8 @@ BOOL hasClung = NO;
     
     _physNode.position=ccp(0,0);
     
+    hasClung=NO;
+    
     numCake=0;
     [_dial setNumSlices:_currentLevel.totalCake];
     
@@ -657,7 +661,11 @@ BOOL hasClung = NO;
     if (onground && !isOpeningDoor)
     {
         hold = YES;
-        hasClung = YES;
+        if (!atDoor)
+        {
+            CCLOG(@"oh no you clung ):");
+            hasClung = YES;
+        }
         [_cat cling];
     }
     if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming] && !isOpeningDoor)
@@ -674,8 +682,8 @@ BOOL hasClung = NO;
             CCLOG(@"audioplayed");
             
             int currLevel = _globals.currentLevelNumber;
-            CCLOG(@"has not clung: %i", !hasClung);
-            [_globals setClingStars: currLevel :(int)(!hasClung)];
+//            CCLOG(@"has not clung: %i", !hasClung);
+//            [_globals setClingStars: currLevel :(int)(!hasClung)];
             isOpeningDoor=YES;
             [_cat openDoor];
             [_door fade];

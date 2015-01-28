@@ -12,13 +12,16 @@
 #import "Globals.h"
 
 @implementation Globals
+{
+    NSInteger clingStar[20];
+}
 
 @synthesize currentLevelName;
 @synthesize currentLevelNumber;
 @synthesize isCurrentCutscene;
 @synthesize musicVolume;
 @synthesize SFXVolume;
-@synthesize clingStar;
+//@synthesize clingStar;
 @synthesize isMusicOn;
 @synthesize isSFXOn;
 
@@ -28,7 +31,6 @@
         currentLevelNumber = 1;
         musicVolume = 1.0;
         SFXVolume = 1.0;
-        NSInteger clingStar[0];
         isMusicOn=YES;
         isSFXOn=YES;
     }
@@ -79,15 +81,23 @@
     if (clingStar[currLevel]!=1){
         if (noCling == 1)
         {
-            [clingStar insertObject:[NSNumber numberWithInt:1] atIndex:currLevel];
-//            clingStar[currLevel]=(NSInteger)1;
-            CCLOG(@"current level %i set cling %i", currLevel, [[clingStar objectAtIndex:currLevel]intValue]);
+//            [clingStar insertObject:[NSNumber numberWithInt:1] atIndex:currLevel];
+            clingStar[currLevel]=(NSInteger)noCling;//[NSNumber numberWithInteger:1];
+            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:[NSString stringWithFormat:@"clingLevel%i",currLevel]];
+            CCLOG(@"current level %i set cling %li", currLevel, (long)clingStar[currLevel]);
         }
         else
         {
-            [clingStar insertObject:[NSNumber numberWithInt:0] atIndex:currLevel];
+//            [clingStar insertObject:[NSNumber numberWithInt:0] atIndex:currLevel];
+            clingStar[currLevel]=(NSInteger)0;
+//            clingStar[currLevel]=[NSNumber numberWithInteger:0];
         }
     }
+}
+
+- (int)getClingStar: (int)currLevel
+{
+    return (int)clingStar[currLevel];
 }
 
 @end
