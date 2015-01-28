@@ -40,4 +40,9 @@
     self.visible=false;
 }
 
+-(void)pulse
+{
+    [animationManager runAnimationsForSequenceNamed:@"pulse"];
+}
+
 @end

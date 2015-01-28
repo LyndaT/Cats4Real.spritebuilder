@@ -11,5 +11,6 @@
 @interface Cake : CCNode
 
 -(void)collected;
+-(void)pulse;
 
 @end
