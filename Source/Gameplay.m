@@ -36,6 +36,7 @@ int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 CGSize screenSize;
 float oldCatX; //used for camera mvt
 float oldCatY;
+BOOL hasClung = NO;
 
 
 @implementation Gameplay
@@ -368,6 +369,10 @@ float oldCatY;
     [[CCDirector sharedDirector] pause];
     _levelDoneMenu.rotation = rotation;
     [_menus addChild:_levelDoneMenu];
+    if(!hasClung)
+    {
+        CCLOG(@"no cling star!");
+    }
 }
 
 
@@ -626,6 +631,7 @@ float oldCatY;
     if (onground && !isOpeningDoor)
     {
         hold = YES;
+        hasClung = YES;
         [_cat cling];
     }
     if (atDoor && (numCake>=_currentLevel.totalCake) && ![self isCatNyooming] && !isOpeningDoor)
@@ -641,6 +647,8 @@ float oldCatY;
             [effect playEffect:@"assets/music/knock.mp3"];
             CCLOG(@"audioplayed");
             
+            int currLevel = _globals.currentLevelNumber;
+            [_globals setClingStars: currLevel :hasClung];
             isOpeningDoor=YES;
             [_cat openDoor];
             [_door fade];
