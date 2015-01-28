@@ -31,7 +31,7 @@
 }
 
 - (void)play {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     if (firstTime)
     {
         CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
@@ -45,7 +45,7 @@
 }
 
 - (void)settings{
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Settings"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }

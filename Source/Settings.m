@@ -50,7 +50,7 @@
 
 -(void)returnMenu
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     CCLOG(@"returnMenu");
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
@@ -58,7 +58,7 @@
 
 -(void)resetProgress
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     [_globals setLevel:1];
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
     int temp = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
@@ -67,7 +67,7 @@
 
 -(void)musicToggle
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     _globals.isMusicOn = !_globals.isMusicOn;
     if (_globals.isMusicOn)
     {
@@ -82,7 +82,7 @@
 
 -(void)sfxToggle
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     _globals.isSFXOn = !_globals.isSFXOn;
     if (_globals.isSFXOn)
     {
@@ -98,7 +98,7 @@
 -(void)credits
 {
     CCLOG(@"to credits");
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }

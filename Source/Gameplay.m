@@ -254,6 +254,10 @@ BOOL hasClung = NO;
 }
 
 -(BOOL)ccPhysicsCollisionPreSolve:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground {
+    if (!onground)
+    {
+        [_globals.audio playEffect:@"assets/music/thump.mp3"];
+    }
     onground = YES;
     return YES;
 }
@@ -273,7 +277,7 @@ BOOL hasClung = NO;
 
 -(void)pause
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     if (!isDead && !isOpeningDoor){
         if (!isPaused){
             //to pause scene
@@ -291,7 +295,7 @@ BOOL hasClung = NO;
 
 -(void)unpause
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     isPaused=NO;
     [[CCDirector sharedDirector] resume];
     [_menus removeChild:_pauseMenu];
@@ -300,7 +304,7 @@ BOOL hasClung = NO;
 
 -(void)retry
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     [self unpause];
     
     [self resetLevel];
@@ -316,7 +320,7 @@ BOOL hasClung = NO;
 
 -(void)retryFromDeath
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     isDead = NO;
     _pause.enabled=true;
     _pause.visible=true;
@@ -328,7 +332,7 @@ BOOL hasClung = NO;
 //from pause menu or gameover menu
 -(void)returnMenu
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     CCLOG(@"returnMenu");
     [self unpause];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
@@ -338,7 +342,7 @@ BOOL hasClung = NO;
 //from death menu
 -(void)returnMenuFromDied
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     CCLOG(@"returnMenu");
     _pause.enabled=true;
     _pause.visible=true;
@@ -351,7 +355,7 @@ BOOL hasClung = NO;
 //from nextlevel menu
 -(void)returnMenuFromLevelEnd
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     isOpeningDoor=NO;
     _pause.enabled=true;
     _pause.visible=true;
@@ -365,7 +369,7 @@ BOOL hasClung = NO;
 //continue to next level
 -(void)cont
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     isOpeningDoor=NO;
     [_cat walk];
     [_door close];

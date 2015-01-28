@@ -41,7 +41,7 @@
 
 - (void)continue
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     if (!_currentScene.isCutsceneNext)
     {
         CCLOG(@"next lvl: %i", _currentScene.nextLevel);

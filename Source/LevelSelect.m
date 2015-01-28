@@ -138,7 +138,7 @@
 //Loads the previous table
 -(void)loadPrevTable
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     _currTable = _currTable-1;
     [self resetTable];
     [self setTable];
@@ -148,7 +148,7 @@
 
 -(void)loadNextTable
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     _currTable = _currTable+1;
     [self resetTable];
     [self setTable];
@@ -162,7 +162,7 @@
 }
 
 - (void)returnMenu {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     CCLOG(@"returnMenu");
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];

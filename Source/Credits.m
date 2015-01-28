@@ -30,7 +30,7 @@
 
 -(void)back
 {
-    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
     CCLOG(@"back to settings");
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Settings"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
