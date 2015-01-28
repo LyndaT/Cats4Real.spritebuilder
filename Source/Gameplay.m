@@ -34,6 +34,8 @@ BOOL isPaused = NO;
 BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
 int rotation = 0; //a number 1-4, phone is at (rotation) degrees
 CGSize screenSize;
+float oldCatX; //used for camera mvt
+float oldCatY;
 
 
 @implementation Gameplay
@@ -42,7 +44,7 @@ CGSize screenSize;
     CCNode *_levelNode;
     Globals *_globals;
     CCPhysicsNode *_physNode;
-    CCLabelTTF *_cakeScore;
+//    CCLabelTTF *_cakeScore;
     CCNode *_menus;
     
     CakeDial *_dial;
@@ -87,7 +89,7 @@ CGSize screenSize;
     _dial = (CakeDial *)[CCBReader load:@"Sprites/CakeDial" owner:self];
     _door = (Door *)[CCBReader load:@"Sprites/Door" owner:self];
     _cat = (Cat *)[CCBReader load:@"Sprites/Cat" owner:self];
-    [currentLevel addChild:_door];
+    [_levelNode addChild:_door];
     [_levelNode addChild:_cat];
     
     _dial.position = ccp(0,screenSize.height);
@@ -111,7 +113,7 @@ CGSize screenSize;
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    //[self adjustLayer];
+    [self adjustLayer];
     
     if(!hold && !isOpeningDoor && !isImmune)
     {
@@ -128,29 +130,43 @@ CGSize screenSize;
 }
 
 /**----------------Level moving stuff----------------
- *Actually this is shit, ignore
+ *
  */
 
 -(void) adjustLayer
 {
-    float newXposition = _cat.position.x;
-    float newYposition = _cat.position.y;
-    
     CGSize screenSize = [CCDirector sharedDirector].viewSize;
     
     float halfOfScreenX = screenSize.width/2.0f;
     float halfOfScreenY = screenSize.height/2.0f;
     
     CGSize levelSize = _currentLevel.contentSize;
-    if ((_cat.position.x > halfOfScreenX) && (_cat.position.x < (levelSize.width - halfOfScreenX))) {
-        newXposition = halfOfScreenX - _cat.position.x;
-        CCLOG(@"move sceen");
+    
+    //only move if lvl is bigger than screen size
+    if (screenSize.width < levelSize.width || screenSize.height < levelSize.height)
+    {
+        float changeX = 0;
+        float changeY = 0;
+        
+        CCLOG(@"%f %f %f",_cat.position.x, halfOfScreenX, screenSize.width);
+        
+        if ((_cat.position.x + halfOfScreenX) < levelSize.width && (_cat.position.x - halfOfScreenX) > 0)
+        {
+            changeX = oldCatX - _cat.position.x;
+        }
+        
+        if ((_cat.position.y + halfOfScreenY) < levelSize.height && (_cat.position.y - halfOfScreenY) > 0)
+        {
+            changeY = oldCatY - _cat.position.y;
+        }
+        
+        oldCatX = _cat.position.x;
+        oldCatY = _cat.position.y;
+        
+        [_physNode runAction:[CCActionMoveBy actionWithDuration:0.3 position:ccp(changeX,changeY) ]];
     }
     
-    if ((_cat.position.y > halfOfScreenX) && (_cat.position.y < (levelSize.height - halfOfScreenY))) {
-        newYposition = halfOfScreenY - _cat.position.y;
-    }
-    [currentLevel setPosition:ccp(newXposition, newYposition)];
+    
 }
 
 /**----------------Collisions Begin Here----------------
@@ -239,7 +255,6 @@ CGSize screenSize;
 }
 
 -(BOOL)ccPhysicsCollisionPreSolve:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground {
-    //CCLOG(@"catonground");
     onground = YES;
     return YES;
 }
@@ -522,11 +537,13 @@ CGSize screenSize;
 
 -(void)resetLevel
 {
+//    [currentLevel removeChild:_door];
     [_levelNode removeChild:currentLevel];
-    [_door removeFromParent];
     currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
+    _currentLevel = (Level *)currentLevel;
     [_levelNode addChild:currentLevel];
-    [currentLevel addChild:_door];
+    
+    _physNode.position=ccp(0,0);
     
     numCake=0;
     [_dial setNumSlices:_currentLevel.totalCake];
@@ -534,16 +551,22 @@ CGSize screenSize;
     [self updateCakeScore];
     _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
     _cat.physicsBody.velocity = ccp(0,0);
+    oldCatX = _cat.position.x;
+    oldCatY = _cat.position.y;
 //    CCLOG(@"cat added, %d, %d, supposedly %d, %d",_cat.position.x,_cat.position.y, _currentLevel.catX, _currentLevel.catY);
+//    [currentLevel addChild:_door];
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
-
+//    CCLOG(@"door pos %d, %d",_door.position.x, _door.position.y);
+    
     [self startImmunity];
     [self scheduleOnce:@selector(endImmunity) delay:immuneTime];
-    
-    CGRect worldBoundary = CGRectMake(0, 0, _currentLevel.contentSize.width, _currentLevel.contentSize.height);
-    id camMove =[CCActionFollow actionWithTarget:_cat worldBoundary:worldBoundary];
-    [currentLevel runAction:camMove];
+
+//    [currentLevel stopAllActions];
+//    currentLevel.position=ccp(0,0);
+//    CGRect worldBoundary = CGRectMake(0, 0, _currentLevel.contentSize.width, _currentLevel.contentSize.height);
+//    id camMove =[CCActionFollow actionWithTarget:_cat worldBoundary:worldBoundary];
+//    [currentLevel runAction:[CCActionFollow actionWithTarget:_cat worldBoundary:worldBoundary]];
 }
 
 //Sets the cat in a frozen 'immune' state
@@ -574,7 +597,7 @@ CGSize screenSize;
 
 -(void)updateCakeScore
 {
-    _cakeScore.string = [NSString stringWithFormat:@"%i/%i cake", numCake, _currentLevel.totalCake];
+//    _cakeScore.string = [NSString stringWithFormat:@"%i/%i cake", numCake, _currentLevel.totalCake];
     if (numCake>=_currentLevel.totalCake)
     {
         CCLOG(@"door open");
@@ -636,6 +659,7 @@ CGSize screenSize;
         [_cat walk];
     }
     hold = NO;
+    [self adjustLayer];
     //CCLOG(@"Touches ended");
 }
 - (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
