@@ -52,6 +52,7 @@ BOOL hasClung = NO;
     CakeDial *_dial;
     GameOver *_gameOverMenu;
     CCNode *_levelDoneMenu;
+    CCNode *_noClingStar;
     CCNode *_pauseMenu;
     Level *_currentLevel;
     CCScene *currentLevel;
@@ -78,6 +79,7 @@ BOOL hasClung = NO;
     
     _gameOverMenu = (GameOver *)[CCBReader load:@"GameOver" owner:self];
     _levelDoneMenu = [CCBReader load:@"NextLevel" owner:self];
+    _noClingStar = [CCBReader load:@"Star" owner:self];
     _pauseMenu = [CCBReader load:@"Pause" owner:self];
     
     currentLevel = [CCBReader load:_globals.currentLevelName];
@@ -358,6 +360,7 @@ BOOL hasClung = NO;
     _pause.enabled=true;
     _pause.visible=true;
     [_menus removeChild:_levelDoneMenu];
+    [_menus removeChild:_noClingStar];
     [[CCDirector sharedDirector] resume];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
@@ -370,6 +373,7 @@ BOOL hasClung = NO;
     [_cat walk];
     [_door close];
     [_menus removeChild:_levelDoneMenu];
+    [_menus removeChild:_noClingStar];
     _pause.enabled=true;
     _pause.visible=true;
     [[CCDirector sharedDirector] resume];
@@ -387,6 +391,8 @@ BOOL hasClung = NO;
     if(!hasClung)
     {
         CCLOG(@"no cling star!");
+        _noClingStar.rotation = rotation;
+        [_menus addChild:_noClingStar];
     }
 }
 
@@ -663,7 +669,7 @@ BOOL hasClung = NO;
             CCLOG(@"audioplayed");
             
             int currLevel = _globals.currentLevelNumber;
-            [_globals setClingStars: currLevel :hasClung];
+            [_globals setClingStars: currLevel :(!hasClung)];
             isOpeningDoor=YES;
             [_cat openDoor];
             [_door fade];

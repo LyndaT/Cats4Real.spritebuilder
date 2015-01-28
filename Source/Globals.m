@@ -78,7 +78,8 @@
     if (clingStar[currLevel]!=1){
         if (noCling)
         {
-            [clingStar insertObject:[NSNumber numberWithInt:1] atIndex:currLevel];
+            [clingStar insertObject:@1 atIndex:currLevel];
+            CCLOG(@"current level %i set cling %i", currLevel, (int)[clingStar objectAtIndex:currLevel]);
         }
         else
         {

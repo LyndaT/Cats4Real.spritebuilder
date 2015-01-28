@@ -108,6 +108,15 @@
             tempCake.position = ccp(98 + (_cakeWidth+13)*tempX,250 - tempY);
             [tempCake setLevel:j+8*_currTable];
             [_plateHolder addChild:tempCake];
+            
+            CCNode *noClingStar = [CCBReader load:@"Star"];
+            noClingStar.position = ccp(120 + (_cakeWidth+12.5)*tempX,225 - tempY);
+            
+            CCLOG(@"level %i, cling star %i", j+8*_currTable,(int)[_globals.clingStar objectAtIndex:j+8*_currTable]);
+            if ((int)[_globals.clingStar objectAtIndex:j+8*_currTable]==1)
+            {
+                [_plateHolder addChild:noClingStar];
+            }
         }
         
         tempY = (floor((j)/4) * 120);
