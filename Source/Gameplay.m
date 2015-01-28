@@ -589,6 +589,32 @@ BOOL hasClung = NO;
     numCake=0;
     [_dial setNumSlices:_currentLevel.totalCake];
     
+    //reposition cake dial and pause btn
+    if (_currentLevel.defaultOrientation == 1) { //screen right
+        _dial.position = ccp(0,0);
+        _dial.rotation = 270;
+        _pause.position = ccp(0.96,0.06);
+        _pause.rotation = 90;
+    }
+    else if (_currentLevel.defaultOrientation == 2) { //screen up
+        _dial.position = ccp(screenSize.width,0);
+        _dial.rotation = 180;
+        _pause.position = ccp(0.04,0.06);
+        _pause.rotation = 0;
+    }
+    else if (_currentLevel.defaultOrientation == 3) { //screen left
+        _dial.position = ccp(screenSize.width, screenSize.height);
+        _dial.rotation = 90;
+        _pause.position = ccp(0.04,0.94);
+        _pause.rotation = 270;
+    }
+    else { //screen down
+        _dial.position = ccp(0,screenSize.height);
+        _dial.rotation = 0;
+        _pause.position = ccp(0.96, 0.94);
+        _pause.rotation = 180;
+    }
+    
     [self updateCakeScore];
     _cat.position = ccp(_currentLevel.catX, _currentLevel.catY);
     _cat.physicsBody.velocity = ccp(0,0);
