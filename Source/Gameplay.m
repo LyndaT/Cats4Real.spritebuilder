@@ -47,11 +47,11 @@ BOOL hasClung = NO;
     CCPhysicsNode *_physNode;
     CCNode *_menus;
     CCButton *_pause;
+    CCNode *_noClingStar;
     
     CakeDial *_dial;
     GameOver *_gameOverMenu;
     CCNode *_levelDoneMenu;
-    CCNode *_noClingStar;
     CCNode *_pauseMenu;
     Level *_currentLevel;
     CCScene *currentLevel;
@@ -78,7 +78,7 @@ BOOL hasClung = NO;
     
     _gameOverMenu = (GameOver *)[CCBReader load:@"GameOver" owner:self];
     _levelDoneMenu = [CCBReader load:@"NextLevel" owner:self];
-    _noClingStar = [CCBReader load:@"Star" owner:self];
+//    _noClingStar = [CCBReader load:@"StarWithWords" owner:self];
     _pauseMenu = [CCBReader load:@"Pause" owner:self];
     
     currentLevel = [CCBReader load:_globals.currentLevelName];
@@ -360,7 +360,7 @@ BOOL hasClung = NO;
     _pause.enabled=true;
     _pause.visible=true;
     [_menus removeChild:_levelDoneMenu];
-    [_menus removeChild:_noClingStar];
+//    [_menus removeChild:_noClingStar];
     [[CCDirector sharedDirector] resume];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
@@ -374,7 +374,7 @@ BOOL hasClung = NO;
     [_cat walk];
     [_door close];
     [_menus removeChild:_levelDoneMenu];
-    [_menus removeChild:_noClingStar];
+//    [_menus removeChild:_noClingStar];
     _pause.enabled=true;
     _pause.visible=true;
     [[CCDirector sharedDirector] resume];
@@ -389,8 +389,9 @@ BOOL hasClung = NO;
     [_menus addChild:_levelDoneMenu];
     _pause.enabled=false;
     _pause.visible=false;
-    _noClingStar.rotation = rotation;
-    [_menus addChild:_noClingStar];
+//    _noClingStar.rotation = rotation;
+//    _noClingStar.position = ccp(-130,60);
+//    [_menus addChild:_noClingStar];
     if(!hasClung)
     {
         CCLOG(@"cling star!");
@@ -401,6 +402,12 @@ BOOL hasClung = NO;
         CCLOG(@"no cling star");
         _noClingStar.visible=false;
         [_globals setClingStars:_globals.currentLevelNumber :0];
+    }
+    
+    int nextLvl = _currentLevel.nextLevel;
+    //check to see if next level is highest level so far, and store if so
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < nextLvl) {
+        [[NSUserDefaults standardUserDefaults] setInteger:nextLvl forKey:@"highestlevel"];
     }
 }
 
@@ -482,15 +489,15 @@ BOOL hasClung = NO;
         [_globals setLevel:nextLvl];
         
         //check to see if next level is highest level so far, and store if so
-        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < nextLvl) {
-            [[NSUserDefaults standardUserDefaults] setInteger:nextLvl forKey:@"highestlevel"];
-        }
+//        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < nextLvl) {
+//            [[NSUserDefaults standardUserDefaults] setInteger:nextLvl forKey:@"highestlevel"];
+//        }
         
         currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
         _currentLevel = (Level *)currentLevel;
         
         NSLog(@"next level %d", _currentLevel.nextLevel);
-        NSLog(@"highest level so far: %ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"]);
+//        NSLog(@"highest level so far: %ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"]);
         
         [_levelNode addChild:currentLevel];
         
@@ -512,6 +519,10 @@ BOOL hasClung = NO;
     _physNode.position=ccp(0,0);
     
     hasClung=NO;
+    if (_globals.currentLevelNumber < 5)
+    {
+        hasClung=YES;
+    }
     
     numCake=0;
     [_dial setNumSlices:_currentLevel.totalCake];
