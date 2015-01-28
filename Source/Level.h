@@ -13,7 +13,6 @@
     double catX;
     double catY;
     int totalCake;
-//    NSString *nextLevel;
     CCNode *_door;
 }
 
@@ -26,7 +25,6 @@
 @property (nonatomic, assign) int totalCake;
 @property (nonatomic, assign) int nextLevel;
 @property (nonatomic, assign) BOOL isCutsceneNext;
-//@property(assign) NSString *nextLevel;
 
 -(void)pulseCakes;
 

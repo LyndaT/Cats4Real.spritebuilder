@@ -31,18 +31,17 @@
     currentScene = [CCBReader load:_globals.currentLevelName owner:self];
     _currentScene = (SingleCutscene *)currentScene;
     _currentScene.rotation = _currentScene.sceneRotation;
-    CCLOG(@"cutscene rotation supposedly %i, is %i",_currentScene.sceneRotation, _currentScene.rotation);
+//    CCLOG(@"cutscene rotation supposedly %i, is %i",_currentScene.sceneRotation, _currentScene.rotation);
     [_cut addChild:_currentScene];
     CCLOG(@"loaded cutscene, next %i", _currentScene.nextLevel);
     
-    // access audio object
-    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
-    [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
+    [_globals.audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
 }
 
 - (void)continue
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     if (!_currentScene.isCutsceneNext)
     {
         CCLOG(@"next lvl: %i", _currentScene.nextLevel);

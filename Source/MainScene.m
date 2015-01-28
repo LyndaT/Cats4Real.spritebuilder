@@ -10,6 +10,7 @@
 
 - (id)init {
     if (self = [super init]) {
+        _globals = [Globals globalManager];
         firstTime=YES;
     }
     return self;
@@ -25,14 +26,12 @@
         firstTime=NO;
     }
     
-    // access audio object
-    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
-    [audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
-    //[[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
+    [_globals.audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
 }
 
 - (void)play {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     if (firstTime)
     {
         CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
@@ -45,12 +44,8 @@
     }
 }
 
-- (void)playCutscene {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Anim/CutsceneScene"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene];
-}
-
 - (void)settings{
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Settings"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }

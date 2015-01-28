@@ -21,9 +21,9 @@
 @synthesize isCurrentCutscene;
 @synthesize musicVolume;
 @synthesize SFXVolume;
-//@synthesize clingStar;
 @synthesize isMusicOn;
 @synthesize isSFXOn;
+@synthesize audio;
 
 - (id)init {
     if (self = [super init]) {
@@ -33,7 +33,9 @@
         SFXVolume = 1.0;
         isMusicOn=YES;
         isSFXOn=YES;
+        audio = [OALSimpleAudio sharedInstance];
     }
+    CCLOG(@"vol from globals %f", musicVolume);
     return self;
 }
 
@@ -65,10 +67,12 @@
 
 - (void)setMusicVolume:(float)volume{
     musicVolume = volume;
+    [audio setBgVolume:musicVolume];
 }
 
 - (void)setSFXVolume:(float)volume{
     SFXVolume = volume;
+    [audio setEffectsVolume:SFXVolume];
 }
 
 /* sets the value of the clingstar of the current level
@@ -81,16 +85,13 @@
     if (clingStar[currLevel]!=1){
         if (noCling == 1)
         {
-//            [clingStar insertObject:[NSNumber numberWithInt:1] atIndex:currLevel];
             clingStar[currLevel]=(NSInteger)noCling;//[NSNumber numberWithInteger:1];
             [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:[NSString stringWithFormat:@"clingLevel%i",currLevel]];
             CCLOG(@"current level %i set cling %li", currLevel, (long)clingStar[currLevel]);
         }
         else
         {
-//            [clingStar insertObject:[NSNumber numberWithInt:0] atIndex:currLevel];
             clingStar[currLevel]=(NSInteger)0;
-//            clingStar[currLevel]=[NSNumber numberWithInteger:0];
         }
     }
 }

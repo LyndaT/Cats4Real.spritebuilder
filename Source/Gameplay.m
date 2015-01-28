@@ -32,7 +32,7 @@ BOOL hasCake = NO;
 int numCake = 0;
 BOOL isPaused = NO;
 BOOL isOpeningDoor = NO; //for the anim of the cat opening the door
-int rotation = 0; //a number 1-4, phone is at (rotation) degrees
+int rotation = 0; //angle, phone is at (rotation) degrees
 CGSize screenSize;
 float oldCatX; //used for camera mvt
 float oldCatY;
@@ -45,7 +45,6 @@ BOOL hasClung = NO;
     CCNode *_levelNode;
     Globals *_globals;
     CCPhysicsNode *_physNode;
-//    CCLabelTTF *_cakeScore;
     CCNode *_menus;
     CCButton *_pause;
     
@@ -105,11 +104,8 @@ BOOL hasClung = NO;
     _physNode.collisionDelegate = self;
     _cat.physicsBody.collisionType = @"cat";
     
-    // access audio object
-    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
-    [audio playBg:@"assets/music/CreditsMusic.mp3" loop:TRUE];
-    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
+    [_globals.audio playBg:@"assets/music/CreditsMusic.mp3" loop:TRUE];
 }
 
 - (void)update:(CCTime)delta
@@ -154,6 +150,7 @@ BOOL hasClung = NO;
         
         CCLOG(@"%f %f %f",_cat.position.x, halfOfScreenX, screenSize.width);
         
+        //these two if statements keep the camera from going too far past end of the level
         if ((_cat.position.x + halfOfScreenX) < levelSize.width && (_cat.position.x - halfOfScreenX) > 0)
         {
             changeX = oldCatX - _cat.position.x;
@@ -187,8 +184,7 @@ BOOL hasClung = NO;
         if ([self isCatNyooming])
         {
             //if you're nyooming, you smash it and DIE
-            OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
-            [effect playEffect:@"assets/music/splat.mp3"];
+            [_globals.audio playEffect:@"assets/music/splat.mp3"];
             CCLOG(@"smoosh!");
             [_gameOverMenu cake];
             [self died];
@@ -198,8 +194,7 @@ BOOL hasClung = NO;
             //if you're not nyooming, you collect the cake
             numCake++;
             [_dial increaseCake];
-            OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
-            [effect playEffect:@"assets/music/ding.mp3"];
+            [_globals.audio playEffect:@"assets/music/ding.mp3"];
             [self updateCakeScore];
             [Cake collected];
         }
@@ -213,8 +208,7 @@ BOOL hasClung = NO;
  */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat water:(CCNode *)Water
 {
-    OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
-    [effect playEffect:@"assets/music/splash.mp3"];
+    [_globals.audio playEffect:@"assets/music/splash.mp3"];
     [_gameOverMenu water];
     [self died];
     return TRUE;
@@ -252,11 +246,6 @@ BOOL hasClung = NO;
  * Colliding with ground
  * Checks to see if the cat is on the ground and can cling onto this
  */
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
-//{
-//    onground = YES;
-//    return TRUE;
-//}
 
 -(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground
 {
@@ -268,12 +257,6 @@ BOOL hasClung = NO;
     onground = YES;
     return YES;
 }
-
-//-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat ground:(CCNode *)Ground {
-//    CCLOG(@"off ground");
-//    onground = NO;
-//}
-
 
 
 -(void)died
@@ -290,6 +273,7 @@ BOOL hasClung = NO;
 
 -(void)pause
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     if (!isDead && !isOpeningDoor){
         if (!isPaused){
             //to pause scene
@@ -307,6 +291,7 @@ BOOL hasClung = NO;
 
 -(void)unpause
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     isPaused=NO;
     [[CCDirector sharedDirector] resume];
     [_menus removeChild:_pauseMenu];
@@ -315,6 +300,7 @@ BOOL hasClung = NO;
 
 -(void)retry
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     [self unpause];
     
     [self resetLevel];
@@ -330,6 +316,7 @@ BOOL hasClung = NO;
 
 -(void)retryFromDeath
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     isDead = NO;
     _pause.enabled=true;
     _pause.visible=true;
@@ -341,6 +328,7 @@ BOOL hasClung = NO;
 //from pause menu or gameover menu
 -(void)returnMenu
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     CCLOG(@"returnMenu");
     [self unpause];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
@@ -350,6 +338,7 @@ BOOL hasClung = NO;
 //from death menu
 -(void)returnMenuFromDied
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     CCLOG(@"returnMenu");
     _pause.enabled=true;
     _pause.visible=true;
@@ -362,6 +351,7 @@ BOOL hasClung = NO;
 //from nextlevel menu
 -(void)returnMenuFromLevelEnd
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     isOpeningDoor=NO;
     _pause.enabled=true;
     _pause.visible=true;
@@ -375,6 +365,7 @@ BOOL hasClung = NO;
 //continue to next level
 -(void)cont
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     isOpeningDoor=NO;
     [_cat walk];
     [_door close];
@@ -408,39 +399,6 @@ BOOL hasClung = NO;
         [_globals setClingStars:_globals.currentLevelNumber :0];
     }
 }
-
-
-
-
-/*
- * Rotates and moves the cat based on the current direction of the screen
- *
- */
-- (void)moveCat:(CCTime)delta
-{
-    if (direction == 0)
-    {
-        _cat.position = ccp( _cat.position.x+speed*delta, _cat.position.y );
-        _cat.rotation = 0;
-    }
-    if (direction == 1)
-    {
-        _cat.position = ccp( _cat.position.x, _cat.position.y+speed*delta );
-        _cat.rotation = -90;
-    }
-    if (direction == 2)
-    {
-        _cat.position = ccp( _cat.position.x+speed*-1*delta, _cat.position.y );
-        _cat.rotation = 180;
-    }
-    if (direction == 3)
-    {
-        _cat.position = ccp( _cat.position.x, _cat.position.y+speed*-1*delta );
-        _cat.rotation = 90;
-    }
-}
-
-
 
 /*
  * changeGravity takes in accelerometer values and changes gravity accordingly
@@ -508,40 +466,6 @@ BOOL hasClung = NO;
     }
 }
 
-/*
- * the changeGravity[direction] methods change the gravity of the physicsNode
- * to the direction of the orientation of the screen
- * DEPRECATED
- */
-//- (void)changeGravityLeft
-//{
-//    direction = 3;
-//    _physNode.gravity= ccp(-1*gravitystrength,0);
-//    //CCLOG(@"Gravity changed left");
-//    
-//}
-//- (void)changeGravityRight
-//{
-//    direction = 1;
-//    _physNode.gravity= ccp(1*gravitystrength,0);
-//    //CCLOG(@"Gravity changed right");
-//    
-//}
-//- (void)changeGravityUp
-//{
-//    direction = 2;
-//    _physNode.gravity= ccp(0,1*gravitystrength);
-//    //CCLOG(@"Gravity changed up");
-//    
-//}
-//- (void)changeGravityDown
-//{
-//    direction = 0;
-//    _physNode.gravity= ccp(0,-1*gravitystrength);
-//    //CCLOG(@"Gravity changed down");
-//    
-//}
-
 -(void)toNextLevel
 {
     numCake=0;
@@ -576,7 +500,6 @@ BOOL hasClung = NO;
 
 -(void)resetLevel
 {
-//    [currentLevel removeChild:_door];
     [_levelNode removeChild:currentLevel];
     currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
     _currentLevel = (Level *)currentLevel;
@@ -620,20 +543,10 @@ BOOL hasClung = NO;
     _cat.physicsBody.velocity = ccp(0,0);
     oldCatX = _cat.position.x;
     oldCatY = _cat.position.y;
-//    CCLOG(@"cat added, %d, %d, supposedly %d, %d",_cat.position.x,_cat.position.y, _currentLevel.catX, _currentLevel.catY);
-//    [currentLevel addChild:_door];
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
-//    CCLOG(@"door pos %d, %d",_door.position.x, _door.position.y);
-    
     [self startImmunity];
     [self scheduleOnce:@selector(endImmunity) delay:immuneTime];
-
-//    [currentLevel stopAllActions];
-//    currentLevel.position=ccp(0,0);
-//    CGRect worldBoundary = CGRectMake(0, 0, _currentLevel.contentSize.width, _currentLevel.contentSize.height);
-//    id camMove =[CCActionFollow actionWithTarget:_cat worldBoundary:worldBoundary];
-//    [currentLevel runAction:[CCActionFollow actionWithTarget:_cat worldBoundary:worldBoundary]];
 }
 
 //Sets the cat in a frozen 'immune' state
@@ -664,7 +577,6 @@ BOOL hasClung = NO;
 
 -(void)updateCakeScore
 {
-//    _cakeScore.string = [NSString stringWithFormat:@"%i/%i cake", numCake, _currentLevel.totalCake];
     if (numCake>=_currentLevel.totalCake)
     {
         CCLOG(@"door open");
@@ -709,13 +621,9 @@ BOOL hasClung = NO;
         }
         else {
             //knock sound
-            OALSimpleAudio *effect = [OALSimpleAudio sharedInstance];
-            [effect playEffect:@"assets/music/knock.mp3"];
+            [_globals.audio playEffect:@"assets/music/knock.mp3"];
             CCLOG(@"audioplayed");
             
-//            int currLevel = _globals.currentLevelNumber;
-//            CCLOG(@"has not clung: %i", !hasClung);
-//            [_globals setClingStars: currLevel :(int)(!hasClung)];
             isOpeningDoor=YES;
             [_cat openDoor];
             [_door fade];

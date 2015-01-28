@@ -36,6 +36,7 @@
 
 - (void)play {
     CCLOG(_name);
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     [_globals setLevel:_level];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];

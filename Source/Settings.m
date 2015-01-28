@@ -16,30 +16,6 @@
     CCButton *_SFXButton;
 }
 
-- (void)didLoadFromCCB {
-    // access audio object
-    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
-    // play background sound
-    [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
-    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
-}
-
-
--(void)returnMenu
-{
-    CCLOG(@"returnMenu");
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene];
-}
-
--(void)resetProgress
-{
-    [_globals setLevel:1];
-    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
-    int temp = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
-    CCLOG(@"reset progress to lvl%i, global %i",temp, _globals.currentLevelNumber);
-}
-
 - (id)init{
     self = [super init];
     
@@ -50,17 +26,48 @@
     return self;
 }
 
--(void)changeMusic:(CCSlider *)musicVol
+- (void)didLoadFromCCB {
+    if (_globals.isMusicOn)
+    {
+        [_musicButton setTitle:@"ON"];
+    }else
+    {
+        [_musicButton setTitle:@"OFF"];
+    }
+    
+    if (_globals.isSFXOn)
+    {
+        [_SFXButton setTitle:@"ON"];
+    }else
+    {
+        [_SFXButton setTitle:@"OFF"];
+    }
+    
+    // play background sound
+    [_globals.audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
+}
+
+
+-(void)returnMenu
 {
-    [_globals setMusicVolume:musicVol.sliderValue];
-    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
-    [audio playBg:@"assets/music/CutsceneMusic.mp3" loop:TRUE];
-    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
-    CCLOG(@"%f", musicVol.sliderValue);
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    CCLOG(@"returnMenu");
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
+-(void)resetProgress
+{
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
+    [_globals setLevel:1];
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
+    int temp = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"];
+    CCLOG(@"reset progress to lvl%i, global %i",temp, _globals.currentLevelNumber);
 }
 
 -(void)musicToggle
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     _globals.isMusicOn = !_globals.isMusicOn;
     if (_globals.isMusicOn)
     {
@@ -71,12 +78,11 @@
         [_globals setMusicVolume:0];
         [_musicButton setTitle:@"OFF"];
     }
-    [[OALSimpleAudio sharedInstance] setBgVolume:_globals.musicVolume];
 }
 
 -(void)sfxToggle
 {
-    CCLOG(@"sfx tggle");
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     _globals.isSFXOn = !_globals.isSFXOn;
     if (_globals.isSFXOn)
     {
@@ -92,6 +98,7 @@
 -(void)credits
 {
     CCLOG(@"to credits");
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }

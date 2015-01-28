@@ -40,10 +40,8 @@
     [self setButtonMenus];
     _prevTable.visible = false;
     
-    // access audio object
-    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
-    [audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
+    [_globals.audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
     
 }
 
@@ -113,7 +111,7 @@
             noClingStar.position = ccp(120 + (_cakeWidth+12.5)*tempX,225 - tempY);
             
 //            CCLOG(@"level %i, cling star %i", j+8*_currTable,(int)[_globals.clingStar objectAtIndex:j+8*_currTable]);
-            if ([[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"clingLevel%i",j+8*_currTable]])//(int)[_globals getClingStar:j+8*_currTable]==1)
+            if ([[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"clingLevel%i",j+8*_currTable]])
             {
                 [_plateHolder addChild:noClingStar];
             }
@@ -140,6 +138,7 @@
 //Loads the previous table
 -(void)loadPrevTable
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     _currTable = _currTable-1;
     [self resetTable];
     [self setTable];
@@ -149,6 +148,7 @@
 
 -(void)loadNextTable
 {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     _currTable = _currTable+1;
     [self resetTable];
     [self setTable];
@@ -162,6 +162,7 @@
 }
 
 - (void)returnMenu {
+    [_globals.audio playEffect:@"assets/music/ding.mp3"];
     CCLOG(@"returnMenu");
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
