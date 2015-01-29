@@ -14,6 +14,7 @@
 #import "Door.h"
 #import "Level.h"
 #import "Cake.h"
+#import "AppDelegate.h"
 #import "Door.h"
 #import "Globals.h"
 #import "GameOver.h"
@@ -37,6 +38,8 @@ CGSize screenSize;
 float oldCatX; //used for camera mvt
 float oldCatY;
 BOOL hasClung = NO;
+//appDelegate *appDelegate = (appDelegate *)[[[UIApplication sharedApplication] delegate]];
+
 
 
 @implementation Gameplay
@@ -272,6 +275,8 @@ BOOL hasClung = NO;
     isDead=YES;
     //to pause scene
     [[CCDirector sharedDirector] pause];
+    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+    app.userPaused = YES;
     
     _gameOverMenu.rotation = rotation;
     [_menus addChild:_gameOverMenu];
@@ -286,6 +291,8 @@ BOOL hasClung = NO;
         if (!isPaused){
             //to pause scene
             [[CCDirector sharedDirector] pause];
+            AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+            app.userPaused = YES;
             isPaused=YES;
             CCLOG(@"rotation: %i",rotation);
             _pauseMenu.rotation = rotation;
@@ -299,6 +306,8 @@ BOOL hasClung = NO;
 
 -(void)unpause
 {
+    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+    app.userPaused = NO;
     [_globals.audio playEffect:@"assets/music/button.mp3"];
     isPaused=NO;
     [[CCDirector sharedDirector] resume];
@@ -330,6 +339,8 @@ BOOL hasClung = NO;
     _pause.visible=true;
     [_menus removeChild:_gameOverMenu];
     [[CCDirector sharedDirector] resume];
+    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+    app.userPaused = NO;
     [self resetLevel];
 }
 
@@ -352,6 +363,8 @@ BOOL hasClung = NO;
     _pause.visible=true;
     [_menus removeChild:_gameOverMenu];
     [[CCDirector sharedDirector] resume];
+    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+    app.userPaused = NO;
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
@@ -366,6 +379,8 @@ BOOL hasClung = NO;
     [_menus removeChild:_levelDoneMenu];
 //    [_menus removeChild:_noClingStar];
     [[CCDirector sharedDirector] resume];
+    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+    app.userPaused = NO;
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
@@ -382,6 +397,8 @@ BOOL hasClung = NO;
     _pause.enabled=true;
     _pause.visible=true;
     [[CCDirector sharedDirector] resume];
+    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+    app.userPaused = NO;
     [self toNextLevel];
 }
 
@@ -389,6 +406,8 @@ BOOL hasClung = NO;
 {
     CCLOG(@"cat thru door");
     [[CCDirector sharedDirector] pause];
+    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+    app.userPaused = YES;
     _levelDoneMenu.rotation = rotation;
     [_menus addChild:_levelDoneMenu];
     _pause.enabled=false;

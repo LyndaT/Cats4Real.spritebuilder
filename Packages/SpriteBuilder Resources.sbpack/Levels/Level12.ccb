@@ -3661,7 +3661,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>403.52001953125</real>
+							<real>400.6400146484375</real>
 							<real>314.00003051757812</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -3723,7 +3723,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>419.36007690429688</real>
+							<real>416.48007202148438</real>
 							<real>312.56002807617188</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -3793,7 +3793,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>387.68002319335938</real>
+							<real>384.80001831054688</real>
 							<real>311.12002563476562</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -3954,6 +3954,8 @@
 						<string>Tiles/ForestPlatformStraight.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -6379,8 +6381,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

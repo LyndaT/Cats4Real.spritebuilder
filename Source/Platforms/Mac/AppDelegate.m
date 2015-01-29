@@ -2,6 +2,8 @@
 
 @interface AppDelegate ()
 
+@synthesize userPaused;
+
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet CCGLView *glView;
 @end
@@ -40,6 +42,17 @@
     [[CCPackageManager sharedManager] loadPackages];
 
     [director runWithScene:[CCBReader loadAsScene:@"MainScene"]];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
+    if (!self.userPaused) {
+        CCLOG(@"normal resume");
+        [[CCDirector sharedDirector] resume];
+    }
+    else {
+        CCLOG(@"already paused");
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

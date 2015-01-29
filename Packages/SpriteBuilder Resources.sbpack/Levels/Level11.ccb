@@ -3077,6 +3077,8 @@
 								<string>Sprites/Cake.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -4235,8 +4237,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -4270,7 +4270,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>279</real>
+							<real>290</real>
 							<real>182.00001525878906</real>
 							<integer>0</integer>
 							<integer>0</integer>

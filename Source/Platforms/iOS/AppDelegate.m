@@ -30,6 +30,8 @@
 
 @implementation AppController
 
+@synthesize userPaused;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Configure Cocos2d with the options set in SpriteBuilder
@@ -55,6 +57,17 @@
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
+    if (!self.userPaused) {
+        CCLOG(@"normal resume");
+        [[CCDirector sharedDirector] resume];
+    }
+    else {
+        CCLOG(@"already paused");
+    }
 }
 
 - (CCScene*) startScene
