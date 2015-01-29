@@ -81,8 +81,13 @@ BOOL hasClung = NO;
     
     _gameOverMenu = (GameOver *)[CCBReader load:@"GameOver" owner:self];
     _levelDoneMenu = [CCBReader load:@"NextLevel" owner:self];
-//    _noClingStar = [CCBReader load:@"StarWithWords" owner:self];
     _pauseMenu = [CCBReader load:@"Pause" owner:self];
+    [_menus addChild:_gameOverMenu];
+    [_menus addChild:_levelDoneMenu];
+    [_menus addChild:_pauseMenu];
+    _gameOverMenu.visible=false;
+    _levelDoneMenu.visible=false;
+    _pauseMenu.visible=false;
     
     currentLevel = [CCBReader load:_globals.currentLevelName];
     _currentLevel = (Level *)currentLevel;
@@ -281,7 +286,7 @@ BOOL hasClung = NO;
     app.userPaused = YES;
     
     _gameOverMenu.rotation = rotation;
-    [_menus addChild:_gameOverMenu];
+    _gameOverMenu.visible=true;
     _pause.enabled=false;
     _pause.visible=false;
 }
@@ -298,7 +303,7 @@ BOOL hasClung = NO;
             isPaused=YES;
             CCLOG(@"rotation: %i",rotation);
             _pauseMenu.rotation = rotation;
-            [_menus addChild:_pauseMenu];
+            _pauseMenu.visible=true;
         }
         else{
             [self unpause];
@@ -313,7 +318,7 @@ BOOL hasClung = NO;
     [_globals.audio playEffect:@"assets/music/button.mp3"];
     isPaused=NO;
     [[CCDirector sharedDirector] resume];
-    [_menus removeChild:_pauseMenu];
+    _pauseMenu.visible=false;
     CCLOG(@"resumed game");
 }
 
@@ -327,7 +332,7 @@ BOOL hasClung = NO;
         isDead = NO;
         _pause.enabled=true;
         _pause.visible=true;
-        [_menus removeChild:_gameOverMenu];
+        _gameOverMenu.visible=false;
     }
     
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
@@ -340,7 +345,7 @@ BOOL hasClung = NO;
     isDead = NO;
     _pause.enabled=true;
     _pause.visible=true;
-    [_menus removeChild:_gameOverMenu];
+    _gameOverMenu.visible=false;
     [[CCDirector sharedDirector] resume];
     AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
     app.userPaused = NO;
@@ -366,7 +371,7 @@ BOOL hasClung = NO;
     CCLOG(@"returnMenu");
     _pause.enabled=true;
     _pause.visible=true;
-    [_menus removeChild:_gameOverMenu];
+    _gameOverMenu.visible=false;
     [[CCDirector sharedDirector] resume];
     AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
     app.userPaused = NO;
@@ -381,8 +386,7 @@ BOOL hasClung = NO;
     isOpeningDoor=NO;
     _pause.enabled=true;
     _pause.visible=true;
-    [_menus removeChild:_levelDoneMenu];
-//    [_menus removeChild:_noClingStar];
+    _levelDoneMenu.visible=false;
     [[CCDirector sharedDirector] resume];
     AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
     app.userPaused = NO;
@@ -397,8 +401,7 @@ BOOL hasClung = NO;
     isOpeningDoor=NO;
     [_cat walk];
     [_door close];
-    [_menus removeChild:_levelDoneMenu];
-//    [_menus removeChild:_noClingStar];
+    _levelDoneMenu.visible=false;
     _pause.enabled=true;
     _pause.visible=true;
     [[CCDirector sharedDirector] resume];
@@ -409,17 +412,10 @@ BOOL hasClung = NO;
 
 -(void)catThroughDoor
 {
-    CCLOG(@"cat thru door");
-    [[CCDirector sharedDirector] pause];
-    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
-    app.userPaused = YES;
-    _levelDoneMenu.rotation = rotation;
-    [_menus addChild:_levelDoneMenu];
+    CCLOG(@"cat thru door");    _levelDoneMenu.rotation = rotation;
+    _levelDoneMenu.visible=true;
     _pause.enabled=false;
     _pause.visible=false;
-//    _noClingStar.rotation = rotation;
-//    _noClingStar.position = ccp(-130,60);
-//    [_menus addChild:_noClingStar];
     if(!hasClung)
     {
         CCLOG(@"cling star!");
@@ -432,10 +428,25 @@ BOOL hasClung = NO;
         [_globals setClingStars:_globals.currentLevelNumber :0];
     }
     
+    CCAnimationManager* animationManager = _noClingStar.animationManager;
+    [animationManager jumpToSequenceNamed:@"Default Timeline" time:0];
+    CCAnimationManager* animationManagerMenu = _levelDoneMenu.animationManager;
+    [animationManagerMenu jumpToSequenceNamed:@"Default Timeline" time:0];
+
     int nextLvl = _currentLevel.nextLevel;
     //check to see if next level is highest level so far, and store if so
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < nextLvl) {
         [[NSUserDefaults standardUserDefaults] setInteger:nextLvl forKey:@"highestlevel"];
+    }
+}
+
+-(void)starDoneAnim
+{
+    if (_levelDoneMenu.visible)
+    {
+        [[CCDirector sharedDirector] pause];
+        AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+        app.userPaused = YES;
     }
 }
 
