@@ -3954,8 +3954,6 @@
 						<string>Tiles/ForestPlatformStraight.ccb</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -6395,7 +6393,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>518</string>
+				<string>289</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -6405,7 +6403,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>289</string>
+				<string>518</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -6546,6 +6544,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

@@ -320,8 +320,6 @@ BOOL hasClung = NO;
     [_globals.audio playEffect:@"assets/music/button.mp3"];
     [self unpause];
     
-    [self resetLevel];
-    
     if (isDead)
     {
         isDead = NO;
@@ -329,6 +327,9 @@ BOOL hasClung = NO;
         _pause.visible=true;
         [_menus removeChild:_gameOverMenu];
     }
+    
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
 -(void)retryFromDeath
@@ -341,7 +342,9 @@ BOOL hasClung = NO;
     [[CCDirector sharedDirector] resume];
     AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
     app.userPaused = NO;
-    [self resetLevel];
+    
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
 //from pause menu or gameover menu
