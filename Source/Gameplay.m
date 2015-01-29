@@ -23,6 +23,7 @@
 CGFloat gravitystrength = 2000;
 CGFloat direction = 0;
 CGFloat speed = 30;
+CGFloat maxspeed = 600;
 CGFloat immuneTime = 3.0f;
 BOOL hold = NO;
 BOOL onground = NO;
@@ -124,6 +125,9 @@ BOOL hasClung = NO;
     if(!hold && !isOpeningDoor && !isImmune)
     {
         [self changeGravity:acceleration.x :acceleration.y];
+        float xVelocity = clampf(_cat.physicsBody.velocity.x, -1*maxspeed, maxspeed);
+        float yVelocity = clampf(_cat.physicsBody.velocity.y, -1*maxspeed, maxspeed);
+        _cat.physicsBody.velocity = ccp(xVelocity, yVelocity);
         [_cat moveSelf:delta :direction :speed :hold];
     }
     if (atDoor)
@@ -152,21 +156,27 @@ BOOL hasClung = NO;
     {
         float changeX = 0;
         float changeY = 0;
+        float camPositionX = self.position.x;
+        float camPositionY = self.position.y;
+        CGPoint relativeCatPosition = [self convertToNodeSpace:[_cat.parent convertToWorldSpace:_cat.position]];
         
             //camera don't go past level horiz
             if ((_cat.position.x + halfOfScreenX) < levelSize.width && (_cat.position.x - halfOfScreenX) > 0)
             {
                 changeX = oldCatX - _cat.position.x;
+                camPositionX = relativeCatPosition.x-halfOfScreenX;
             }
         
         
             if ((_cat.position.y + halfOfScreenY) < levelSize.height && (_cat.position.y - halfOfScreenY) > 0)
             {
                 changeY = oldCatY - _cat.position.y;
+                camPositionY = relativeCatPosition.y-halfOfScreenY;
             }
         
         oldCatX = _cat.position.x;
         oldCatY = _cat.position.y;
+//        self.position = ccp(camPositionX, camPositionY);
         if (isInstant)
         {
             CCLOG(@"instant change %f, %f physnode %f, %f",changeX, changeY, _levelNode.position.x,_levelNode.position.y);
@@ -174,7 +184,7 @@ BOOL hasClung = NO;
             CCLOG(@"phys change %f, %f",_levelNode.position.x,_levelNode.position.y);
         }else
         {
-            [_levelNode runAction:[CCActionMoveBy actionWithDuration:0.3 position:ccp(changeX,changeY) ]];
+            [_levelNode runAction:[CCActionMoveBy actionWithDuration:0.4 position:ccp(changeX,changeY) ]];
         }
     }
 }
@@ -642,6 +652,9 @@ BOOL hasClung = NO;
 
 -(BOOL)isCatNyooming
 {
+    if (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 150) {
+        CCLOG(@"x: %f y: %f", _cat.physicsBody.velocity.x, _cat.physicsBody.velocity.y);
+    }
     return (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 150);
 }
 
