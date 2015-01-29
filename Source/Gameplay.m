@@ -19,7 +19,7 @@
 #import "GameOver.h"
 #import "CakeDial.h"
 
-CGFloat gravitystrength = 3000;
+CGFloat gravitystrength = 2000;
 CGFloat direction = 0;
 CGFloat speed = 30;
 CGFloat immuneTime = 3.0f;
@@ -113,7 +113,7 @@ BOOL hasClung = NO;
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    [self adjustLayer];
+    [self adjustLayer:NO];
     
     if(!hold && !isOpeningDoor && !isImmune)
     {
@@ -133,10 +133,9 @@ BOOL hasClung = NO;
  *
  */
 
--(void) adjustLayer
+//adjusts layer to cat movement
+-(void) adjustLayer:(BOOL)isInstant
 {
-    CGSize screenSize = [CCDirector sharedDirector].viewSize;
-    
     float halfOfScreenX = screenSize.width/2.0f;
     float halfOfScreenY = screenSize.height/2.0f;
     
@@ -148,26 +147,31 @@ BOOL hasClung = NO;
         float changeX = 0;
         float changeY = 0;
         
-        CCLOG(@"%f %f %f",_cat.position.x, halfOfScreenX, screenSize.width);
+            //camera don't go past level horiz
+            if ((_cat.position.x + halfOfScreenX) < levelSize.width && (_cat.position.x - halfOfScreenX) > 0)
+            {
+                changeX = oldCatX - _cat.position.x;
+            }
         
-        //these two if statements keep the camera from going too far past end of the level
-        if ((_cat.position.x + halfOfScreenX) < levelSize.width && (_cat.position.x - halfOfScreenX) > 0)
-        {
-            changeX = oldCatX - _cat.position.x;
-        }
         
-        if ((_cat.position.y + halfOfScreenY) < levelSize.height && (_cat.position.y - halfOfScreenY) > 0)
-        {
-            changeY = oldCatY - _cat.position.y;
-        }
+            if ((_cat.position.y + halfOfScreenY) < levelSize.height && (_cat.position.y - halfOfScreenY) > 0)
+            {
+//                CCLOG(@"y cat threshhold");
+                changeY = oldCatY - _cat.position.y;
+            }
         
         oldCatX = _cat.position.x;
         oldCatY = _cat.position.y;
-        
-        [_physNode runAction:[CCActionMoveBy actionWithDuration:0.3 position:ccp(changeX,changeY) ]];
+        if (isInstant)
+        {
+            CCLOG(@"instant change %f, %f physnode %f, %f",changeX, changeY, _physNode.position.x,_physNode.position.y);
+            _levelNode.position = ccp(_physNode.position.x + changeX, _physNode.position.y + changeY);
+            CCLOG(@"phys change %f, %f",_physNode.position.x,_physNode.position.y);
+        }else
+        {
+            [_levelNode runAction:[CCActionMoveBy actionWithDuration:0.3 position:ccp(changeX,changeY) ]];
+        }
     }
-    
-    
 }
 
 /**----------------Collisions Begin Here----------------
@@ -516,8 +520,6 @@ BOOL hasClung = NO;
     _currentLevel = (Level *)currentLevel;
     [_levelNode addChild:currentLevel];
     
-    _physNode.position=ccp(0,0);
-    
     hasClung=NO;
     if (_globals.currentLevelNumber < 5)
     {
@@ -558,6 +560,17 @@ BOOL hasClung = NO;
     _cat.physicsBody.velocity = ccp(0,0);
     oldCatX = _cat.position.x;
     oldCatY = _cat.position.y;
+    
+    _levelNode.position=ccp(0,0);
+    
+    if ((_cat.position.x < 10 || _cat.position.x > (screenSize.width-10)) || //if it's off edge of screen horiz
+        (_cat.position.y < 10 || _cat.position.y > (screenSize.height-10))) //if it's off edge of screen vert
+    {
+        oldCatX = screenSize.width / 2.0;
+        oldCatY = screenSize.height/2.0;
+        [self adjustLayer:YES];
+    }
+    
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
     [self startImmunity];
@@ -622,7 +635,7 @@ BOOL hasClung = NO;
         hold = YES;
         if (!atDoor)
         {
-            CCLOG(@"oh no you clung ):");
+            CCLOG(@"oh no you clung ): %f %f %f %f",_cat.position.x,_cat.position.y,_levelNode.position.x,_levelNode.position.y);
             hasClung = YES;
         }
         [_cat cling];
@@ -658,7 +671,7 @@ BOOL hasClung = NO;
         [_cat walk];
     }
     hold = NO;
-    [self adjustLayer];
+//    [self adjustLayer:NO];
     //CCLOG(@"Touches ended");
 }
 - (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
