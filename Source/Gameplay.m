@@ -164,8 +164,9 @@ BOOL hasClung = NO;
             if ((_cat.position.x + halfOfScreenX) < levelSize.width && (_cat.position.x - halfOfScreenX) > 0)
             {
                 changeX = oldCatX - _cat.position.x;
+
                 camPositionX = relativeCatPosition.x-halfOfScreenX;
-            }
+            }//else{CCLOG(@"too big %f %f %f",_cat.position.x, halfOfScreenX,levelSize.width);}
         
         
             if ((_cat.position.y + halfOfScreenY) < levelSize.height && (_cat.position.y - halfOfScreenY) > 0)
@@ -604,7 +605,7 @@ BOOL hasClung = NO;
         oldCatY = screenSize.height/2.0;
         [self adjustLayer:YES];
     }
-    
+
     _door.position = ccp(_currentLevel.doorX, _currentLevel.doorY);
     _door.rotation = _currentLevel.doorAngle;
     [self startImmunity];
