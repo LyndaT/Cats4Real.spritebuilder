@@ -2570,7 +2570,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>63.812026977539062</real>
+									<real>71.485649108886719</real>
 									<real>134.94676208496094</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2607,6 +2607,8 @@
 								<string>Sprites/Cake.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -3524,7 +3526,7 @@
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>0.5</real>
+							<real>0.53368383646011353</real>
 						</array>
 					</dict>
 					<dict>
@@ -3839,7 +3841,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>270</string>
+				<string>90</string>
 			</dict>
 			<dict>
 				<key>name</key>
