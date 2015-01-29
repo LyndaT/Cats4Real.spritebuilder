@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5209C3AB1A7A01BC00C62416 /* Gallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 5209C3AA1A7A01BC00C62416 /* Gallery.m */; };
 		5260B3781A65A8BF002A3A5A /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260B3771A65A8BE002A3A5A /* Cat.m */; };
 		528050381A65FD6A0037D1B3 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = 528050371A65FD6A0037D1B3 /* Ground.m */; };
 		52A4FE2D1A64B94800037A4C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A4FE2C1A64B94800037A4C /* CoreMotion.framework */; };
@@ -185,6 +186,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5209C3A91A7A01BC00C62416 /* Gallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gallery.h; path = Source/Gallery.h; sourceTree = "<group>"; };
+		5209C3AA1A7A01BC00C62416 /* Gallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gallery.m; path = Source/Gallery.m; sourceTree = "<group>"; };
 		5260B3761A65A8BE002A3A5A /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cat.h; path = Source/Cat.h; sourceTree = "<group>"; };
 		5260B3771A65A8BE002A3A5A /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cat.m; path = Source/Cat.m; sourceTree = "<group>"; };
 		528050361A65FD6A0037D1B3 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ground.h; path = Source/Ground.h; sourceTree = "<group>"; };
@@ -522,6 +525,8 @@
 				F277D1611A70C540001B52F0 /* SingleCutscene.m */,
 				52F441E41A6F026E00E7AE95 /* LevelSelect.h */,
 				52F441E51A6F026E00E7AE95 /* LevelSelect.m */,
+				5209C3A91A7A01BC00C62416 /* Gallery.h */,
+				5209C3AA1A7A01BC00C62416 /* Gallery.m */,
 				F26E0D451A7082DE00E5C553 /* Settings.h */,
 				F26E0D461A7082DE00E5C553 /* Settings.m */,
 				F2946D8A1A789E3D00586C63 /* Credits.h */,
@@ -950,6 +955,7 @@
 				F26F6C651A6751DF003276EE /* Level.m in Sources */,
 				F2B780151A64AF7F00E09517 /* Gameplay.m in Sources */,
 				F277D1621A70C540001B52F0 /* SingleCutscene.m in Sources */,
+				5209C3AB1A7A01BC00C62416 /* Gallery.m in Sources */,
 				F277D15E1A70BE8B001B52F0 /* Cutscene.m in Sources */,
 				C673DBC01A6F428C00CDF256 /* Globals.m in Sources */,
 				C673DBBC1A6F1D1400CDF256 /* LevelSelectCake.m in Sources */,
