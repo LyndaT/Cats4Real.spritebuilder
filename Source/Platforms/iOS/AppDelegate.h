@@ -27,7 +27,9 @@
 #import "cocos2d.h"
 
 @interface AppController : CCAppDelegate
-{
-}
+
+@property (nonatomic) BOOL userPaused;
+
+
 
 @end
