@@ -116,7 +116,10 @@ BOOL hasClung = NO;
     CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    [self adjustLayer:NO];
+    if (!isImmune)
+    {
+        [self adjustLayer:NO];
+    }
     
     if(!hold && !isOpeningDoor && !isImmune)
     {
@@ -159,7 +162,6 @@ BOOL hasClung = NO;
         
             if ((_cat.position.y + halfOfScreenY) < levelSize.height && (_cat.position.y - halfOfScreenY) > 0)
             {
-//                CCLOG(@"y cat threshhold");
                 changeY = oldCatY - _cat.position.y;
             }
         
@@ -167,9 +169,9 @@ BOOL hasClung = NO;
         oldCatY = _cat.position.y;
         if (isInstant)
         {
-            CCLOG(@"instant change %f, %f physnode %f, %f",changeX, changeY, _physNode.position.x,_physNode.position.y);
-            _levelNode.position = ccp(_physNode.position.x + changeX, _physNode.position.y + changeY);
-            CCLOG(@"phys change %f, %f",_physNode.position.x,_physNode.position.y);
+            CCLOG(@"instant change %f, %f physnode %f, %f",changeX, changeY, _levelNode.position.x,_levelNode.position.y);
+            _levelNode.position = ccp(_levelNode.position.x + changeX, _levelNode.position.y + changeY);
+            CCLOG(@"phys change %f, %f",_levelNode.position.x,_levelNode.position.y);
         }else
         {
             [_levelNode runAction:[CCActionMoveBy actionWithDuration:0.3 position:ccp(changeX,changeY) ]];
@@ -506,7 +508,7 @@ BOOL hasClung = NO;
 -(void)toNextLevel
 {
     numCake=0;
-    [_levelNode removeChild:currentLevel];
+//    [_levelNode removeChild:currentLevel];
     
     int nextLvl = _currentLevel.nextLevel;
     BOOL isCutsceneNext = _currentLevel.isCutsceneNext;
@@ -519,13 +521,13 @@ BOOL hasClung = NO;
 //            [[NSUserDefaults standardUserDefaults] setInteger:nextLvl forKey:@"highestlevel"];
 //        }
         
-        currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
-        _currentLevel = (Level *)currentLevel;
+//        currentLevel = [CCBReader load:[[Globals globalManager] currentLevelName]];
+//        _currentLevel = (Level *)currentLevel;
         
         NSLog(@"next level %d", _currentLevel.nextLevel);
 //        NSLog(@"highest level so far: %ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"]);
         
-        [_levelNode addChild:currentLevel];
+//        [_levelNode addChild:currentLevel];
         
         [self resetLevel];
     }else
