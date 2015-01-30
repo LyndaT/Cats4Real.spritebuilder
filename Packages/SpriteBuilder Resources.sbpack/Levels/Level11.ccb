@@ -3526,7 +3526,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>162</real>
+									<real>163</real>
 									<real>40</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -3588,8 +3588,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>326</real>
-									<real>239</real>
+									<real>288</real>
+									<real>238</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -3804,7 +3804,7 @@
 						<key>value</key>
 						<array>
 							<real>53</real>
-							<real>44</real>
+							<real>41</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -3984,8 +3984,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>60</real>
-							<real>274</real>
+							<real>59</real>
+							<real>277</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -4347,7 +4347,7 @@
 						<key>value</key>
 						<array>
 							<real>494</real>
-							<real>12.999998092651367</real>
+							<real>10.999998092651367</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -4421,6 +4421,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -4890,7 +4892,7 @@
 						<key>value</key>
 						<array>
 							<real>146.00001525878906</real>
-							<real>369</real>
+							<real>373</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -5070,8 +5072,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>407</real>
-							<real>367</real>
+							<real>404</real>
+							<real>370</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -5252,7 +5254,7 @@
 						<key>value</key>
 						<array>
 							<real>145.00001525878906</real>
-							<real>-42.999984741210938</real>
+							<real>-46.999984741210938</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -5433,7 +5435,7 @@
 						<key>value</key>
 						<array>
 							<real>406</real>
-							<real>-42.999984741210938</real>
+							<real>-45.999984741210938</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -5963,7 +5965,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>1</string>
+				<string>3</string>
 			</dict>
 		</array>
 		<key>displayName</key>
