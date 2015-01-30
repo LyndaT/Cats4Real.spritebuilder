@@ -59,4 +59,12 @@
     }
 }
 
+- (void)returnMenu
+{
+    [_globals.audio playEffect:@"assets/music/button.mp3"];
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+    
+}
+
 @end

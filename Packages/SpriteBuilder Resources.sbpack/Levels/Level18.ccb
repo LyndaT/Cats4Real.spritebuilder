@@ -4057,8 +4057,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -6012,7 +6010,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>9</string>
+				<string>2</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -6052,7 +6050,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>0</string>
+				<string>1</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -6133,6 +6131,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
