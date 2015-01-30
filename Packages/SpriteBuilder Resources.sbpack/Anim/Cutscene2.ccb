@@ -1415,7 +1415,7 @@
 									<integer>3</integer>
 									<key>value</key>
 									<array>
-										<real>-1.8999999761581421</real>
+										<real>-2.0499999523162842</real>
 										<real>0.5</real>
 									</array>
 								</dict>
@@ -2711,7 +2711,7 @@ FreeSound.org:
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>-1.8999999761581421</real>
+							<real>-2.0499999523162842</real>
 							<real>0.5</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -2762,8 +2762,6 @@ FreeSound.org:
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -3662,7 +3660,7 @@ FreeSound.org:
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>28.687885284423828</real>
+			<real>28.5382080078125</real>
 			<key>position</key>
 			<real>30</real>
 			<key>resolution</key>
