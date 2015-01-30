@@ -225,8 +225,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1243,7 +1241,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>20</string>
+				<string>18</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -1324,6 +1322,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

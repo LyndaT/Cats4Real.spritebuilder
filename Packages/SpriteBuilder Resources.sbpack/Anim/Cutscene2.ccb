@@ -1398,7 +1398,7 @@
 									<key>value</key>
 									<array>
 										<real>1.0158450603485107</real>
-										<real>0.58749997615814209</real>
+										<real>0.5</real>
 									</array>
 								</dict>
 								<dict>
@@ -1416,7 +1416,7 @@
 									<key>value</key>
 									<array>
 										<real>-1.8999999761581421</real>
-										<real>0.58749997615814209</real>
+										<real>0.5</real>
 									</array>
 								</dict>
 							</array>
@@ -1464,7 +1464,7 @@
 								<key>value</key>
 								<array>
 									<real>72</real>
-									<real>38</real>
+									<real>62</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1672,7 +1672,7 @@ GomigomiGames</string>
 								<key>value</key>
 								<array>
 									<real>248</real>
-									<real>38</real>
+									<real>62</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1881,7 +1881,7 @@ Lili Sun</string>
 								<key>value</key>
 								<array>
 									<real>391</real>
-									<real>38</real>
+									<real>62</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2087,8 +2087,8 @@ Lili Sun</string>
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>566</real>
-									<real>38</real>
+									<real>610</real>
+									<real>62</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2127,7 +2127,9 @@ Lili Sun</string>
 								<array>
 									<string>Presence of Sound
 MusicMaterial
-FreeSound.org</string>
+FreeSound.org:
+	martian, mystiscool, Aiwha, 
+	and Rock Savage</string>
 									<false/>
 								</array>
 							</dict>
@@ -2296,8 +2298,8 @@ FreeSound.org</string>
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>735</real>
-									<real>38</real>
+									<real>823</real>
+									<real>62</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2503,8 +2505,8 @@ FreeSound.org</string>
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>940</real>
-									<real>38</real>
+									<real>1028</real>
+									<real>62</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2710,7 +2712,7 @@ FreeSound.org</string>
 						<key>value</key>
 						<array>
 							<real>-1.8999999761581421</real>
-							<real>0.58749997615814209</real>
+							<real>0.5</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -2760,6 +2762,8 @@ FreeSound.org</string>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -3003,7 +3007,20 @@ FreeSound.org</string>
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>1</real>
+						<real>0.0</real>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>color</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<real>1</real>
+							<real>1</real>
+							<real>1</real>
+							<real>0.0</real>
+						</array>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -3169,7 +3186,7 @@ FreeSound.org</string>
 						<key>type</key>
 						<string>Check</string>
 						<key>value</key>
-						<true/>
+						<false/>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -3592,8 +3609,6 @@ FreeSound.org</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -3647,9 +3662,9 @@ FreeSound.org</string>
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>0.0</real>
+			<real>28.687885284423828</real>
 			<key>position</key>
-			<real>35</real>
+			<real>30</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
