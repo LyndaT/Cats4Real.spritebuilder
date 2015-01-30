@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>125</integer>
+	<integer>126</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1385,7 +1385,7 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>62</integer>
+				<integer>125</integer>
 				<key>baseClass</key>
 				<string>CCBFile</string>
 				<key>children</key>
@@ -1393,7 +1393,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>forestGround</string>
+				<string>CCBFile</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -1415,8 +1415,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>228</real>
-							<real>179</real>
+							<real>215</real>
+							<real>184.00001525878906</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1441,7 +1441,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>-450</real>
+						<real>-90</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1449,7 +1449,7 @@
 						<key>type</key>
 						<string>CCBFile</string>
 						<key>value</key>
-						<string>Tiles/ForestGroundStraight.ccb</string>
+						<string>Tiles/ForestSideStraight.ccb</string>
 					</dict>
 				</array>
 			</dict>
@@ -4483,7 +4483,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>1</string>
+				<string>90</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -4574,6 +4574,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
