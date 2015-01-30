@@ -23,6 +23,7 @@
 @property (nonatomic, assign) BOOL isMusicOn;
 @property (nonatomic, assign) BOOL isSFXOn;
 @property (nonatomic, assign) OALSimpleAudio *audio;
+@property (nonatomic, assign) int totalLevels;
 
 
 + (id)globalManager;

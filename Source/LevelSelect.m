@@ -43,6 +43,7 @@
     // play background sound
     [_globals.audio playBg:@"assets/music/MenuMusic.mp3" loop:TRUE];
     
+    [_globals setTotalLevels:_totalLevels];
 }
 
 /* setButtonMenus sets up the nextTable and prevTable buttons for the current Table
@@ -81,6 +82,7 @@
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"highestlevel"];
         highestLevel = 1;
     }
+    highestLevel=20;
     int tempY=0;
     int tempX=0;
     for (int j = 1; j <=8; j++) {
@@ -122,15 +124,18 @@
     
     //empty plate
     
-    tempY = (floor(((highestLevel-1)-8*_currTable)/4) * 120);
-    tempX = (highestLevel-1) - (floor((highestLevel-1)/4) * 4);
-    LevelSelectCake *tempPlate = (LevelSelectCake *)[CCBReader load:@"assets/levelSelect/emptyPlate"];
-    tempPlate.position = ccp(98 + (_cakeWidth+13)*tempX,245 - tempY);
-    [tempPlate setLevel:highestLevel]; //set to 0 for testing, set to highestLevel for normal behavior
-    if ((8*(_currTable+1))+1 > highestLevel){
-//        CCLOG(@"currtbl %i, ihghest lvl %lu, 8*currtbl %i",_currTable, (unsigned long)highestLevel, 8*(_currTable+1));
-//        CCLOG(@"plate empty pos %i, %i",tempX, tempY);
-        [_plateHolder addChild:tempPlate];
+    if (highestLevel <= _totalLevels)
+    {
+        tempY = (floor(((highestLevel-1)-8*_currTable)/4) * 120);
+        tempX = (highestLevel-1) - (floor((highestLevel-1)/4) * 4);
+        LevelSelectCake *tempPlate;
+        tempPlate = (LevelSelectCake *)[CCBReader load:@"assets/levelSelect/emptyPlate"];
+        tempPlate.position = ccp(98 + (_cakeWidth+13)*tempX,245 - tempY);    [tempPlate setLevel:highestLevel]; //set to 0 for testing, set to highestLevel for normal behavior
+        if ((8*(_currTable+1))+1 > highestLevel){
+    //        CCLOG(@"currtbl %i, ihghest lvl %lu, 8*currtbl %i",_currTable, (unsigned long)highestLevel, 8*(_currTable+1));
+    //        CCLOG(@"plate empty pos %i, %i",tempX, tempY);
+            [_plateHolder addChild:tempPlate];
+        }
     }
 }
 

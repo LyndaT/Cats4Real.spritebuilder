@@ -24,6 +24,7 @@
 @synthesize isMusicOn;
 @synthesize isSFXOn;
 @synthesize audio;
+@synthesize totalLevels;
 
 - (id)init {
     if (self = [super init]) {
@@ -57,6 +58,11 @@
     currentLevelName = [NSString stringWithFormat:@"Levels/Level%d", levelNumber];
     currentLevelNumber = levelNumber;
     CCLOG(@"level set to %d",currentLevelNumber);
+}
+
+- (void)setTotalLevels:(int)totalLvls
+{
+    totalLevels = totalLvls;
 }
 
 - (void)setCutscene:(int)cutNumber{

@@ -452,6 +452,10 @@ float maxY;
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestlevel"] < nextLvl) {
         [[NSUserDefaults standardUserDefaults] setInteger:nextLvl forKey:@"highestlevel"];
     }
+    if (_globals.currentLevelNumber >= _globals.totalLevels)
+    {
+        [[NSUserDefaults standardUserDefaults] setInteger:(_globals.currentLevelNumber+1) forKey:@"highestlevel"];
+    }
 }
 
 -(void)starDoneAnim
