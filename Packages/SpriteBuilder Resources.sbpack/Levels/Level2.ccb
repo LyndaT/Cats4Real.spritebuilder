@@ -3256,6 +3256,14 @@ Turn phone to see!</string>
 					</dict>
 					<dict>
 						<key>name</key>
+						<string>rotation</string>
+						<key>type</key>
+						<string>Degrees</string>
+						<key>value</key>
+						<real>180</real>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>ccbFile</string>
 						<key>type</key>
 						<string>CCBFile</string>
@@ -3341,8 +3349,6 @@ Turn phone to see!</string>
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -3561,9 +3567,9 @@ Turn phone to see!</string>
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>3.7854163646697998</real>
+			<real>3.1020832061767578</real>
 			<key>position</key>
-			<real>7.0666666030883789</real>
+			<real>6.1333332061767578</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
