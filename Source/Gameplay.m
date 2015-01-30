@@ -39,6 +39,11 @@ CGSize screenSize;
 float oldCatX; //used for camera mvt
 float oldCatY;
 BOOL hasClung = NO;
+//boundries for levelScrolling
+float minX;
+float maxX;
+float minY;
+float maxY;
 //appDelegate *appDelegate = (appDelegate *)[[[UIApplication sharedApplication] delegate]];
 
 
@@ -154,30 +159,28 @@ BOOL hasClung = NO;
     float halfOfScreenX = screenSize.width/2.0f;
     float halfOfScreenY = screenSize.height/2.0f;
     
-    CGSize levelSize = _currentLevel.contentSize;
+    CGSize levelSize = _currentLevel.contentSizeInPoints;
     
     //only move if lvl is bigger than screen size
     if (screenSize.width < levelSize.width || screenSize.height < levelSize.height)
     {
+        //CGPoint relativeCatPosition = [_levelNode convertToNodeSpace:[_cat.parent convertToWorldSpace:_cat.positionInPoints]];
+        float newX = clampf(_cat.positionInPoints.x-_currentLevel.catX, minX, maxX);
+        float newY = clampf(_cat.positionInPoints.y-_currentLevel.catY, minY, maxY);
         float changeX = 0;
         float changeY = 0;
-        float camPositionX = self.position.x;
-        float camPositionY = self.position.y;
-        CGPoint relativeCatPosition = [self convertToNodeSpace:[_cat.parent convertToWorldSpace:_cat.position]];
+        
         
             //camera don't go past level horiz
             if ((_cat.position.x + halfOfScreenX) < levelSize.width && (_cat.position.x - halfOfScreenX) > 0)
             {
                 changeX = oldCatX - _cat.position.x;
-
-                camPositionX = relativeCatPosition.x-halfOfScreenX;
             }//else{CCLOG(@"too big %f %f %f",_cat.position.x, halfOfScreenX,levelSize.width);}
         
         
             if ((_cat.position.y + halfOfScreenY) < levelSize.height && (_cat.position.y - halfOfScreenY) > 0)
             {
                 changeY = oldCatY - _cat.position.y;
-                camPositionY = relativeCatPosition.y-halfOfScreenY;
             }
         
         oldCatX = _cat.position.x;
@@ -185,12 +188,12 @@ BOOL hasClung = NO;
 //        self.position = ccp(camPositionX, camPositionY);
         if (isInstant)
         {
-            CCLOG(@"instant change %f, %f physnode %f, %f",changeX, changeY, _levelNode.position.x,_levelNode.position.y);
-            _levelNode.position = ccp(_levelNode.position.x + changeX, _levelNode.position.y + changeY);
-            CCLOG(@"phys change %f, %f",_levelNode.position.x,_levelNode.position.y);
+            //CCLOG(@"instant change %f, %f physnode %f, %f",newX, newY, _levelNode.position.x,_levelNode.position.y);
+            _levelNode.position = ccp(newX, newY);
+            //CCLOG(@"phys change %f, %f",_levelNode.position.x,_levelNode.position.y);
         }else
         {
-            [_levelNode runAction:[CCActionMoveBy actionWithDuration:0.4 position:ccp(changeX,changeY) ]];
+            [_levelNode runAction:[CCActionMoveTo actionWithDuration:0.4 position:ccp(newX,newY) ]];
         }
     }
 }
@@ -668,6 +671,20 @@ BOOL hasClung = NO;
         CCLOG(@"x: %f y: %f", _cat.physicsBody.velocity.x, _cat.physicsBody.velocity.y);
     }
     return (sqrt(pow(_cat.physicsBody.velocity.x,2) + pow(_cat.physicsBody.velocity.y,2)) > 150);
+}
+
+//Called everytime a new level is entered
+//Sets boundary of movement so that camera doesn't scroll too far
+//Must set everything relative to _levelNode
+-(void)setScrollBounds
+{
+    CCLOG(@"Sanity check: position should be origin: (%f, %f)", self.position.x, self.position.y);
+    CGSize levelSize = _currentLevel.contentSizeInPoints;
+    CGPoint upperRightBound = [_levelNode convertToNodeSpace:[self.parent convertToWorldSpace:self.position]];
+    maxX = upperRightBound.x;
+    maxY = upperRightBound.y;
+    minX = maxX - levelSize.width + screenSize.width;
+    minY = maxY - levelSize.height + screenSize.height;
 }
 
 
